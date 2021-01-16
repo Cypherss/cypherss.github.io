@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>毕设交接文档</title>
+    <url>/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="一、项目概况介绍"><a href="#一、项目概况介绍" class="headerlink" title="一、项目概况介绍"></a>一、项目概况介绍</h2><p>一种基于Node.js的web前端页面风格替换系统设计与实现</p>
+<p>在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。</p>
+<p>系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由React，Egg.js完成的。</p>
+<a id="more"></a>
+
+<h2 id="二、技术综述"><a href="#二、技术综述" class="headerlink" title="二、技术综述"></a>二、技术综述</h2><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>将多各种语言编程的脚本转换为JSON格式的接口请求，通过JSONWP通信协议与各浏览器的WebDriver进行通信，最u后WebDriver通过Http协议和真实浏览器进行通信。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>js服务端执行环境，好处是数据类型和语法与浏览器没有太大的差异，Selenium的执行结果也是通过JSON返回，在Node中不需要做类型转换可以直接使用。</p>
+<h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
+<h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
+<h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
+<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过Websocket通信。</p>
+<h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
+<p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
+<h2 id="三、系统分析与设计"><a href="#三、系统分析与设计" class="headerlink" title="三、系统分析与设计"></a>三、系统分析与设计</h2>]]></content>
+      <tags>
+        <tag>毕设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS知识点汇总</title>
+    <url>/2021/01/16/JS%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>序</title>
-    <url>/2021/01/16/hello-world/</url>
+    <url>/2021/01/16/%E5%BA%8F/</url>
     <content><![CDATA[<p>以前总是纠结于博客的意义，但是渐渐发现，博客不仅仅是记录自己的学习，奇怪的想法，更多是对自己的一种约束。</p>
 <p>折腾博客很费时间，真正该做的是充实博客的内容！</p>
 <p>就像TITLE里所说的：“那些看似不起波澜的日复一日，会突然在某一天让人看到坚持的意义。”</p>
