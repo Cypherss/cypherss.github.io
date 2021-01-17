@@ -67,6 +67,8 @@
     <content><![CDATA[<ol>
 <li><p>时间代理</p>
 </li>
+<li><p>事件代理</p>
+</li>
 <li><p>请解释Javascript中的this是如何工作的（如何正确判断）</p>
 </li>
 <li><p>原始值和引用值类型以及区别</p>
