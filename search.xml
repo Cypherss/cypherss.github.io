@@ -56,7 +56,107 @@
   <entry>
     <title>Javascript面经汇总</title>
     <url>/2021/01/17/Javascript%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<ol>
+<li><p>时间代理</p>
+</li>
+<li><p>请解释Javascript中的this是如何工作的（如何正确判断）</p>
+</li>
+<li><p>原始值和引用值类型以及区别</p>
+</li>
+<li><p>闭包与作用域</p>
+</li>
+<li><p>js继承</p>
+</li>
+<li><p>js模块化</p>
+</li>
+<li><p>new的原理</p>
+</li>
+<li><p>null undefined 区别</p>
+</li>
+<li><p>IIFE立即执行函数</p>
+</li>
+<li><p>原型和原型链</p>
+<a id="more"></a>
+</li>
+<li><p>深拷贝与浅拷贝</p>
+</li>
+<li><p>匿名函数</p>
+</li>
+<li><p>判断数据类型的方式</p>
+</li>
+<li><p>宿主对象和原生对象</p>
+</li>
+<li><p>请指出以下代码的区别：<code>function Person()&#123;&#125;</code>、<code>var person = Person()</code>、<code>var person = new Person()</code>？</p>
+</li>
+<li><p>防抖和节流</p>
+</li>
+<li><p><code>document.write()</code></p>
+</li>
+<li><p>Ajax工作原理</p>
+</li>
+<li><p>跨域、同源策略及跨域实现方式和原理</p>
+</li>
+<li><p>js中的垃圾回收机制</p>
+</li>
+<li><p>冒泡机制</p>
+</li>
+<li><p>变量声明提升</p>
+</li>
+<li><p>document load 和 document DOMContentLoaded</p>
+</li>
+<li><p>== 和 ===有什么不同</p>
+</li>
+<li><p>js中的arguments</p>
+</li>
+<li><p>请解释什么是单页应用 (<code>single page app</code>), 以及如何使其对搜索引擎友好 (<code>SEO-friendly</code>)</p>
+</li>
+<li><p>Promise</p>
+</li>
+<li><p>图片懒加载</p>
+</li>
+<li><p>let var const</p>
+</li>
+<li><p>什么是事件循环机制？</p>
+</li>
+<li><p>函数柯里化</p>
+</li>
+<li><p>箭头函数</p>
+</li>
+<li><p>对象创建的三种方法</p>
+</li>
+<li><p>数组的方法</p>
+</li>
+<li><p>addEventListener和onClick()的区别</p>
+</li>
+<li><p>setTimeout用作倒计时为何会产生误差？</p>
+</li>
+<li><p>DOM的location对象</p>
+</li>
+<li><p>实现页面加载进度条</p>
+</li>
+<li><p><code>strict</code>模式</p>
+</li>
+<li><p>Symbol概念及其作用</p>
+</li>
+<li><p>Set和Map数据结构</p>
+</li>
+<li><p>Proxy</p>
+</li>
+<li><p>Reflect对象</p>
+</li>
+<li><p>循环语法比较及使用场景（for、forEach、for…in、for…of）</p>
+</li>
+<li><p>几种异步方式的比较（回调、setTimeout、Promise、Generator、async）</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>Javascript</tag>
+      </tags>
   </entry>
   <entry>
     <title>序</title>
