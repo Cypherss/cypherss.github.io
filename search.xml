@@ -7,6 +7,9 @@
 <li><p>事件代理</p>
 </li>
 <li><p>请解释Javascript中的this是如何工作的（如何正确判断）</p>
+<p>this简而言之就是只想调用函数的对象，如果是全局调用，则this指向window。</p>
+<p>在call和apply中this指向指定的对象，如果指定的参数是null或undefined，则指向window。</p>
+<p>在箭头函数中，箭头函数是没有this的，因此this指向外层代码的对象。</p>
 </li>
 <li><p>原始值和引用值类型以及区别</p>
 </li>
@@ -36,6 +39,8 @@
 <li><p>请指出以下代码的区别：<code>function Person()&#123;&#125;</code>、<code>var person = Person()</code>、<code>var person = new Person()</code>？</p>
 </li>
 <li><p>防抖和节流</p>
+<p>简而言之：防抖（debounce）让短时间内的连续触发的事件，在一定的时间间隔中，事件处理函数只执行一次；</p>
+<p>而节流（throttle）就是让函数执行一次之后，在一段时间内失效，然后再生效（可以执行）。</p>
 </li>
 <li><p><code>document.write()</code></p>
 </li>
