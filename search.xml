@@ -1,13 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Node面经汇总</title>
+    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Html与Css面经汇总</title>
+    <url>/2021/01/17/Html%E4%B8%8ECss%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
+<li>DOCTYPE的作用是什么？</li>
+<li><code>&lt;a&gt;&lt;/a&gt;</code>标签的全部作用</li>
+<li>使用data-属性的好处是什么？</li>
+<li>如果把HTML5看作一个开放平台，那他的构建模块有哪些？</li>
+<li>H5的语义化作用及语义化标签</li>
+<li>请解释script，script async 和script defer的区别</li>
+<li>为什么通常推荐将 CSS <code>&lt;link&gt;</code> 放置在 <code>&lt;head&gt;&lt;/head&gt;</code> 之间，而将 JS <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 之前？你知道有哪些例外吗？</li>
+<li>什么是渐进式渲染（progressive rendering）？</li>
+<li>HTML和XHTML有什么区别？</li>
+<li>HTML5新标签</li>
+<li>HTML5新特性</li>
+<li>SEO概念及实现</li>
+<li>web worker和web socket</li>
+</ol>
+<a id="more"></a>
+
+<hr>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol>
+<li>css画各种图形</li>
+<li>css权重及其引入方式</li>
+<li>css定位属性</li>
+<li>flex布局</li>
+<li>px、em、rem的区别</li>
+<li>IFC与BFC</li>
+<li>盒子模型以及理解</li>
+<li>Less预处理语言</li>
+<li>三列布局</li>
+<li>圣杯布局和双飞翼布局的实现</li>
+<li>margin塌陷及合并问题</li>
+<li>定位方式以及区别</li>
+<li>vh与vw</li>
+<li>如何实现响应式布局</li>
+<li>z-index和叠加上下文是如何形成的</li>
+<li>媒体查询</li>
+<li>display以及相关属性</li>
+<li>如何实现一个高性能css动画效果</li>
+<li>css3动画</li>
+<li>垂直水平居中</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Javascript面经汇总</title>
     <url>/2021/01/17/Javascript%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
 <li><p>事件代理</p>
 </li>
 <li><p>请解释Javascript中的this是如何工作的（如何正确判断）</p>
-<p>this简而言之就是只想调用函数的对象，如果是全局调用，则this指向window。</p>
+<p>this简而言之就是指向调用函数的对象，如果是全局调用，则this指向window。</p>
 <p>在call和apply中this指向指定的对象，如果指定的参数是null或undefined，则指向window。</p>
 <p>在箭头函数中，箭头函数是没有this的，因此this指向外层代码的对象。</p>
 </li>
@@ -111,57 +169,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Html与Css面经汇总</title>
-    <url>/2021/01/17/Html%E4%B8%8ECss%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
-<li>DOCTYPE的作用是什么？</li>
-<li><code>&lt;a&gt;&lt;/a&gt;</code>标签的全部作用</li>
-<li>使用data-属性的好处是什么？</li>
-<li>如果把HTML5看作一个开放平台，那他的构建模块有哪些？</li>
-<li>H5的语义化作用及语义化标签</li>
-<li>请解释script，script async 和script defer的区别</li>
-<li>为什么通常推荐将 CSS <code>&lt;link&gt;</code> 放置在 <code>&lt;head&gt;&lt;/head&gt;</code> 之间，而将 JS <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 之前？你知道有哪些例外吗？</li>
-<li>什么是渐进式渲染（progressive rendering）？</li>
-<li>HTML和XHTML有什么区别？</li>
-<li>HTML5新标签</li>
-<li>HTML5新特性</li>
-<li>SEO概念及实现</li>
-<li>web worker和web socket</li>
-</ol>
-<a id="more"></a>
-
-<hr>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol>
-<li>css画各种图形</li>
-<li>css权重及其引入方式</li>
-<li>css定位属性</li>
-<li>flex布局</li>
-<li>px、em、rem的区别</li>
-<li>IFC与BFC</li>
-<li>盒子模型以及理解</li>
-<li>Less预处理语言</li>
-<li>三列布局</li>
-<li>圣杯布局和双飞翼布局的实现</li>
-<li>margin塌陷及合并问题</li>
-<li>定位方式以及区别</li>
-<li>vh与vw</li>
-<li>如何实现响应式布局</li>
-<li>z-index和叠加上下文是如何形成的</li>
-<li>媒体查询</li>
-<li>display以及相关属性</li>
-<li>如何实现一个高性能css动画效果</li>
-<li>css3动画</li>
-<li>垂直水平居中</li>
-</ol>
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>html</tag>
-        <tag>css</tag>
-      </tags>
+    <title>OASIS项目文档</title>
+    <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Vue面经汇总</title>
+    <url>/2021/01/18/Vue%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Webpack面经汇总</title>
+    <url>/2021/01/18/Webpack%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>OCEANIA项目文档</title>
+    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>序</title>
@@ -191,5 +216,15 @@
       <tags>
         <tag>毕设</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>计网与操作系统面经汇总</title>
+    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>浏览器相关面经汇总</title>
+    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
