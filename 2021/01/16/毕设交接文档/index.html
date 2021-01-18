@@ -28,9 +28,10 @@
 <meta property="og:description" content="一、项目概况介绍一种基于Node.js的web前端页面风格替换系统设计与实现 在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。 系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由Reac">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-16T13:35:52.000Z">
-<meta property="article:modified_time" content="2021-01-16T14:30:08.976Z">
+<meta property="article:modified_time" content="2021-01-18T12:07:33.918Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="毕设">
+<meta property="article:tag" content="项目">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/">
@@ -217,10 +218,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-16 21:35:52 / 修改时间：22:30:08" itemprop="dateCreated datePublished" datetime="2021-01-16T21:35:52+08:00">2021-01-16</time>
+              <time title="创建时间：2021-01-16 21:35:52" itemprop="dateCreated datePublished" datetime="2021-01-16T21:35:52+08:00">2021-01-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-18 20:07:33" itemprop="dateModified" datetime="2021-01-18T20:07:33+08:00">2021-01-18</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -249,7 +256,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>669</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -278,10 +285,21 @@
 <h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
 <h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
 <h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
-<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过Websocket通信。</p>
+<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
 <h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
 <p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
-<h2 id="三、系统分析与设计"><a href="#三、系统分析与设计" class="headerlink" title="三、系统分析与设计"></a>三、系统分析与设计</h2>
+<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
+<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
+<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
+<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
+<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
+<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
+<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
+<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
+<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
+<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
+<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
+
     </div>
 
     
@@ -291,6 +309,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%AF%95%E8%AE%BE/" rel="tag"># 毕设</a>
+              <a href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag"># 项目</a>
           </div>
 
         
@@ -371,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E6%A6%82%E5%86%B5%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一、项目概况介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">二、技术综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selenium"><span class="nav-number">2.1.</span> <span class="nav-text">Selenium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">2.2.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%89%B2%E6%8F%90%E5%8F%96%E7%AE%97%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">主题色提取算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">页面相似度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E7%95%99%E5%8E%9F%E5%A7%8BCSS"><span class="nav-number">2.5.</span> <span class="nav-text">保留原始CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BE%8E%E8%A7%82%E7%A8%8B%E5%BA%A6%E8%AF%84%E4%BC%B0"><span class="nav-number">2.6.</span> <span class="nav-text">页面美观程度评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BA%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="nav-number">2.7.</span> <span class="nav-text">平台构建相关技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">三、系统分析与设计</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E6%A6%82%E5%86%B5%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一、项目概况介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">二、技术综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selenium"><span class="nav-number">2.1.</span> <span class="nav-text">Selenium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">2.2.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%89%B2%E6%8F%90%E5%8F%96%E7%AE%97%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">主题色提取算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">页面相似度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E7%95%99%E5%8E%9F%E5%A7%8BCSS"><span class="nav-number">2.5.</span> <span class="nav-text">保留原始CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BE%8E%E8%A7%82%E7%A8%8B%E5%BA%A6%E8%AF%84%E4%BC%B0"><span class="nav-number">2.6.</span> <span class="nav-text">页面美观程度评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BA%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="nav-number">2.7.</span> <span class="nav-text">平台构建相关技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">三、系统分析、设计与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.1.</span> <span class="nav-text">系统分析设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.2.</span> <span class="nav-text">系统具体实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="nav-number">4.</span> <span class="nav-text">四、总结与展望</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -400,7 +419,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -445,13 +464,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">3k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2 分钟</span>
+    <span title="站点阅读时长">3 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Node面经汇总</title>
-    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Html与Css面经汇总</title>
     <url>/2021/01/17/Html%E4%B8%8ECss%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
@@ -57,6 +52,11 @@
         <tag>html</tag>
         <tag>css</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Node面经汇总</title>
+    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Javascript面经汇总</title>
@@ -179,22 +179,14 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Webpack面经汇总</title>
-    <url>/2021/01/18/Webpack%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>OCEANIA项目文档</title>
     <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>序</title>
-    <url>/2021/01/16/%E5%BA%8F/</url>
-    <content><![CDATA[<p>以前总是纠结于博客的意义，但是渐渐发现，博客不仅仅是记录自己的学习，奇怪的想法，更多是对自己的一种约束。</p>
-<p>折腾博客很费时间，真正该做的是充实博客的内容！</p>
-<p>就像一句话所说的：“那些看似不起波澜的日复一日，会突然在某一天让人看到坚持的意义。”</p>
-]]></content>
+    <title>Webpack面经汇总</title>
+    <url>/2021/01/18/Webpack%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>毕设交接文档</title>
@@ -209,22 +201,42 @@
 <h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
 <h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
 <h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
-<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过Websocket通信。</p>
+<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
 <h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
 <p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
-<h2 id="三、系统分析与设计"><a href="#三、系统分析与设计" class="headerlink" title="三、系统分析与设计"></a>三、系统分析与设计</h2>]]></content>
+<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
+<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
+<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
+<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
+<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
+<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
+<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
+<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
+<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
+<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
+<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
+]]></content>
       <tags>
         <tag>毕设</tag>
+        <tag>项目</tag>
       </tags>
   </entry>
   <entry>
-    <title>计网与操作系统面经汇总</title>
-    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[]]></content>
+    <title>序</title>
+    <url>/2021/01/16/%E5%BA%8F/</url>
+    <content><![CDATA[<p>以前总是纠结于博客的意义，但是渐渐发现，博客不仅仅是记录自己的学习，奇怪的想法，更多是对自己的一种约束。</p>
+<p>折腾博客很费时间，真正该做的是充实博客的内容！</p>
+<p>就像一句话所说的：“那些看似不起波澜的日复一日，会突然在某一天让人看到坚持的意义。”</p>
+]]></content>
   </entry>
   <entry>
     <title>浏览器相关面经汇总</title>
     <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>计网与操作系统面经汇总</title>
+    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
