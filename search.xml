@@ -165,14 +165,103 @@
       </tags>
   </entry>
   <entry>
-    <title>OCEANIA项目文档</title>
-    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[]]></content>
+    <title>Node面经汇总</title>
+    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>NodeJS基本概念与特点</li>
+<li>CommonJS规范、核心模块</li>
+<li>Node的异步I/O</li>
+<li>Node的内存控制</li>
+<li>Node的构建网络服务（TCP、HTTP、WebSocket服务等）</li>
+<li>Node的进程</li>
+</ol>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>Node</tag>
+      </tags>
   </entry>
   <entry>
     <title>OASIS项目文档</title>
     <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>OCEANIA项目文档</title>
+    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Webpack面经汇总</title>
+    <url>/2021/01/18/Webpack%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li><p>前端工程化的流程（架构选型、业务开发、测试、打包构建、部署上线、项目监控）</p>
+</li>
+<li><p>Webpack基本概念与配置</p>
+</li>
+<li><p>webpack配置文件基本概念</p>
+</li>
+<li><p>webpack构建流程</p>
+</li>
+<li><p>webpack的优化问题：</p>
+<ol>
+<li>打包很慢怎么解决</li>
+<li>打包出来的文件很大怎么解决</li>
+</ol>
+<a id="more"></a>
+</li>
+<li><p><code>webpack</code>原理之普通打包</p>
+</li>
+<li><p><code>webpack</code>原理之多文件打包</p>
+</li>
+<li><p><code>webpack</code>原理之提取公共文件</p>
+</li>
+<li><p><code>webpack</code> 如何做到 tree shaking</p>
+</li>
+<li><p>前端模块化的理解</p>
+</li>
+<li><p>loader和plugin的原理与实现</p>
+</li>
+<li><p>SPA及其优缺点</p>
+</li>
+<li><p>SSR实现及优缺点</p>
+</li>
+<li><p>设计模式</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>Webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue面经汇总</title>
+    <url>/2021/01/18/Vue%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>Vue生命周期</li>
+<li>介绍一下vuex以及使用场景</li>
+<li>vue双向绑定的原理</li>
+<li>vue-router实现原理</li>
+<li>vue组件之间的通信</li>
+<li>vue的一些新技术</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>Vue</tag>
+      </tags>
   </entry>
   <entry>
     <title>序</title>
@@ -181,6 +270,71 @@
 <p>折腾博客很费时间，真正该做的是充实博客的内容！</p>
 <p>就像一句话所说的：“那些看似不起波澜的日复一日，会突然在某一天让人看到坚持的意义。”</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>前端性能面经汇总</title>
+    <url>/2021/01/19/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li><p>你会用什么工具来查找代码中的性能问题？</p>
+</li>
+<li><p>增强网站的页面滚动效能</p>
+</li>
+<li><p>重排，重绘，合成</p>
+<p>相当相当重要</p>
+</li>
+<li><p>Babel原理</p>
+</li>
+<li><p>实现一个幻灯片功能</p>
+</li>
+<li><p>合成层</p>
+<p>我在这里理解了一个多星期，静下心来去理解。</p>
+<p><a href="http://taobaofed.org/blog/2016/04/25/performance-composite/">http://taobaofed.org/blog/2016/04/25/performance-composite/</a></p>
+</li>
+<li><p>前端优化方法</p>
+</li>
+<li><p><code>css3</code>动画和<code>js</code>动画对比</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>性能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>手撕代码</title>
+    <url>/2021/01/19/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<ol>
+<li>Promise（A+规范）、then、all方法</li>
+<li>Iterator遍历器实现</li>
+<li>Thunk函数实现（结合Generator实现异步）</li>
+<li>async实现原理（spawn函数）</li>
+<li>class的继承</li>
+<li>防抖和节流</li>
+<li>Ajax原生实现</li>
+<li>深拷贝的几种方法与比较</li>
+<li>继承的几种实现与比较</li>
+<li>未知宽高的元素水平垂直居中</li>
+<li>三栏布局的实现</li>
+<li>两栏布局的实现</li>
+<li>Vue高阶组件</li>
+<li>数组去重</li>
+<li>几种排序算法的实现及其复杂度比较</li>
+<li>前序后序遍历二叉树（非递归）</li>
+<li>二叉树深度遍历（分析时间复杂度）</li>
+<li>跨域的实现（JSONP、CORS）</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>手撕代码</tag>
+      </tags>
   </entry>
   <entry>
     <title>毕设交接文档</title>
@@ -217,6 +371,106 @@
       <tags>
         <tag>毕设</tag>
         <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器相关面经汇总</title>
+    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>浏览器输入url之后做了什么？</li>
+<li>xss具体</li>
+<li>csrf具体</li>
+<li>浏览器缓存</li>
+</ol>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网与操作系统面经汇总</title>
+    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li><p>TCP/IP协议分层管理</p>
+</li>
+<li><p>三次握手四次挥手机制及原因</p>
+</li>
+<li><p>HTTP方法</p>
+</li>
+<li><p>GET和POST的区别</p>
+</li>
+<li><p>HTTP建立持久连接的意义</p>
+</li>
+<li><p>HTTP报文的结构</p>
+</li>
+<li><p>HTTP状态码</p>
+</li>
+<li><p>Web服务器及其组成</p>
+</li>
+<li><p>HTTP报文首部</p>
+</li>
+<li><p>HTTP通用首部字段</p>
+<a id="more"></a>
+</li>
+<li><p>HTTP请求首部字段、响应首部字段、实体首部字段</p>
+</li>
+<li><p>Cookie相关首部字段</p>
+</li>
+<li><p>HTTPS与HTTP区别及实现方式</p>
+</li>
+<li><p>Cookie与Session</p>
+</li>
+<li><p>基于HTTP的功能追加协议（SPY、WebSocket、HTTP）</p>
+</li>
+<li><p>常见的Web攻击分类</p>
+</li>
+<li><p>TCP与UDP区别</p>
+</li>
+<li><p>TCP三次握手</p>
+</li>
+<li><p>存储机制localStorage、sessionStorage与Cookie存储技术</p>
+</li>
+<li><p>为什么传统上利用多个域名来提供网站资源会更有效</p>
+</li>
+<li><p><code>Long-Polling</code>、<code>Websockets</code> 和 <code>Server-Sent Event</code></p>
+</li>
+<li><p>常见的请求头和响应头</p>
+</li>
+<li><p>和缓存有关的<code>HTTP</code>首部字段</p>
+<p>相当重要。如何应用的？</p>
+</li>
+<li><p><code>https</code> 加密过程</p>
+</li>
+<li><p><code>http2</code>新特性</p>
+</li>
+<li><p>计算机系统</p>
+</li>
+<li><p>线程与进程</p>
+</li>
+<li><p>常见的git指令</p>
+</li>
+<li><p>linux相关指令</p>
+</li>
+<li><p>数据库基本知识</p>
+</li>
+<li><p>其他类型的编程语言</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>计算机网络</tag>
+        <tag>HTTP</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
 </search>
