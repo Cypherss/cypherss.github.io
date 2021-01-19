@@ -54,11 +54,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Node面经汇总</title>
-    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Javascript面经汇总</title>
     <url>/2021/01/17/Javascript%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
@@ -169,13 +164,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Node面经汇总</title>
+    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>OASIS项目文档</title>
     <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Vue面经汇总</title>
-    <url>/2021/01/18/Vue%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <title>Webpack面经汇总</title>
+    <url>/2021/01/18/Webpack%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -184,8 +184,13 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Webpack面经汇总</title>
-    <url>/2021/01/18/Webpack%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <title>Vue面经汇总</title>
+    <url>/2021/01/18/Vue%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>浏览器相关面经汇总</title>
+    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -215,6 +220,10 @@
 <p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
 <p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
 <p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
+<p>团队功能：整个替换流程的共享，组件库的共享。</p>
+<p>算法方面：结构替换，组件替换，速度上的优化（xpath），语义化。</p>
+<p>后端方面：Node + Java</p>
+<p>核心改进：针对专业开发人员，提升工作效率。能够在替换完成之后提供源代码，并且提供个性化修改功能。</p>
 ]]></content>
       <tags>
         <tag>毕设</tag>
@@ -228,11 +237,6 @@
 <p>折腾博客很费时间，真正该做的是充实博客的内容！</p>
 <p>就像一句话所说的：“那些看似不起波澜的日复一日，会突然在某一天让人看到坚持的意义。”</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>浏览器相关面经汇总</title>
-    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>计网与操作系统面经汇总</title>
