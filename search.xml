@@ -55,28 +55,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Node面经汇总</title>
-    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li>NodeJS基本概念与特点</li>
-<li>CommonJS规范、核心模块</li>
-<li>Node的异步I/O</li>
-<li>Node的内存控制</li>
-<li>Node的构建网络服务（TCP、HTTP、WebSocket服务等）</li>
-<li>Node的进程</li>
-</ol>
-<a id="more"></a>
-
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>Node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Javascript面经汇总</title>
     <url>/2021/01/17/Javascript%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
@@ -88,6 +66,7 @@
 <p>this简而言之就是指向调用函数的对象，如果是全局调用，则this指向window。</p>
 <p>在call和apply中this指向指定的对象，如果指定的参数是null或undefined，则指向window。</p>
 <p>在箭头函数中，箭头函数是没有this的，因此this指向外层代码的对象。</p>
+<a id="more"></a>
 </li>
 <li><p>原始值和引用值类型以及区别</p>
 <p>JS的原始数据类型有boolean，null，undefined，bigint，number，string，symbol</p>
@@ -127,29 +106,110 @@
 <li><p>js继承</p>
 <p>js中的继承需要靠原型来实现。</p>
 <p>但是继承有一个问题是父类的所有属性，子类都会继承，因此使用组合代替继承是非常必要的。</p>
+<p>五种方式实现继承：</p>
+<p>​    call（子类中调用parent.call(this)，只能继承属性，但是不能继承方法）</p>
+<p>​    借助原型链（child.prototype = new parent()，能继承方法，但是多个子类继承自同一个原型对象，属性值同时改变)</p>
+<p>​    前两种组合，但是会导致父类构造函数执行多次</p>
+<p>​    将父类原型给到子类的原型（但是子类的构造函数变成了父类）</p>
+<p>​    寄生组合继承（最优）</p>
+<p>​    </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent5</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">this</span>.name = <span class="string">&#x27;parent5&#x27;</span>;</span><br><span class="line">   <span class="built_in">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>];</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Child5</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   Parent5.call(<span class="built_in">this</span>);</span><br><span class="line">   <span class="built_in">this</span>.type = <span class="string">&#x27;child5&#x27;</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> Child5.prototype = <span class="built_in">Object</span>.create(Parent5.prototype);</span><br><span class="line"> Child5.prototype.constructor = Child5;</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ol>
 <ol start="6">
 <li><p>js模块化</p>
+<p>AMD,CMD,ES6</p>
+<p>AMD和CMD都是通过define()定义模块，AMD需要把依赖的模块先写出来，可以通过return暴露接口，CMD在定义模块需要传入require，exports和module这几个参数，要加载某个模块时，使用require进行加载，要暴露接口时，可以通过exports，module.exports和return。</p>
+<p>而es6使用静态化加载而不是运行时加载，通过export和import按需加载（编译时加载）</p>
 </li>
 <li><p>new的原理</p>
+<p>通过new创建对象经历五个步骤：创建一个新对象；设置这个空对象的实例原型；将构造函数的作用域赋给新对象；执行构造函数（赋属性）；返回新对象。</p>
 </li>
 <li><p>null undefined 区别</p>
+<p>null表示”没有对象”，即该处不应该有值。</p>
+<p>​    （1） 作为函数的参数，表示该函数的参数不是对象。</p>
+<p>​    （2） 作为对象原型链的终点。</p>
+<p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<p>​    （1）变量被声明了，但没有赋值时，就等于undefined。</p>
+<p>​    （2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。</p>
+<p>​    （3）对象没有赋值的属性，该属性的值为undefined。</p>
+<p>​    （4）函数没有返回值时，默认返回undefined。</p>
 </li>
 <li><p>IIFE立即执行函数</p>
+<p>立即执行函数即立即执行声明的函数（可以是匿名函数），有两种写法</p>
+<p>列表1:IIFE写法一</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>列表2:IIFE写法二</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建块级（私有）作用域，避免了向全局作用域中添加变量和函数，因此也避免了多人开发中全局变量和函数的命名冲突。</li>
+<li>IIFE中定义的任何变量和函数，都会在执行结束时被销毁，这种做法可以减少闭包占用的内存问题，因为没有指向匿名函数的引用。只要函数执行完毕，就可以立即销毁其作用域链了。</li>
+</ul>
 </li>
 <li><p>原型和原型链</p>
-<a id="more"></a>
+<p>所谓的原型就是在用构造函数创建对象时就会关联另一个对象A.prototype，并且对象会从这里继承属性。（更多像一种委托，建立关联调用）</p>
+<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>简而言之构造函数和实例原型之间是原型和构造的关系，对象之间通过__proto__向上调用.</p>
 </li>
 <li><p>深拷贝与浅拷贝</p>
+<p>浅拷贝只拷贝一层对象，但是深拷贝可以通过递归解决对象嵌套的问题</p>
+<p>浅拷贝实现方式：</p>
+<ol>
+<li>手动实现</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> shallowClone = <span class="function">(<span class="params">target</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> target === <span class="string">&#x27;object&#x27;</span> &amp;&amp; target !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">const</span> cloneTarget = <span class="built_in">Array</span>.isArray(target) ? []: &#123;&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">in</span> target)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target.hasOwnProperty(prop))&#123;</span><br><span class="line">                cloneTarget[prop] = target[prop];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneTarget;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Object.assign</li>
+</ol>
+<p>但是需要注意的是，Object.assgin() 拷贝的是对象的属性的引用，而不是对象本身。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;sy&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj, &#123;<span class="attr">name</span>: <span class="string">&#x27;sss&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);<span class="comment">//&#123; name: &#x27;sss&#x27;, age: 18 &#125;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>concat浅拷贝数组</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.concat();</span><br><span class="line">newArr[<span class="number">1</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>slice浅拷贝</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.slice();</span><br><span class="line">newArr[<span class="number">0</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>…展开运算符</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = [...arr];<span class="comment">//跟arr.slice()是一样的效果</span></span><br></pre></td></tr></table></figure>
+
+
 </li>
+</ol>
+<pre><code>深拷贝实现方式
+
+简易版本的是JSON.parse(JSON.stringify())，但是这个方法无法解决循环引用，无法拷贝一些set，map之类的特殊对象，无法拷贝函数。
+
+因此手动实现一个深拷贝(如果属性是对象，则递归;有种特殊情况需注意就是对象存在**循环引用**的情况，即对象的属性直接的引用了自身的情况，解决循环引用问题，我们可以额外开辟一个存储空间，来存储当前对象和拷贝对象的对应关系，当需要拷贝当前对象时，先去存储空间中找，有没有拷贝过这个对象，如果有的话直接返回，如果没有的话继续拷贝。)
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> deepClone = <span class="function">(<span class="params">target, hash = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(target <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(taregt)&#125;</span><br><span class="line">    <span class="keyword">if</span>(target <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>)&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(taregt)&#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> target === <span class="string">&#x27;object&#x27;</span> &amp;&amp; target !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hash.get(target))&#123;<span class="keyword">return</span> hash.get(target);&#125;</span><br><span class="line">        <span class="keyword">const</span> cloneTarget = <span class="built_in">Array</span>.isArray(target) ? []: &#123;&#125;;</span><br><span class="line">        hash.set(target, cloneTarget);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">in</span> target)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target.hasOwnProperty(prop))&#123;</span><br><span class="line">                cloneTarget[prop] = <span class="keyword">typeof</span> target[prop] === <span class="string">&#x27;object&#x27;</span> ? deepClone(target[prop]) : target[prop];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneTarget;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+还有jquery有一个提供$.extend 可以使用Deep Copy；函数库lodash的_.cloneDeep方法。</code></pre>
+<ol start="12">
 <li><p>匿名函数</p>
+<p>匿名函数可以赋值或者自执行（IIFE），使用匿名函数赋值的时候，要先声明再使用。IIFE除了上面的方法，还可以通过{[], +, -, !, ~, void}调用</p>
 </li>
 <li><p>判断数据类型的方式</p>
+<ol>
+<li>typeof返回基本数据类型（除了null），引用类型中除了function返回function，其余返回object；</li>
+<li>toString（）是 Object 的原型方法返回class属性，表示为[Object, Xxx]，除了object其他通过call/apply调用。（window-&gt;global, document-&gt;HTMLDocument）</li>
+<li>constructor指向构造函数引用</li>
+<li>instanceof通过原型链来判断A是否为B的实例（instance of null报错：右边不是一个对象）</li>
+</ol>
 </li>
 <li><p>宿主对象和原生对象</p>
+<p>ECMA-262 把原生对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。</p>
+<p>Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError、ActiveXObject(服务器方面)、Enumerator(集合遍历类)、RegExp（正则表达式）</p>
+<p>由此可以看出，简单来说，原生对象就是 ECMA-262 定义的类（引用类型）。其中有一个子集叫做内置对象Global和Math（所有函数都必须是某个对象的方法）</p>
+<p>所有非原生对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象。所有的 BOM 和 DOM 对象都是宿主对象。global，document，window等</p>
 </li>
 <li><p>请指出以下代码的区别：<code>function Person()&#123;&#125;</code>、<code>var person = Person()</code>、<code>var person = new Person()</code>？</p>
+<p>第一个是声明一个函数Person；第二个是把函数的返回值赋给person，如果没有返回值就是undefined；第三个是new一个Person的实例对象。</p>
 </li>
 <li><p>防抖和节流</p>
 <p>简而言之：防抖（debounce）让短时间内的连续触发的事件，在一定的时间间隔中，事件处理函数只执行一次；</p>
@@ -224,13 +284,30 @@
       </tags>
   </entry>
   <entry>
-    <title>OASIS项目文档</title>
-    <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[]]></content>
+    <title>Node面经汇总</title>
+    <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>NodeJS基本概念与特点</li>
+<li>CommonJS规范、核心模块</li>
+<li>Node的异步I/O</li>
+<li>Node的内存控制</li>
+<li>Node的构建网络服务（TCP、HTTP、WebSocket服务等）</li>
+<li>Node的进程</li>
+</ol>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>Node</tag>
+      </tags>
   </entry>
   <entry>
-    <title>OCEANIA项目文档</title>
-    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <title>OASIS项目文档</title>
+    <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -251,39 +328,6 @@
       <tags>
         <tag>面经</tag>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端性能面经汇总</title>
-    <url>/2021/01/19/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li><p>你会用什么工具来查找代码中的性能问题？</p>
-</li>
-<li><p>增强网站的页面滚动效能</p>
-</li>
-<li><p>重排，重绘，合成</p>
-<p>相当相当重要</p>
-</li>
-<li><p>Babel原理</p>
-</li>
-<li><p>实现一个幻灯片功能</p>
-</li>
-<li><p>合成层</p>
-<p>我在这里理解了一个多星期，静下心来去理解。</p>
-<p><a href="http://taobaofed.org/blog/2016/04/25/performance-composite/">http://taobaofed.org/blog/2016/04/25/performance-composite/</a></p>
-</li>
-<li><p>前端优化方法</p>
-</li>
-<li><p><code>css3</code>动画和<code>js</code>动画对比</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>性能</tag>
       </tags>
   </entry>
   <entry>
@@ -334,115 +378,38 @@
       </tags>
   </entry>
   <entry>
+    <title>OCEANIA项目文档</title>
+    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>序</title>
     <url>/2021/01/16/%E5%BA%8F/</url>
     <content><![CDATA[<p>“那些看似不起波澜的日复一日，会突然在某一天让人看到坚持的意义。”</p>
 ]]></content>
   </entry>
   <entry>
-    <title>毕设交接文档</title>
-    <url>/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="一、项目概况介绍"><a href="#一、项目概况介绍" class="headerlink" title="一、项目概况介绍"></a>一、项目概况介绍</h2><p>一种基于Node.js的web前端页面风格替换系统设计与实现</p>
-<p>在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。</p>
-<p>系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由React，Egg.js完成的。</p>
-<a id="more"></a>
-
-<h2 id="二、技术综述"><a href="#二、技术综述" class="headerlink" title="二、技术综述"></a>二、技术综述</h2><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>将多各种语言编程的脚本转换为JSON格式的接口请求，通过JSONWP通信协议与各浏览器的WebDriver进行通信，最u后WebDriver通过Http协议和真实浏览器进行通信。</p>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>js服务端执行环境，好处是数据类型和语法与浏览器没有太大的差异，Selenium的执行结果也是通过JSON返回，在Node中不需要做类型转换可以直接使用。</p>
-<h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
-<h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
-<h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
-<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
-<h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
-<p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
-<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
-<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
-<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
-<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
-<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
-<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
-<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
-<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
-<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
-<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
-<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
-<p>团队功能：整个替换流程的共享，组件库的共享。</p>
-<p>算法方面：结构替换，组件替换，速度上的优化（xpath），语义化。</p>
-<p>后端方面：Node + Java</p>
-<p>核心改进：针对专业开发人员，提升工作效率。能够在替换完成之后提供源代码，并且提供个性化修改功能。</p>
-]]></content>
-      <tags>
-        <tag>毕设</tag>
-        <tag>项目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网与操作系统面经汇总</title>
-    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <title>前端性能面经汇总</title>
+    <url>/2021/01/19/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
-<li><p>TCP/IP协议分层管理</p>
+<li><p>你会用什么工具来查找代码中的性能问题？</p>
 </li>
-<li><p>三次握手四次挥手机制及原因</p>
+<li><p>增强网站的页面滚动效能</p>
 </li>
-<li><p>HTTP方法</p>
+<li><p>重排，重绘，合成</p>
+<p>相当相当重要</p>
 </li>
-<li><p>GET和POST的区别</p>
+<li><p>Babel原理</p>
 </li>
-<li><p>HTTP建立持久连接的意义</p>
+<li><p>实现一个幻灯片功能</p>
 </li>
-<li><p>HTTP报文的结构</p>
+<li><p>合成层</p>
+<p>我在这里理解了一个多星期，静下心来去理解。</p>
+<p><a href="http://taobaofed.org/blog/2016/04/25/performance-composite/">http://taobaofed.org/blog/2016/04/25/performance-composite/</a></p>
 </li>
-<li><p>HTTP状态码</p>
+<li><p>前端优化方法</p>
 </li>
-<li><p>Web服务器及其组成</p>
-</li>
-<li><p>HTTP报文首部</p>
-</li>
-<li><p>HTTP通用首部字段</p>
-<a id="more"></a>
-</li>
-<li><p>HTTP请求首部字段、响应首部字段、实体首部字段</p>
-</li>
-<li><p>Cookie相关首部字段</p>
-</li>
-<li><p>HTTPS与HTTP区别及实现方式</p>
-</li>
-<li><p>Cookie与Session</p>
-</li>
-<li><p>基于HTTP的功能追加协议（SPY、WebSocket、HTTP）</p>
-</li>
-<li><p>常见的Web攻击分类</p>
-</li>
-<li><p>TCP与UDP区别</p>
-</li>
-<li><p>TCP三次握手</p>
-</li>
-<li><p>存储机制localStorage、sessionStorage与Cookie存储技术</p>
-</li>
-<li><p>为什么传统上利用多个域名来提供网站资源会更有效</p>
-</li>
-<li><p><code>Long-Polling</code>、<code>Websockets</code> 和 <code>Server-Sent Event</code></p>
-</li>
-<li><p>常见的请求头和响应头</p>
-</li>
-<li><p>和缓存有关的<code>HTTP</code>首部字段</p>
-<p>相当重要。如何应用的？</p>
-</li>
-<li><p><code>https</code> 加密过程</p>
-</li>
-<li><p><code>http2</code>新特性</p>
-</li>
-<li><p>计算机系统</p>
-</li>
-<li><p>线程与进程</p>
-</li>
-<li><p>常见的git指令</p>
-</li>
-<li><p>linux相关指令</p>
-</li>
-<li><p>数据库基本知识</p>
-</li>
-<li><p>其他类型的编程语言</p>
+<li><p><code>css3</code>动画和<code>js</code>动画对比</p>
 </li>
 </ol>
 ]]></content>
@@ -451,29 +418,7 @@
       </categories>
       <tags>
         <tag>面经</tag>
-        <tag>计算机网络</tag>
-        <tag>HTTP</tag>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浏览器相关面经汇总</title>
-    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li>浏览器输入url之后做了什么？</li>
-<li>xss具体</li>
-<li>csrf具体</li>
-<li>浏览器缓存</li>
-</ol>
-<a id="more"></a>
-
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>浏览器</tag>
+        <tag>性能</tag>
       </tags>
   </entry>
   <entry>
@@ -560,6 +505,143 @@
       <tags>
         <tag>面经</tag>
         <tag>手撕代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕设交接文档</title>
+    <url>/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="一、项目概况介绍"><a href="#一、项目概况介绍" class="headerlink" title="一、项目概况介绍"></a>一、项目概况介绍</h2><p>一种基于Node.js的web前端页面风格替换系统设计与实现</p>
+<p>在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。</p>
+<p>系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由React，Egg.js完成的。</p>
+<a id="more"></a>
+
+<h2 id="二、技术综述"><a href="#二、技术综述" class="headerlink" title="二、技术综述"></a>二、技术综述</h2><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>将多各种语言编程的脚本转换为JSON格式的接口请求，通过JSONWP通信协议与各浏览器的WebDriver进行通信，最u后WebDriver通过Http协议和真实浏览器进行通信。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>js服务端执行环境，好处是数据类型和语法与浏览器没有太大的差异，Selenium的执行结果也是通过JSON返回，在Node中不需要做类型转换可以直接使用。</p>
+<h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
+<h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
+<h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
+<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
+<h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
+<p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
+<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
+<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
+<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
+<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
+<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
+<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
+<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
+<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
+<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
+<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
+<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
+<p>团队功能：整个替换流程的共享，组件库的共享。</p>
+<p>算法方面：结构替换，组件替换，速度上的优化（xpath），语义化。</p>
+<p>后端方面：Node + Java</p>
+<p>核心改进：针对专业开发人员，提升工作效率。能够在替换完成之后提供源代码，并且提供个性化修改功能。</p>
+]]></content>
+      <tags>
+        <tag>毕设</tag>
+        <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器相关面经汇总</title>
+    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>浏览器输入url之后做了什么？</li>
+<li>xss具体</li>
+<li>csrf具体</li>
+<li>浏览器缓存</li>
+</ol>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网与操作系统面经汇总</title>
+    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li><p>TCP/IP协议分层管理</p>
+</li>
+<li><p>三次握手四次挥手机制及原因</p>
+</li>
+<li><p>HTTP方法</p>
+</li>
+<li><p>GET和POST的区别</p>
+</li>
+<li><p>HTTP建立持久连接的意义</p>
+</li>
+<li><p>HTTP报文的结构</p>
+</li>
+<li><p>HTTP状态码</p>
+</li>
+<li><p>Web服务器及其组成</p>
+</li>
+<li><p>HTTP报文首部</p>
+</li>
+<li><p>HTTP通用首部字段</p>
+<a id="more"></a>
+</li>
+<li><p>HTTP请求首部字段、响应首部字段、实体首部字段</p>
+</li>
+<li><p>Cookie相关首部字段</p>
+</li>
+<li><p>HTTPS与HTTP区别及实现方式</p>
+</li>
+<li><p>Cookie与Session</p>
+</li>
+<li><p>基于HTTP的功能追加协议（SPY、WebSocket、HTTP）</p>
+</li>
+<li><p>常见的Web攻击分类</p>
+</li>
+<li><p>TCP与UDP区别</p>
+</li>
+<li><p>TCP三次握手</p>
+</li>
+<li><p>存储机制localStorage、sessionStorage与Cookie存储技术</p>
+</li>
+<li><p>为什么传统上利用多个域名来提供网站资源会更有效</p>
+</li>
+<li><p><code>Long-Polling</code>、<code>Websockets</code> 和 <code>Server-Sent Event</code></p>
+</li>
+<li><p>常见的请求头和响应头</p>
+</li>
+<li><p>和缓存有关的<code>HTTP</code>首部字段</p>
+<p>相当重要。如何应用的？</p>
+</li>
+<li><p><code>https</code> 加密过程</p>
+</li>
+<li><p><code>http2</code>新特性</p>
+</li>
+<li><p>计算机系统</p>
+</li>
+<li><p>线程与进程</p>
+</li>
+<li><p>常见的git指令</p>
+</li>
+<li><p>linux相关指令</p>
+</li>
+<li><p>数据库基本知识</p>
+</li>
+<li><p>其他类型的编程语言</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>计算机网络</tag>
+        <tag>HTTP</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
 </search>
