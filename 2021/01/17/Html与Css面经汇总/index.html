@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="HTML DOCTYPE的作用是什么？ &lt;a&gt;&lt;&#x2F;a&gt;标签的全部作用 使用data-属性的好处是什么？ 如果把HTML5看作一个开放平台，那他的构建模块有哪些？ H5的语义化作用及语义化标签 请解释script，script async 和script defer的区别 为什么通常推荐将 CSS &lt;link&gt; 放置在 &lt;head&gt;&lt;&#x2F;head&amp;">
+  <meta name="description" content="HTML DOCTYPE的作用是什么？ DOCTYPE是document type (文档类型) 的缩写。声明位于文档的最前面，处于标签之前，它不是html标签。主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHTML规范来解析页面。不存在这个声明会导致HTML或XHTML以混杂模式出现，把如何渲染的权力交给了浏览器。 P.S. 严格模式和混杂模式都是浏览器的呈现模式，浏览器究竟使用混杂模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Html与Css面经汇总">
 <meta property="og:url" content="http://example.com/2021/01/17/Html%E4%B8%8ECss%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Cypherss&#39;s Blog">
-<meta property="og:description" content="HTML DOCTYPE的作用是什么？ &lt;a&gt;&lt;&#x2F;a&gt;标签的全部作用 使用data-属性的好处是什么？ 如果把HTML5看作一个开放平台，那他的构建模块有哪些？ H5的语义化作用及语义化标签 请解释script，script async 和script defer的区别 为什么通常推荐将 CSS &lt;link&gt; 放置在 &lt;head&gt;&lt;&#x2F;head&amp;">
+<meta property="og:description" content="HTML DOCTYPE的作用是什么？ DOCTYPE是document type (文档类型) 的缩写。声明位于文档的最前面，处于标签之前，它不是html标签。主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHTML规范来解析页面。不存在这个声明会导致HTML或XHTML以混杂模式出现，把如何渲染的权力交给了浏览器。 P.S. 严格模式和混杂模式都是浏览器的呈现模式，浏览器究竟使用混杂模式">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-17T06:51:43.000Z">
-<meta property="article:modified_time" content="2021-01-19T14:03:19.375Z">
+<meta property="article:modified_time" content="2021-01-25T11:45:34.171Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="html">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-19 22:03:19" itemprop="dateModified" datetime="2021-01-19T22:03:19+08:00">2021-01-19</time>
+                <time title="修改时间：2021-01-25 19:45:34" itemprop="dateModified" datetime="2021-01-25T19:45:34+08:00">2021-01-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,14 +266,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>526</span>
+              <span>6.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -286,45 +286,197 @@
 
       
         <h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
-<li>DOCTYPE的作用是什么？</li>
-<li><code>&lt;a&gt;&lt;/a&gt;</code>标签的全部作用</li>
-<li>使用data-属性的好处是什么？</li>
-<li>如果把HTML5看作一个开放平台，那他的构建模块有哪些？</li>
-<li>H5的语义化作用及语义化标签</li>
-<li>请解释script，script async 和script defer的区别</li>
-<li>为什么通常推荐将 CSS <code>&lt;link&gt;</code> 放置在 <code>&lt;head&gt;&lt;/head&gt;</code> 之间，而将 JS <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 之前？你知道有哪些例外吗？</li>
-<li>什么是渐进式渲染（progressive rendering）？</li>
-<li>HTML和XHTML有什么区别？</li>
-<li>HTML5新标签</li>
-<li>HTML5新特性</li>
-<li>SEO概念及实现</li>
-<li>web worker和web socket</li>
+<li><p>DOCTYPE的作用是什么？</p>
+<p>DOCTYPE是document type (文档类型) 的缩写。<!DOCTYPE >声明位于文档的最前面，处于标签之前，它不是html标签。主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHTML规范来解析页面。不存在这个声明会导致HTML或XHTML以混杂模式出现，把如何渲染的权力交给了浏览器。</p>
+<p>P.S. 严格模式和混杂模式都是浏览器的呈现模式，浏览器究竟使用混杂模式还是严格模式呈现页面与网页中的DTD（文件类型定义）有关，DTD里面包含了文档的规则。比如：loose.dtd</p>
+<p><strong>严格模式：</strong>又称标准模式，是指浏览器按照W3C标准来解析代码，呈现页面</p>
+<p><strong>混杂模式：</strong>又称为怪异模式或者兼容模式，是指浏览器按照自己的方式来解析代码，使用一种比较宽松的向后兼容的方式来显示页面。<br>该标签可声明三种 DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。<br>HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。<br>XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。<br>Standards （标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，而 Quirks（包容）模式（也就是松散呈现模式或者兼容模式）用于呈现为传统浏览器而设计的网页。</p>
+</li>
+<li><p><code>&lt;a&gt;&lt;/a&gt;</code>标签的全部作用</p>
+<p>标签的target属性大致有这几种：<br>（1）_blank<br>（2）_self<br>（3）_parent<br>（4）_top</p>
+<p>————————作用1：超链接——————————————–</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>在一个新的窗口打开连接相应的网页。</span><br><span class="line"></span><br><span class="line">2、<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_self&quot;</span>&gt;</span>超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>在原来的窗口打开连接相应的网页。（如果target属性值不写的话，默认是这种方式）</span><br><span class="line"></span><br><span class="line">3、<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_parent&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">4、<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_top&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>————————作用2：锚点——————————————–</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;runtop&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">通过<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#runtop&quot;</span>&gt;</span>返回顶部<span class="tag">&lt;/<span class="name">a</span>&gt;</span>能够实现一个常见的返回顶部的功能。</span><br></pre></td></tr></table></figure>
+<p>————————作用3：打电话或者发邮件——————————————–</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;tel:123456&quot;</span>&gt;</span>打电话给号码为123456的人<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:123456@789.com&quot;</span>&gt;</span>发邮件给给号码为123456@789.com的人<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>————————作用4：协议限定符——————————————–</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert(&quot;</span>强制运行的<span class="attr">javascript</span>代码&quot;)&quot;&gt;</span>这样就能够在<span class="tag">&lt;<span class="name">a</span>&gt;</span>标签被点击的时候强制运行href属性里面的代码<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">这里的href=&quot;javascript:;&quot;，其中javascript:是伪协议，它可以让我们通过一个链接来调用javascript函数.而采用这个方式 javascript:;可以实现A标签的点击事件运行时，如果页面内容很多，有滚动条时，页面不会乱跳，用户体验更好。</span><br></pre></td></tr></table></figure></li>
+<li><p>使用data-属性的好处是什么？</p>
+<p>data-* 属性是 HTML 5 的新特性，允许用户在 DOM 中存储自定义信息。</p>
+<p>以前，需要存储含有特定含义的信息通常是通过 class 完成的，但这并不是 class 本来的用途。现在，利用 HTML 5，可以为元素添加<code>data-*</code>属性，从而存储自定义信息。其中<code>*</code>是可以自定义的部分。例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span> <span class="attr">id</span>=<span class="string">&quot;tu&quot;</span> <span class="attr">data-category</span>=<span class="string">&quot;Web Development&quot;</span> <span class="attr">data-author</span>=<span class="string">&quot;1&quot;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过 JavaScript 访问自定义的信息有两种方式：<code>getAttribute()</code>和<code>dataset</code>。</p>
+<h3 id="getAttribute-方法"><a href="#getAttribute-方法" class="headerlink" title="getAttribute 方法"></a>getAttribute 方法</h3><p>这就是经典的取得一个元素属性的方式，和以前一样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&#x27;tu&#x27;</span>).getAttribute(<span class="string">&#x27;data-category&#x27;</span>); <span class="comment">// &quot;Web Development&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="dataset-方法"><a href="#dataset-方法" class="headerlink" title="dataset 方法"></a>dataset 方法</h3><p>这是 HTML 5 新增的方法，可以更方便的读取所有的 data 信息。并不是所有的浏览器都支持.dataset属性，测试的浏览器中只有Chrome和Opera支持。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> article = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;tu&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> data = article.dataset;</span><br><span class="line">alert(data.category); <span class="comment">// &quot;Web Development&quot;</span></span><br><span class="line">alert(data.author); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></li>
+<li><p>如果把HTML5看作一个开放平台，那他的构建模块有哪些？</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>, <span class="tag">&lt;<span class="name">header</span>&gt;</span>,<span class="tag">&lt;<span class="name">section</span>&gt;</span>, <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>H5的语义化作用及语义化标签</p>
+<ol>
+<li><p>什么是语义化</p>
+<p>标签有了自己的含义，通过标签就能判断内容语义。</p>
+</li>
+<li><p>语义化的好处</p>
+<p>1、html结构清晰，代码可读性较好，便于团队维护和开发</p>
+<p>2、更有利于搜索引擎或辅助设备理解html页面内容，搜索引擎可以根据标签语言确定上下文和权重关系</p>
+</li>
+<li><p>常用的语义化标签</p>
+<p>section, article, header, footer, nav, figure, dialog, progress, source, video, audio等等</p>
+</li>
+</ol>
+</li>
+<li><p>请解释script，script async 和script defer的区别</p>
+</li>
+<li><p>为什么通常推荐将 CSS <code>&lt;link&gt;</code> 放置在 <code>&lt;head&gt;&lt;/head&gt;</code> 之间，而将 JS <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 之前？你知道有哪些例外吗？</p>
+</li>
+<li><p>什么是渐进式渲染（progressive rendering）？</p>
+</li>
+<li><p>HTML和XHTML有什么区别？</p>
+</li>
+<li><p>HTML5新标签</p>
+</li>
+<li><p>HTML5新特性</p>
+</li>
+<li><p>SEO概念及实现</p>
+</li>
+<li><p>web worker和web socket</p>
+</li>
 </ol>
 <a id="more"></a>
 
 <hr>
 <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol>
-<li>css画各种图形</li>
-<li>css权重及其引入方式</li>
-<li>css定位属性</li>
-<li>flex布局</li>
-<li>px、em、rem的区别</li>
-<li>IFC与BFC</li>
-<li>盒子模型以及理解</li>
-<li>Less预处理语言</li>
-<li>三列布局</li>
-<li>圣杯布局和双飞翼布局的实现</li>
-<li>margin塌陷及合并问题</li>
-<li>定位方式以及区别</li>
-<li>vh与vw</li>
-<li>如何实现响应式布局</li>
-<li>z-index和叠加上下文是如何形成的</li>
-<li>媒体查询</li>
-<li>display以及相关属性</li>
-<li>如何实现一个高性能css动画效果</li>
-<li>css3动画</li>
-<li>垂直水平居中</li>
-<li>box-sizing</li>
+<li><p>css画各种图形</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;a&quot;&gt;&lt;/div&gt;</span><br><span class="line">//等腰三角形</span><br><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line"><span class="attribute">border-bottom</span>: <span class="number">50px</span> solid red;</span><br><span class="line"><span class="attribute">border-left</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line"><span class="attribute">border-right</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//等腰梯形</span><br><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line"><span class="attribute">border-bottom</span>: <span class="number">50px</span> solid red;</span><br><span class="line"><span class="attribute">border-left</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line"><span class="attribute">border-right</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//扇形</span><br><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line"><span class="attribute">border-bottom</span>: <span class="number">50px</span> solid red;</span><br><span class="line"><span class="attribute">border-left</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line"><span class="attribute">border-right</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//圆</span><br><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="attribute">background-color</span>: blue;</span><br><span class="line">border-radius: 25px;//50% 边框半径为宽高的50%</span><br><span class="line">&#125;</span><br><span class="line">半圆</span><br><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="attribute">background-color</span>: blue;</span><br><span class="line"><span class="attribute">border-top-left-radius</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="attribute">border-top-right-radius</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="comment">/* border-bottom-left-radius: 50px; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>css权重及其引入方式</p>
+<p>css的引入可以通过行间样式，内部样式表（head中的style标签内）和外部样式表（<link rel="stylesheet" href="./css/global.css">）引入。</p>
+<p>而css权重主要是由数值决定的，权重会叠加，具体对应数值如下：</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>！important</td>
+<td>Infinity</td>
+</tr>
+<tr>
+<td>行间样式</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>id</td>
+<td>100</td>
+</tr>
+<tr>
+<td>class、属性、伪类</td>
+<td>10</td>
+</tr>
+<tr>
+<td>标签、伪元素</td>
+<td>1</td>
+</tr>
+<tr>
+<td>通配符、继承的样式</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>什么是文档流（normal flow）</p>
+<p>流实际上就是浏览器在页面上摆放Html元素所用的方法，大多数元素默认在文档流中。浏览器从Html文件最上面开始，从上到下沿着元素流逐个显示所遇到的各个元素。即：元素按HTML中编写的先后顺序，上下左右堆叠排列。其中块级元素前后换行，内联元素前后不换行。</p>
+<ol>
+<li>窗体自上而下分成一行一行，并在每行中按从左至右的顺序排放元素；</li>
+<li>每个非浮动块级元素都独占一行， 浮动元素则按规定浮在行的一端，若当前行容不下，则另起新行再浮动；</li>
+<li>内联元素也不会独占一行，几乎所有元素(包括块级，内联和列表元素）均可生成子行，用于摆放子元素；</li>
+<li>有三种情况将使得元素脱离normal flow而存在，分别是 float，absolute ，fixed，但是在IE6中浮动元素也存在于normal flow中。</li>
+</ol>
+</li>
+<li><p>css定位属性</p>
+<p>position：</p>
+<ol>
+<li>static：该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top、right、bottom、left 属性无效。（默认值）</li>
+<li>relative：该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-*-group, table-row, table-column, table-cell, table-caption 元素无效。</li>
+<li>absolute：不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margin），且不会与其他边距合并。（脱离normal flow）</li>
+<li>fixed：不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed属性会创建新的层叠上下文。当元素祖先的 transform 属性非 none 时，容器由视口改为该祖先。fixed相对于window固定，滚动浏览器窗口并不会使其移动，会脱离normal flow。</li>
+<li>sticky：盒位置根据正常流计算(这称为正常流动中的位置)，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。在所有情况下（即便被定位元素为 table<code>时</code>），该元素定位均不对后续元素造成影响。当元素 B 被粘性定位时，后续元素的位置仍按照 B 未定位时的位置来确定。position: sticky对 table元素的效果与 position: relative 相同</li>
+<li>inherit：规定应该从父元素继承 position 属性的值。</li>
+</ol>
+</li>
+<li><p>flex布局</p>
+<p>弹性布局：任何一个容器都可以成为flex布局，行内元素也是可以的</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">flex</span>;</span><br></pre></td></tr></table></figure>
+<p>具体的flex布局的容器和项目的属性在这篇博客上有很好的介绍：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+</li>
+</ol>
+<ol start="6">
+<li><p>px、em、rem的区别</p>
+<p><strong>px像素（Pixel）</strong>。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
+<p>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
+<p><strong>EM特点</strong></p>
+<ul>
+<li> em的值并不是固定的；</li>
+<li> em会继承父级元素的字体大小。</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。</p>
+<p>所以我们在写CSS的时候，需要注意两点：</p>
+<ul>
+<li>\1. body选择器中声明Font-size=62.5%；</li>
+<li>\2. 将你的原来的px数值除以10，然后换上em作为单位；</li>
+<li>\3. 重新计算那些被放大的字体的em数值。避免字体大小的重复声明。</li>
+</ul>
+<p>也就是避免1.2 * 1.2= 1.44的现象。比如说你在#content中声明了字体大小为1.2em，那么在声明p的字体大小时就只能是1em，而不是1.2em, 因为此em非彼em，它因继承#content的字体高而变为了1em=12px。</p>
+</blockquote>
+<p><strong>REM</strong></p>
+<p>rem是CSS3新增的一个相对单位（root em，根em），这个单位引起了广泛关注。这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。下面就是一个例子：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">font-size</span>:<span class="number">14px</span>; <span class="attribute">font-size</span>:.<span class="number">875rem</span>;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong> 选择使用什么字体单位主要由你的项目来决定，如果你的用户群都使用最新版的浏览器，那推荐使用rem，如果要考虑兼容性，那就使用px,或者两者同时使用。</p>
+</blockquote>
+<h3 id="px-与-rem-的选择？"><a href="#px-与-rem-的选择？" class="headerlink" title="px 与 rem 的选择？"></a>px 与 rem 的选择？</h3><p>对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 。</p>
+<p>对于需要适配各种移动设备，使用rem，例如只需要适配iPhone和iPad等分辨率差别比较挺大的设备。</p>
+</li>
+<li><p>IFC与BFC</p>
+</li>
+<li><p>盒子模型以及理解</p>
+</li>
+<li><p>Less预处理语言</p>
+</li>
+<li><p>三列布局</p>
+</li>
+<li><p>圣杯布局和双飞翼布局的实现</p>
+</li>
+<li><p>margin塌陷及合并问题</p>
+</li>
+<li><p>定位方式以及区别</p>
+</li>
+<li><p>vh与vw</p>
+</li>
+<li><p>如何实现响应式布局</p>
+</li>
+<li><p>z-index和叠加上下文是如何形成的</p>
+</li>
+<li><p>媒体查询</p>
+</li>
+<li><p>display以及相关属性</p>
+</li>
+<li><p>如何实现一个高性能css动画效果</p>
+</li>
+<li><p>css3动画</p>
+</li>
+<li><p>垂直水平居中</p>
+</li>
+<li><p>box-sizing</p>
+</li>
 </ol>
 
     </div>
@@ -418,7 +570,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getAttribute-%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">getAttribute 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">dataset 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#px-%E4%B8%8E-rem-%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">px 与 rem 的选择？</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -492,13 +644,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">26k</span>
+    <span title="站点总字数">31k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">29 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
