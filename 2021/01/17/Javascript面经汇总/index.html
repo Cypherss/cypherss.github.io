@@ -28,8 +28,9 @@
 <meta property="og:description" content="事件代理 事件委托就是利用事件冒泡，只制定一个时间处理程序，就可以管理某一类型的所有事件。例如我们可以通过在父元素上添加子元素实际要执行的事件，以减少与DOM交互的次数，优化性能 具体原因看Q21事件冒泡机制  请解释Javascript中的this是如何工作的（如何正确判断） this简而言之就是指向调用函数的对象，如果是全局调用，则this指向window。 在call和apply中this">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/prototype5.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/v2-320935b9afabe806ff20993ead6c1048_1440w.png">
 <meta property="article:published_time" content="2021-01-17T06:52:11.000Z">
-<meta property="article:modified_time" content="2021-01-24T14:14:09.262Z">
+<meta property="article:modified_time" content="2021-01-25T10:08:24.104Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="Javascript">
@@ -228,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-24 22:14:09" itemprop="dateModified" datetime="2021-01-24T22:14:09+08:00">2021-01-24</time>
+                <time title="修改时间：2021-01-25 18:08:24" itemprop="dateModified" datetime="2021-01-25T18:08:24+08:00">2021-01-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,14 +268,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.5k</span>
+              <span>9.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -445,22 +446,101 @@
 <p>而节流（throttle）就是让函数执行一次之后，在一段时间内失效，然后再生效（可以执行）。</p>
 </li>
 <li><p><code>document.write()</code></p>
-</li>
+<p>用于向HTML输出流中添加传入的内容，浏览器会顺着html元素顺序依次解析他们，并且显示出来，但是如果在页面渲染完成之后调用（onload），会重写整个document，导致之前所有的内容被覆盖。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(exp1,exp2,exp3,....);</span><br></pre></td></tr></table></figure></li>
 <li><p>Ajax工作原理</p>
+<p>Ajax(Asynchronous Java and XML的缩写)是一种异步请求数据的web开发技术，对于改善用户的体验和页面性能很有帮助。简单地说，在不需要重新刷新页面的情况下，Ajax 通过异步请求加载后台数据，并在网页上呈现出来。常见运用场景有表单验证是否登入成功、百度搜索下拉框提示和快递单号查询等等。</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/v2-320935b9afabe806ff20993ead6c1048_1440w.png"></p>
 </li>
 <li><p>跨域、同源策略及跨域实现方式和原理</p>
+<ol>
+<li><p>同源策略是一种规定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<p>同源策略限制内容有：</p>
+<ul>
+<li>Cookie、LocalStorage、IndexedDB 等存储性内容</li>
+<li>DOM 节点</li>
+<li>AJAX 请求不能发送</li>
+</ul>
+<p>但是有三个标签是允许跨域加载资源：</p>
+<ul>
+<li><code>&lt;img src=XXX&gt;</code></li>
+<li><code>&lt;link href=XXX&gt;</code></li>
+<li><code>&lt;script src=XXX&gt;</code></li>
+</ul>
+<p>第一：如果是协议和端口造成的跨域问题“前台”是无能为力的。</p>
+<p>第二：在跨域问题上，仅仅是通过“URL的首部”来识别而不会根据域名对应的IP地址是否相同来判断。“URL的首部”可以理解为“协议, 域名和端口必须匹配”。</p>
+<p>这里你或许有个疑问：请求跨域了，那么请求到底发出去没有？</p>
+<p>跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会?因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。</p>
+</li>
+<li><p>跨域的九种解决方案</p>
+<ol>
+<li>JSONP</li>
+<li>CORS(CORS 需要浏览器和后端同时支持。)</li>
+<li>postMessage(postMessage是HTML5 XMLHttpRequest Level 2中的API;postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信，可以实现跨文本档、多窗口、跨域消息传递。)</li>
+<li>websocket</li>
+<li>Node中间代理(实现原理：同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。)</li>
+<li>nginx反向代理</li>
+<li>window.name + iframe</li>
+<li>location.hash + iframe</li>
+<li>document.domain + iframe(该方式只能用于二级域名相同的情况下，比如 a.test.com 和 b.test.com 适用于该方式。)</li>
+</ol>
+</li>
+<li><p>总结</p>
+<ul>
+<li>CORS支持所有类型的HTTP请求，是跨域HTTP请求的根本解决方案</li>
+<li>JSONP只支持GET请求，JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。</li>
+<li>不管是Node中间件代理还是nginx反向代理，主要是通过同源策略对服务器不加限制。</li>
+<li>日常工作中，用得比较多的跨域方案是cors和nginx反向代理</li>
+</ul>
+</li>
+</ol>
 </li>
 <li><p>js中的垃圾回收机制</p>
+<p>js中的垃圾回收是自动进行的，是不可见的。js中的内存管理主要的概念是可达性，根访问不到的都是垃圾。垃圾回收器会监视左右的对象并且删除不可访问的对象。基本的垃圾回收算法为标记-清除，垃圾回收器获取根，标记它，然后逐层访问并且标记引用的对象，最后除了标记过的，其余的都删除。（可以是删除没有标记的，又有一种是删除有标记的）（以前还有一种引用计数，但是引用计数会有循环引用的问题）</p>
+<p>一些优化:</p>
+<ul>
+<li><strong>分代回收</strong>——对象分为两组:“新对象”和“旧对象”。许多对象出现，完成它们的工作并迅速结 ，它们很快就会被清理干净。那些活得足够久的对象，会变“老”，并且很少接受检查。</li>
+<li><strong>增量回收</strong>——如果有很多对象，并且我们试图一次遍历并标记整个对象集，那么可能会花费一些时间，并在执行中会有一定的延迟。因此，引擎试图将垃圾回收分解为多个部分。然后，各个部分分别执行。这需要额外的标记来跟踪变化，这样有很多微小的延迟，而不是很大的延迟。</li>
+<li><strong>空闲时间收集</strong>——垃圾回收器只在 CPU 空闲时运行，以减少对执行的可能影响。</li>
+</ul>
 </li>
 <li><p>冒泡机制</p>
+<p>冒泡机制是指事件从DOM树的底层一层层向上传递，如果要终止传递可以通过对每一个元素进行event.stopPropagation()，或者通过在父元素中去判断targetid，分别作出相应的处理。</p>
 </li>
 <li><p>变量声明提升</p>
+<p>变量声明会从他们在代码中出现的位置被移动到当前作用域的最上方进行执行，这个过程叫做提升。</p>
+<p>函数也存在提升。但是在函数表达式中，由于是赋值，所以不可以提升。</p>
+<p>在提升中有函数优先原则，函数反复声明会覆盖。</p>
+<p>当然在实际编程中，要尽量避免提升问题。</p>
 </li>
 <li><p>document load 和 document DOMContentLoaded</p>
+<p>当浏览器解析完文档就会触发DOMContentLoaded事件，脚本，css都会阻塞解析。</p>
+<p>而当所有资源全部加载完毕之后，才会触发load事件（在DOMContentLoaded事件之后）。</p>
+<p>P.S.为什么要js脚本放在最后（</body>之前)？</p>
+<p>​    其实现代浏览器为了更好的用户体验，渲染引擎将尝试尽快在屏幕上显示的内容。它不会等到所有HTML解析之前开始构建和布局渲染树。部分的内容将被解析并显示。也就是说浏览器能够渲染不完整的dom树和cssom，尽快的减少白屏的时间。假如我们将js放在header，js将阻塞解析dom，dom的内容会影响到First Paint，导致First Paint延后。所以说我们会将js放在后面，以减少First Paint的时间，但是不会减少DOMContentLoaded被触发的时间。</p>
 </li>
 <li><p>== 和 ===有什么不同</p>
+<p>简单来说： == 代表相同， ===代表严格相同, 为啥这么说呢， </p>
+<p>这么理解： 当进行双等号比较时候： 先检查两个操作数数据类型，如果相同， 则进行===比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而===比较时， 如果类型不同，直接就是false.</p>
+<p>操作数1 == 操作数2， 操作数1 === 操作数2</p>
+<p>比较过程：</p>
+<p>　　双等号==： </p>
+<p>　　（1）如果两个值类型相同，再进行三个等号(===)的比较</p>
+<p>　　（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：</p>
+<p>　　　　1）如果一个是null，一个是undefined，那么相等</p>
+<p>　　　　2）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较(或者是boolean)</p>
+<p>　　</p>
+<p>　　三等号===:</p>
+<p>　　（1）如果类型不同，就一定不相等</p>
+<p>　　（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。（判断一个值                是否是NaN，只能使用isNaN( ) 来判断）</p>
+<p>　　（3）如果两个都是字符串，每个位置的字符都一样，那么相等，否则不相等。</p>
+<p>　　（4）如果两个值都是true，或是false，那么相等</p>
+<p>　　（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等</p>
+<p>　　（6）如果两个值都是null，或是undefined，那么相等</p>
 </li>
 <li><p>js中的arguments</p>
+<p>也是一个对象，是一个特殊的对象，属性的名是根据传入参数的序列来的，又叫做类数组对象。（proto属性指向Object.prototype）</p>
+<p>可以通过length判断传入长度，可以索引取值使用参数，可以通过callee属性获取方法完整代码（匿名函数递归）（es4开始禁止？）</p>
 </li>
 <li><p>请解释什么是单页应用 (<code>single page app</code>), 以及如何使其对搜索引擎友好 (<code>SEO-friendly</code>)</p>
 </li>
@@ -667,13 +747,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">26k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20 分钟</span>
+    <span title="站点阅读时长">23 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

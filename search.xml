@@ -55,235 +55,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Javascript面经汇总</title>
-    <url>/2021/01/17/Javascript%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li><p>事件代理</p>
-<p>事件委托就是利用事件冒泡，只制定一个时间处理程序，就可以管理某一类型的所有事件。例如我们可以通过在父元素上添加子元素实际要执行的事件，以减少与DOM交互的次数，优化性能</p>
-<p>具体原因看Q21事件冒泡机制</p>
-</li>
-<li><p>请解释Javascript中的this是如何工作的（如何正确判断）</p>
-<p>this简而言之就是指向调用函数的对象，如果是全局调用，则this指向window。</p>
-<p>在call和apply中this指向指定的对象，如果指定的参数是null或undefined，则指向window。</p>
-<p>在箭头函数中，箭头函数是没有this的，因此this指向外层代码的对象。</p>
-<a id="more"></a>
-</li>
-<li><p>原始值和引用值类型以及区别</p>
-<p>JS的原始数据类型有boolean，null，undefined，bigint，number，string，symbol</p>
-<p>引用数据类型：对象Object（普通，数组，正则，日期，数学，函数）</p>
-<p>区别：</p>
-<p>（1）值类型：</p>
-<p>​            1、占用空间固定，保存在栈中（当一个方法执行时，每个方法都会建立自己的内存栈，在这个方法内定义的变量将会逐个放入这块栈内存里，随着方法的执行结束，这个方法的内存栈也将自然销毁了。因此，所有在方法中定义的变量都是放在栈内存中的；栈中存储的是基础变量以及一些对象的引用变量，基础变量的值是存储在栈中，而引用变量存储在栈中的是指向堆中的数组或者对象的地址，这就是为何修改引用类型总会影响到其他指向这个地址的引用变量。）</p>
-<p>​            2、保存与复制的是值本身</p>
-<p>​            3、使用typeof检测数据的类型</p>
-<p>​            4、基本类型数据是值类型</p>
-<p>（2）引用类型：</p>
-<p>​            1、占用空间不固定，保存在堆中（当我们在程序中创建一个对象时，这个对象将被保存到运行时数据区中，以便反复利用（因为对象的创建成本通常较大），这个运行时数据区就是堆内存。堆内存中的对象不会随方法的结束而销毁，即使方法结束后，这个对象还可能被另一个引用变量所引用（方法的参数传递时很常见），则这个对象依然不会被销毁，只有当一个对象没有任何引用变量引用它时，系统的垃圾回收机制才会在核实的时候回收它。）</p>
-<p>​            2、保存与复制的是指向对象的一个指针</p>
-<p>​            3、使用instanceof检测数据类型</p>
-<p>​            4、使用new()方法构造出的对象是引用型</p>
-</li>
-<li><p>闭包与作用域</p>
-<p>闭包是指那些能够访问自由变量的函数。（闭包 = 函数 + 函数能够访问的自由变量）/闭包是指有权访问另外一个函数作用域中的变量的函数</p>
-<p>从实践角度：以下函数才算是闭包：</p>
-<ol>
-<li><p>即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）</p>
-</li>
-<li><p>在代码中引用了自由变量</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  data[i] = (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data[<span class="number">0</span>]();<span class="comment">//0</span></span><br><span class="line">data[<span class="number">1</span>]();<span class="comment">//1</span></span><br><span class="line">data[<span class="number">2</span>]();<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-<p>作用域：JS使用词法（静态）作用域，即函数的作用域在函数定义的时候就被确定了</p>
-</li>
-</ol>
-<p>当JavaScript代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。</p>
-<p>对于每个执行上下文，都有三个重要属性：</p>
-<ul>
-<li>变量对象(Variable object，VO)</li>
-<li>作用域链(Scope chain)</li>
-<li>this</li>
-</ul>
-<p>当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。</p>
-</li>
-<li><p>js继承</p>
-<p>js中的继承需要靠原型来实现。</p>
-<p>但是继承有一个问题是父类的所有属性，子类都会继承，因此使用组合代替继承是非常必要的。</p>
-<p>五种方式实现继承：</p>
-<p>​    call（子类中调用parent.call(this)，只能继承属性，但是不能继承方法）</p>
-<p>​    借助原型链（child.prototype = new parent()，能继承方法，但是多个子类继承自同一个原型对象，属性值同时改变)</p>
-<p>​    前两种组合，但是会导致父类构造函数执行多次</p>
-<p>​    将父类原型给到子类的原型（但是子类的构造函数变成了父类）</p>
-<p>​    寄生组合继承（最优）</p>
-<p>​    </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent5</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">this</span>.name = <span class="string">&#x27;parent5&#x27;</span>;</span><br><span class="line">   <span class="built_in">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>];</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Child5</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   Parent5.call(<span class="built_in">this</span>);</span><br><span class="line">   <span class="built_in">this</span>.type = <span class="string">&#x27;child5&#x27;</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> Child5.prototype = <span class="built_in">Object</span>.create(Parent5.prototype);</span><br><span class="line"> Child5.prototype.constructor = Child5;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="6">
-<li><p>js模块化</p>
-<p>AMD,CMD,ES6</p>
-<p>AMD和CMD都是通过define()定义模块，AMD需要把依赖的模块先写出来，可以通过return暴露接口，CMD在定义模块需要传入require，exports和module这几个参数，要加载某个模块时，使用require进行加载，要暴露接口时，可以通过exports，module.exports和return。</p>
-<p>而es6使用静态化加载而不是运行时加载，通过export和import按需加载（编译时加载）</p>
-</li>
-<li><p>new的原理</p>
-<p>通过new创建对象经历五个步骤：创建一个新对象；设置这个空对象的实例原型；将构造函数的作用域赋给新对象；执行构造函数（赋属性）；返回新对象。</p>
-</li>
-<li><p>null undefined 区别</p>
-<p>null表示”没有对象”，即该处不应该有值。</p>
-<p>​    （1） 作为函数的参数，表示该函数的参数不是对象。</p>
-<p>​    （2） 作为对象原型链的终点。</p>
-<p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
-<p>​    （1）变量被声明了，但没有赋值时，就等于undefined。</p>
-<p>​    （2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。</p>
-<p>​    （3）对象没有赋值的属性，该属性的值为undefined。</p>
-<p>​    （4）函数没有返回值时，默认返回undefined。</p>
-</li>
-<li><p>IIFE立即执行函数</p>
-<p>立即执行函数即立即执行声明的函数（可以是匿名函数），有两种写法</p>
-<p>列表1:IIFE写法一</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>列表2:IIFE写法二</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建块级（私有）作用域，避免了向全局作用域中添加变量和函数，因此也避免了多人开发中全局变量和函数的命名冲突。</li>
-<li>IIFE中定义的任何变量和函数，都会在执行结束时被销毁，这种做法可以减少闭包占用的内存问题，因为没有指向匿名函数的引用。只要函数执行完毕，就可以立即销毁其作用域链了。</li>
-</ul>
-</li>
-<li><p>原型和原型链</p>
-<p>所谓的原型就是在用构造函数创建对象时就会关联另一个对象A.prototype，并且对象会从这里继承属性。（更多像一种委托，建立关联调用）</p>
-<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/prototype5.png"></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>简而言之构造函数和实例原型之间是原型和构造的关系，对象之间通过__proto__向上调用.</p>
-</li>
-<li><p>深拷贝与浅拷贝</p>
-<p>浅拷贝只拷贝一层对象，但是深拷贝可以通过递归解决对象嵌套的问题</p>
-<p>浅拷贝实现方式：</p>
-<ol>
-<li>手动实现</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> shallowClone = <span class="function">(<span class="params">target</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> target === <span class="string">&#x27;object&#x27;</span> &amp;&amp; target !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">const</span> cloneTarget = <span class="built_in">Array</span>.isArray(target) ? []: &#123;&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">in</span> target)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target.hasOwnProperty(prop))&#123;</span><br><span class="line">                cloneTarget[prop] = target[prop];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneTarget;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>Object.assign</li>
-</ol>
-<p>但是需要注意的是，Object.assgin() 拷贝的是对象的属性的引用，而不是对象本身。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;sy&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj, &#123;<span class="attr">name</span>: <span class="string">&#x27;sss&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);<span class="comment">//&#123; name: &#x27;sss&#x27;, age: 18 &#125;</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>concat浅拷贝数组</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.concat();</span><br><span class="line">newArr[<span class="number">1</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>slice浅拷贝</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.slice();</span><br><span class="line">newArr[<span class="number">0</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>…展开运算符</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = [...arr];<span class="comment">//跟arr.slice()是一样的效果</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<pre><code>深拷贝实现方式
-
-简易版本的是JSON.parse(JSON.stringify())，但是这个方法无法解决循环引用，无法拷贝一些set，map之类的特殊对象，无法拷贝函数。
-
-因此手动实现一个深拷贝(如果属性是对象，则递归;有种特殊情况需注意就是对象存在**循环引用**的情况，即对象的属性直接的引用了自身的情况，解决循环引用问题，我们可以额外开辟一个存储空间，来存储当前对象和拷贝对象的对应关系，当需要拷贝当前对象时，先去存储空间中找，有没有拷贝过这个对象，如果有的话直接返回，如果没有的话继续拷贝。)
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> deepClone = <span class="function">(<span class="params">target, hash = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(target <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(taregt)&#125;</span><br><span class="line">    <span class="keyword">if</span>(target <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>)&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(taregt)&#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> target === <span class="string">&#x27;object&#x27;</span> &amp;&amp; target !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hash.get(target))&#123;<span class="keyword">return</span> hash.get(target);&#125;</span><br><span class="line">        <span class="keyword">const</span> cloneTarget = <span class="built_in">Array</span>.isArray(target) ? []: &#123;&#125;;</span><br><span class="line">        hash.set(target, cloneTarget);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">in</span> target)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target.hasOwnProperty(prop))&#123;</span><br><span class="line">                cloneTarget[prop] = <span class="keyword">typeof</span> target[prop] === <span class="string">&#x27;object&#x27;</span> ? deepClone(target[prop]) : target[prop];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneTarget;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-还有jquery有一个提供$.extend 可以使用Deep Copy；函数库lodash的_.cloneDeep方法。</code></pre>
-<ol start="12">
-<li><p>匿名函数</p>
-<p>匿名函数可以赋值或者自执行（IIFE），使用匿名函数赋值的时候，要先声明再使用。IIFE除了上面的方法，还可以通过{[], +, -, !, ~, void}调用</p>
-</li>
-<li><p>判断数据类型的方式</p>
-<ol>
-<li>typeof返回基本数据类型（除了null），引用类型中除了function返回function，其余返回object；</li>
-<li>toString（）是 Object 的原型方法返回class属性，表示为[Object, Xxx]，除了object其他通过call/apply调用。（window-&gt;global, document-&gt;HTMLDocument）</li>
-<li>constructor指向构造函数引用</li>
-<li>instanceof通过原型链来判断A是否为B的实例（instance of null报错：右边不是一个对象）</li>
-</ol>
-</li>
-<li><p>宿主对象和原生对象</p>
-<p>ECMA-262 把原生对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。</p>
-<p>Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError、ActiveXObject(服务器方面)、Enumerator(集合遍历类)、RegExp（正则表达式）</p>
-<p>由此可以看出，简单来说，原生对象就是 ECMA-262 定义的类（引用类型）。其中有一个子集叫做内置对象Global和Math（所有函数都必须是某个对象的方法）</p>
-<p>所有非原生对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象。所有的 BOM 和 DOM 对象都是宿主对象。document，window， navigator等</p>
-</li>
-<li><p>请指出以下代码的区别：<code>function Person()&#123;&#125;</code>、<code>var person = Person()</code>、<code>var person = new Person()</code>？</p>
-<p>第一个是声明一个函数Person；第二个是把函数的返回值赋给person，如果没有返回值就是undefined；第三个是new一个Person的实例对象。</p>
-</li>
-<li><p>防抖和节流</p>
-<p>简而言之：防抖（debounce）让短时间内的连续触发的事件，在一定的时间间隔中，事件处理函数只执行一次；</p>
-<p>而节流（throttle）就是让函数执行一次之后，在一段时间内失效，然后再生效（可以执行）。</p>
-</li>
-<li><p><code>document.write()</code></p>
-</li>
-<li><p>Ajax工作原理</p>
-</li>
-<li><p>跨域、同源策略及跨域实现方式和原理</p>
-</li>
-<li><p>js中的垃圾回收机制</p>
-</li>
-<li><p>冒泡机制</p>
-</li>
-<li><p>变量声明提升</p>
-</li>
-<li><p>document load 和 document DOMContentLoaded</p>
-</li>
-<li><p>== 和 ===有什么不同</p>
-</li>
-<li><p>js中的arguments</p>
-</li>
-<li><p>请解释什么是单页应用 (<code>single page app</code>), 以及如何使其对搜索引擎友好 (<code>SEO-friendly</code>)</p>
-</li>
-<li><p>Promise</p>
-</li>
-<li><p>图片懒加载</p>
-</li>
-<li><p>let var const</p>
-</li>
-<li><p>什么是事件循环机制？</p>
-</li>
-<li><p>函数柯里化</p>
-</li>
-<li><p>箭头函数</p>
-</li>
-<li><p>对象创建的三种方法</p>
-</li>
-<li><p>数组的方法</p>
-</li>
-<li><p>addEventListener和onClick()的区别</p>
-</li>
-<li><p>setTimeout用作倒计时为何会产生误差？</p>
-</li>
-<li><p>DOM的location对象</p>
-</li>
-<li><p>实现页面加载进度条</p>
-</li>
-<li><p><code>strict</code>模式</p>
-</li>
-<li><p>Symbol概念及其作用</p>
-</li>
-<li><p>Set和Map数据结构</p>
-</li>
-<li><p>Proxy</p>
-</li>
-<li><p>Reflect对象</p>
-</li>
-<li><p>循环语法比较及使用场景（for、forEach、for…in、for…of）</p>
-</li>
-<li><p>几种异步方式的比较（回调、setTimeout、Promise、Generator、async）</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OASIS项目文档</title>
     <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[]]></content>
@@ -689,9 +460,12 @@
 <p>但是当要考虑大数的时候就需要通过String类型来实现，结合dfs：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> printNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">dfs</span>(<span class="params">k</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(k == n)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(num[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                    res.push(num.slice(i, n).join(<span class="string">&#x27;&#x27;</span>));</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            num[k] = i;</span><br><span class="line">            dfs(k + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> num = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        num.push(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">    <span class="keyword">const</span> res = [];</span><br><span class="line">    dfs(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">    <span class="keyword">return</span> [<span class="number">1</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 <li><p>简单的删除链表节点</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">val</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> deleteNode = <span class="function"><span class="keyword">function</span>(<span class="params">head, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> node = head;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(node.val == val)&#123;</span><br><span class="line">        <span class="keyword">return</span> node.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(node.next)&#123;</span><br><span class="line">        <span class="keyword">if</span>(node.next.val == val)&#123;</span><br><span class="line">            node.next = node.next.next;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">val</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> deleteNode = <span class="function"><span class="keyword">function</span>(<span class="params">head, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> node = head;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(node.val == val)&#123;</span><br><span class="line">        <span class="keyword">return</span> node.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(node.next)&#123;</span><br><span class="line">        <span class="keyword">if</span>(node.next.val == val)&#123;</span><br><span class="line">            node.next = node.next.next;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>正则匹配</p>
+<p>请实现一个函数用来匹配包含’. ‘和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但与”aa.a”和”ab*a”均不匹配。</p>
 </li>
 </ol>
+<pre><code><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">p</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isMatch = <span class="function"><span class="keyword">function</span>(<span class="params">s, p</span>) </span>&#123;<span class="comment">//动态规划，慢慢理解，注意边界值。</span></span><br><span class="line">    <span class="keyword">const</span> m = s.length;</span><br><span class="line">    <span class="keyword">const</span> n = p.length;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">matches</span>(<span class="params">i, j</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p[j - <span class="number">1</span>] == <span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s[i - <span class="number">1</span>] == p[j - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> dp = <span class="keyword">new</span> <span class="built_in">Array</span>(m + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; m + <span class="number">1</span>; i++)&#123;</span><br><span class="line">        dp[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n + <span class="number">1</span>; j++)&#123;</span><br><span class="line">            dp[i][j] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt;= m ; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j - <span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>)&#123;</span><br><span class="line">                dp[i][j] |= dp[i][j - <span class="number">2</span>];</span><br><span class="line">                <span class="keyword">if</span>(matches(i, j - <span class="number">1</span>))&#123;</span><br><span class="line">                    dp[i][j] |= dp[i - <span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(matches(i, j))&#123;</span><br><span class="line">                    dp[i][j] |= dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[m][n];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></code></pre>
 ]]></content>
       <categories>
         <category>面经</category>
@@ -699,6 +473,26 @@
       <tags>
         <tag>面经</tag>
         <tag>手撕代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器相关面经汇总</title>
+    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>浏览器输入url之后做了什么？</li>
+<li>xss具体</li>
+<li>csrf具体</li>
+<li>浏览器缓存</li>
+</ol>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -736,26 +530,6 @@
       <tags>
         <tag>毕设</tag>
         <tag>项目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浏览器相关面经汇总</title>
-    <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li>浏览器输入url之后做了什么？</li>
-<li>xss具体</li>
-<li>csrf具体</li>
-<li>浏览器缓存</li>
-</ol>
-<a id="more"></a>
-
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -836,6 +610,314 @@
         <tag>计算机网络</tag>
         <tag>HTTP</tag>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript面经汇总</title>
+    <url>/2021/01/17/Javascript%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li><p>事件代理</p>
+<p>事件委托就是利用事件冒泡，只制定一个时间处理程序，就可以管理某一类型的所有事件。例如我们可以通过在父元素上添加子元素实际要执行的事件，以减少与DOM交互的次数，优化性能</p>
+<p>具体原因看Q21事件冒泡机制</p>
+</li>
+<li><p>请解释Javascript中的this是如何工作的（如何正确判断）</p>
+<p>this简而言之就是指向调用函数的对象，如果是全局调用，则this指向window。</p>
+<p>在call和apply中this指向指定的对象，如果指定的参数是null或undefined，则指向window。</p>
+<p>在箭头函数中，箭头函数是没有this的，因此this指向外层代码的对象。</p>
+<a id="more"></a>
+</li>
+<li><p>原始值和引用值类型以及区别</p>
+<p>JS的原始数据类型有boolean，null，undefined，bigint，number，string，symbol</p>
+<p>引用数据类型：对象Object（普通，数组，正则，日期，数学，函数）</p>
+<p>区别：</p>
+<p>（1）值类型：</p>
+<p>​            1、占用空间固定，保存在栈中（当一个方法执行时，每个方法都会建立自己的内存栈，在这个方法内定义的变量将会逐个放入这块栈内存里，随着方法的执行结束，这个方法的内存栈也将自然销毁了。因此，所有在方法中定义的变量都是放在栈内存中的；栈中存储的是基础变量以及一些对象的引用变量，基础变量的值是存储在栈中，而引用变量存储在栈中的是指向堆中的数组或者对象的地址，这就是为何修改引用类型总会影响到其他指向这个地址的引用变量。）</p>
+<p>​            2、保存与复制的是值本身</p>
+<p>​            3、使用typeof检测数据的类型</p>
+<p>​            4、基本类型数据是值类型</p>
+<p>（2）引用类型：</p>
+<p>​            1、占用空间不固定，保存在堆中（当我们在程序中创建一个对象时，这个对象将被保存到运行时数据区中，以便反复利用（因为对象的创建成本通常较大），这个运行时数据区就是堆内存。堆内存中的对象不会随方法的结束而销毁，即使方法结束后，这个对象还可能被另一个引用变量所引用（方法的参数传递时很常见），则这个对象依然不会被销毁，只有当一个对象没有任何引用变量引用它时，系统的垃圾回收机制才会在核实的时候回收它。）</p>
+<p>​            2、保存与复制的是指向对象的一个指针</p>
+<p>​            3、使用instanceof检测数据类型</p>
+<p>​            4、使用new()方法构造出的对象是引用型</p>
+</li>
+<li><p>闭包与作用域</p>
+<p>闭包是指那些能够访问自由变量的函数。（闭包 = 函数 + 函数能够访问的自由变量）/闭包是指有权访问另外一个函数作用域中的变量的函数</p>
+<p>从实践角度：以下函数才算是闭包：</p>
+<ol>
+<li><p>即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）</p>
+</li>
+<li><p>在代码中引用了自由变量</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  data[i] = (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data[<span class="number">0</span>]();<span class="comment">//0</span></span><br><span class="line">data[<span class="number">1</span>]();<span class="comment">//1</span></span><br><span class="line">data[<span class="number">2</span>]();<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>作用域：JS使用词法（静态）作用域，即函数的作用域在函数定义的时候就被确定了</p>
+</li>
+</ol>
+<p>当JavaScript代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。</p>
+<p>对于每个执行上下文，都有三个重要属性：</p>
+<ul>
+<li>变量对象(Variable object，VO)</li>
+<li>作用域链(Scope chain)</li>
+<li>this</li>
+</ul>
+<p>当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。</p>
+</li>
+<li><p>js继承</p>
+<p>js中的继承需要靠原型来实现。</p>
+<p>但是继承有一个问题是父类的所有属性，子类都会继承，因此使用组合代替继承是非常必要的。</p>
+<p>五种方式实现继承：</p>
+<p>​    call（子类中调用parent.call(this)，只能继承属性，但是不能继承方法）</p>
+<p>​    借助原型链（child.prototype = new parent()，能继承方法，但是多个子类继承自同一个原型对象，属性值同时改变)</p>
+<p>​    前两种组合，但是会导致父类构造函数执行多次</p>
+<p>​    将父类原型给到子类的原型（但是子类的构造函数变成了父类）</p>
+<p>​    寄生组合继承（最优）</p>
+<p>​    </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent5</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">this</span>.name = <span class="string">&#x27;parent5&#x27;</span>;</span><br><span class="line">   <span class="built_in">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>];</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Child5</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   Parent5.call(<span class="built_in">this</span>);</span><br><span class="line">   <span class="built_in">this</span>.type = <span class="string">&#x27;child5&#x27;</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> Child5.prototype = <span class="built_in">Object</span>.create(Parent5.prototype);</span><br><span class="line"> Child5.prototype.constructor = Child5;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="6">
+<li><p>js模块化</p>
+<p>AMD,CMD,ES6</p>
+<p>AMD和CMD都是通过define()定义模块，AMD需要把依赖的模块先写出来，可以通过return暴露接口，CMD在定义模块需要传入require，exports和module这几个参数，要加载某个模块时，使用require进行加载，要暴露接口时，可以通过exports，module.exports和return。</p>
+<p>而es6使用静态化加载而不是运行时加载，通过export和import按需加载（编译时加载）</p>
+</li>
+<li><p>new的原理</p>
+<p>通过new创建对象经历五个步骤：创建一个新对象；设置这个空对象的实例原型；将构造函数的作用域赋给新对象；执行构造函数（赋属性）；返回新对象。</p>
+</li>
+<li><p>null undefined 区别</p>
+<p>null表示”没有对象”，即该处不应该有值。</p>
+<p>​    （1） 作为函数的参数，表示该函数的参数不是对象。</p>
+<p>​    （2） 作为对象原型链的终点。</p>
+<p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<p>​    （1）变量被声明了，但没有赋值时，就等于undefined。</p>
+<p>​    （2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。</p>
+<p>​    （3）对象没有赋值的属性，该属性的值为undefined。</p>
+<p>​    （4）函数没有返回值时，默认返回undefined。</p>
+</li>
+<li><p>IIFE立即执行函数</p>
+<p>立即执行函数即立即执行声明的函数（可以是匿名函数），有两种写法</p>
+<p>列表1:IIFE写法一</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>列表2:IIFE写法二</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建块级（私有）作用域，避免了向全局作用域中添加变量和函数，因此也避免了多人开发中全局变量和函数的命名冲突。</li>
+<li>IIFE中定义的任何变量和函数，都会在执行结束时被销毁，这种做法可以减少闭包占用的内存问题，因为没有指向匿名函数的引用。只要函数执行完毕，就可以立即销毁其作用域链了。</li>
+</ul>
+</li>
+<li><p>原型和原型链</p>
+<p>所谓的原型就是在用构造函数创建对象时就会关联另一个对象A.prototype，并且对象会从这里继承属性。（更多像一种委托，建立关联调用）</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/prototype5.png"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>简而言之构造函数和实例原型之间是原型和构造的关系，对象之间通过__proto__向上调用.</p>
+</li>
+<li><p>深拷贝与浅拷贝</p>
+<p>浅拷贝只拷贝一层对象，但是深拷贝可以通过递归解决对象嵌套的问题</p>
+<p>浅拷贝实现方式：</p>
+<ol>
+<li>手动实现</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> shallowClone = <span class="function">(<span class="params">target</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> target === <span class="string">&#x27;object&#x27;</span> &amp;&amp; target !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">const</span> cloneTarget = <span class="built_in">Array</span>.isArray(target) ? []: &#123;&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">in</span> target)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target.hasOwnProperty(prop))&#123;</span><br><span class="line">                cloneTarget[prop] = target[prop];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneTarget;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Object.assign</li>
+</ol>
+<p>但是需要注意的是，Object.assgin() 拷贝的是对象的属性的引用，而不是对象本身。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;sy&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj, &#123;<span class="attr">name</span>: <span class="string">&#x27;sss&#x27;</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);<span class="comment">//&#123; name: &#x27;sss&#x27;, age: 18 &#125;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>concat浅拷贝数组</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.concat();</span><br><span class="line">newArr[<span class="number">1</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>slice浅拷贝</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.slice();</span><br><span class="line">newArr[<span class="number">0</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>…展开运算符</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = [...arr];<span class="comment">//跟arr.slice()是一样的效果</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<pre><code>深拷贝实现方式
+
+简易版本的是JSON.parse(JSON.stringify())，但是这个方法无法解决循环引用，无法拷贝一些set，map之类的特殊对象，无法拷贝函数。
+
+因此手动实现一个深拷贝(如果属性是对象，则递归;有种特殊情况需注意就是对象存在**循环引用**的情况，即对象的属性直接的引用了自身的情况，解决循环引用问题，我们可以额外开辟一个存储空间，来存储当前对象和拷贝对象的对应关系，当需要拷贝当前对象时，先去存储空间中找，有没有拷贝过这个对象，如果有的话直接返回，如果没有的话继续拷贝。)
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> deepClone = <span class="function">(<span class="params">target, hash = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(target <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(taregt)&#125;</span><br><span class="line">    <span class="keyword">if</span>(target <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>)&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(taregt)&#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> target === <span class="string">&#x27;object&#x27;</span> &amp;&amp; target !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hash.get(target))&#123;<span class="keyword">return</span> hash.get(target);&#125;</span><br><span class="line">        <span class="keyword">const</span> cloneTarget = <span class="built_in">Array</span>.isArray(target) ? []: &#123;&#125;;</span><br><span class="line">        hash.set(target, cloneTarget);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">in</span> target)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target.hasOwnProperty(prop))&#123;</span><br><span class="line">                cloneTarget[prop] = <span class="keyword">typeof</span> target[prop] === <span class="string">&#x27;object&#x27;</span> ? deepClone(target[prop]) : target[prop];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneTarget;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+还有jquery有一个提供$.extend 可以使用Deep Copy；函数库lodash的_.cloneDeep方法。</code></pre>
+<ol start="12">
+<li><p>匿名函数</p>
+<p>匿名函数可以赋值或者自执行（IIFE），使用匿名函数赋值的时候，要先声明再使用。IIFE除了上面的方法，还可以通过{[], +, -, !, ~, void}调用</p>
+</li>
+<li><p>判断数据类型的方式</p>
+<ol>
+<li>typeof返回基本数据类型（除了null），引用类型中除了function返回function，其余返回object；</li>
+<li>toString（）是 Object 的原型方法返回class属性，表示为[Object, Xxx]，除了object其他通过call/apply调用。（window-&gt;global, document-&gt;HTMLDocument）</li>
+<li>constructor指向构造函数引用</li>
+<li>instanceof通过原型链来判断A是否为B的实例（instance of null报错：右边不是一个对象）</li>
+</ol>
+</li>
+<li><p>宿主对象和原生对象</p>
+<p>ECMA-262 把原生对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。</p>
+<p>Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError、ActiveXObject(服务器方面)、Enumerator(集合遍历类)、RegExp（正则表达式）</p>
+<p>由此可以看出，简单来说，原生对象就是 ECMA-262 定义的类（引用类型）。其中有一个子集叫做内置对象Global和Math（所有函数都必须是某个对象的方法）</p>
+<p>所有非原生对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象。所有的 BOM 和 DOM 对象都是宿主对象。document，window， navigator等</p>
+</li>
+<li><p>请指出以下代码的区别：<code>function Person()&#123;&#125;</code>、<code>var person = Person()</code>、<code>var person = new Person()</code>？</p>
+<p>第一个是声明一个函数Person；第二个是把函数的返回值赋给person，如果没有返回值就是undefined；第三个是new一个Person的实例对象。</p>
+</li>
+<li><p>防抖和节流</p>
+<p>简而言之：防抖（debounce）让短时间内的连续触发的事件，在一定的时间间隔中，事件处理函数只执行一次；</p>
+<p>而节流（throttle）就是让函数执行一次之后，在一段时间内失效，然后再生效（可以执行）。</p>
+</li>
+<li><p><code>document.write()</code></p>
+<p>用于向HTML输出流中添加传入的内容，浏览器会顺着html元素顺序依次解析他们，并且显示出来，但是如果在页面渲染完成之后调用（onload），会重写整个document，导致之前所有的内容被覆盖。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(exp1,exp2,exp3,....);</span><br></pre></td></tr></table></figure></li>
+<li><p>Ajax工作原理</p>
+<p>Ajax(Asynchronous Java and XML的缩写)是一种异步请求数据的web开发技术，对于改善用户的体验和页面性能很有帮助。简单地说，在不需要重新刷新页面的情况下，Ajax 通过异步请求加载后台数据，并在网页上呈现出来。常见运用场景有表单验证是否登入成功、百度搜索下拉框提示和快递单号查询等等。</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/v2-320935b9afabe806ff20993ead6c1048_1440w.png"></p>
+</li>
+<li><p>跨域、同源策略及跨域实现方式和原理</p>
+<ol>
+<li><p>同源策略是一种规定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<p>同源策略限制内容有：</p>
+<ul>
+<li>Cookie、LocalStorage、IndexedDB 等存储性内容</li>
+<li>DOM 节点</li>
+<li>AJAX 请求不能发送</li>
+</ul>
+<p>但是有三个标签是允许跨域加载资源：</p>
+<ul>
+<li><code>&lt;img src=XXX&gt;</code></li>
+<li><code>&lt;link href=XXX&gt;</code></li>
+<li><code>&lt;script src=XXX&gt;</code></li>
+</ul>
+<p>第一：如果是协议和端口造成的跨域问题“前台”是无能为力的。</p>
+<p>第二：在跨域问题上，仅仅是通过“URL的首部”来识别而不会根据域名对应的IP地址是否相同来判断。“URL的首部”可以理解为“协议, 域名和端口必须匹配”。</p>
+<p>这里你或许有个疑问：请求跨域了，那么请求到底发出去没有？</p>
+<p>跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会?因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。</p>
+</li>
+<li><p>跨域的九种解决方案</p>
+<ol>
+<li>JSONP</li>
+<li>CORS(CORS 需要浏览器和后端同时支持。)</li>
+<li>postMessage(postMessage是HTML5 XMLHttpRequest Level 2中的API;postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信，可以实现跨文本档、多窗口、跨域消息传递。)</li>
+<li>websocket</li>
+<li>Node中间代理(实现原理：同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。)</li>
+<li>nginx反向代理</li>
+<li>window.name + iframe</li>
+<li>location.hash + iframe</li>
+<li>document.domain + iframe(该方式只能用于二级域名相同的情况下，比如 a.test.com 和 b.test.com 适用于该方式。)</li>
+</ol>
+</li>
+<li><p>总结</p>
+<ul>
+<li>CORS支持所有类型的HTTP请求，是跨域HTTP请求的根本解决方案</li>
+<li>JSONP只支持GET请求，JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。</li>
+<li>不管是Node中间件代理还是nginx反向代理，主要是通过同源策略对服务器不加限制。</li>
+<li>日常工作中，用得比较多的跨域方案是cors和nginx反向代理</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>js中的垃圾回收机制</p>
+<p>js中的垃圾回收是自动进行的，是不可见的。js中的内存管理主要的概念是可达性，根访问不到的都是垃圾。垃圾回收器会监视左右的对象并且删除不可访问的对象。基本的垃圾回收算法为标记-清除，垃圾回收器获取根，标记它，然后逐层访问并且标记引用的对象，最后除了标记过的，其余的都删除。（可以是删除没有标记的，又有一种是删除有标记的）（以前还有一种引用计数，但是引用计数会有循环引用的问题）</p>
+<p>一些优化:</p>
+<ul>
+<li><strong>分代回收</strong>——对象分为两组:“新对象”和“旧对象”。许多对象出现，完成它们的工作并迅速结 ，它们很快就会被清理干净。那些活得足够久的对象，会变“老”，并且很少接受检查。</li>
+<li><strong>增量回收</strong>——如果有很多对象，并且我们试图一次遍历并标记整个对象集，那么可能会花费一些时间，并在执行中会有一定的延迟。因此，引擎试图将垃圾回收分解为多个部分。然后，各个部分分别执行。这需要额外的标记来跟踪变化，这样有很多微小的延迟，而不是很大的延迟。</li>
+<li><strong>空闲时间收集</strong>——垃圾回收器只在 CPU 空闲时运行，以减少对执行的可能影响。</li>
+</ul>
+</li>
+<li><p>冒泡机制</p>
+<p>冒泡机制是指事件从DOM树的底层一层层向上传递，如果要终止传递可以通过对每一个元素进行event.stopPropagation()，或者通过在父元素中去判断targetid，分别作出相应的处理。</p>
+</li>
+<li><p>变量声明提升</p>
+<p>变量声明会从他们在代码中出现的位置被移动到当前作用域的最上方进行执行，这个过程叫做提升。</p>
+<p>函数也存在提升。但是在函数表达式中，由于是赋值，所以不可以提升。</p>
+<p>在提升中有函数优先原则，函数反复声明会覆盖。</p>
+<p>当然在实际编程中，要尽量避免提升问题。</p>
+</li>
+<li><p>document load 和 document DOMContentLoaded</p>
+<p>当浏览器解析完文档就会触发DOMContentLoaded事件，脚本，css都会阻塞解析。</p>
+<p>而当所有资源全部加载完毕之后，才会触发load事件（在DOMContentLoaded事件之后）。</p>
+<p>P.S.为什么要js脚本放在最后（</body>之前)？</p>
+<p>​    其实现代浏览器为了更好的用户体验，渲染引擎将尝试尽快在屏幕上显示的内容。它不会等到所有HTML解析之前开始构建和布局渲染树。部分的内容将被解析并显示。也就是说浏览器能够渲染不完整的dom树和cssom，尽快的减少白屏的时间。假如我们将js放在header，js将阻塞解析dom，dom的内容会影响到First Paint，导致First Paint延后。所以说我们会将js放在后面，以减少First Paint的时间，但是不会减少DOMContentLoaded被触发的时间。</p>
+</li>
+<li><p>== 和 ===有什么不同</p>
+<p>简单来说： == 代表相同， ===代表严格相同, 为啥这么说呢， </p>
+<p>这么理解： 当进行双等号比较时候： 先检查两个操作数数据类型，如果相同， 则进行===比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而===比较时， 如果类型不同，直接就是false.</p>
+<p>操作数1 == 操作数2， 操作数1 === 操作数2</p>
+<p>比较过程：</p>
+<p>　　双等号==： </p>
+<p>　　（1）如果两个值类型相同，再进行三个等号(===)的比较</p>
+<p>　　（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：</p>
+<p>　　　　1）如果一个是null，一个是undefined，那么相等</p>
+<p>　　　　2）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较(或者是boolean)</p>
+<p>　　</p>
+<p>　　三等号===:</p>
+<p>　　（1）如果类型不同，就一定不相等</p>
+<p>　　（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。（判断一个值                是否是NaN，只能使用isNaN( ) 来判断）</p>
+<p>　　（3）如果两个都是字符串，每个位置的字符都一样，那么相等，否则不相等。</p>
+<p>　　（4）如果两个值都是true，或是false，那么相等</p>
+<p>　　（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等</p>
+<p>　　（6）如果两个值都是null，或是undefined，那么相等</p>
+</li>
+<li><p>js中的arguments</p>
+<p>也是一个对象，是一个特殊的对象，属性的名是根据传入参数的序列来的，又叫做类数组对象。（proto属性指向Object.prototype）</p>
+<p>可以通过length判断传入长度，可以索引取值使用参数，可以通过callee属性获取方法完整代码（匿名函数递归）（es4开始禁止？）</p>
+</li>
+<li><p>请解释什么是单页应用 (<code>single page app</code>), 以及如何使其对搜索引擎友好 (<code>SEO-friendly</code>)</p>
+</li>
+<li><p>Promise</p>
+</li>
+<li><p>图片懒加载</p>
+</li>
+<li><p>let var const</p>
+</li>
+<li><p>什么是事件循环机制？</p>
+</li>
+<li><p>函数柯里化</p>
+</li>
+<li><p>箭头函数</p>
+</li>
+<li><p>对象创建的三种方法</p>
+</li>
+<li><p>数组的方法</p>
+</li>
+<li><p>addEventListener和onClick()的区别</p>
+</li>
+<li><p>setTimeout用作倒计时为何会产生误差？</p>
+</li>
+<li><p>DOM的location对象</p>
+</li>
+<li><p>实现页面加载进度条</p>
+</li>
+<li><p><code>strict</code>模式</p>
+</li>
+<li><p>Symbol概念及其作用</p>
+</li>
+<li><p>Set和Map数据结构</p>
+</li>
+<li><p>Proxy</p>
+</li>
+<li><p>Reflect对象</p>
+</li>
+<li><p>循环语法比较及使用场景（for、forEach、for…in、for…of）</p>
+</li>
+<li><p>几种异步方式的比较（回调、setTimeout、Promise、Generator、async）</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>Javascript</tag>
       </tags>
   </entry>
 </search>
