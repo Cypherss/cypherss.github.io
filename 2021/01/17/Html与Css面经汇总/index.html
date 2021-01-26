@@ -28,7 +28,7 @@
 <meta property="og:description" content="HTML DOCTYPE的作用是什么？ DOCTYPE是document type (文档类型) 的缩写。&lt;!DOCTYPE &gt;声明位于文档的最前面，处于标签之前，它不是html标签。主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHTML规范来解析页面。不存在这个声明会导致HTML或XHTML以混杂模式出现，把如何渲染的权力交给了浏览器。 P.S. 严格模式和混杂模式都是浏览器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-17T06:51:43.000Z">
-<meta property="article:modified_time" content="2021-01-25T15:04:21.810Z">
+<meta property="article:modified_time" content="2021-01-26T06:15:24.250Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="html">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-25 23:04:21" itemprop="dateModified" datetime="2021-01-25T23:04:21+08:00">2021-01-25</time>
+                <time title="修改时间：2021-01-26 14:15:24" itemprop="dateModified" datetime="2021-01-26T14:15:24+08:00">2021-01-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,14 +266,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.4k</span>
+              <span>9.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -329,13 +329,26 @@
 </ol>
 </li>
 <li><p>请解释script，script async 和script defer的区别</p>
+<p>script：顺序解析执行</p>
+<p>defer属性：脚本会被延迟到整个页面都解析完再运行，相当于告诉浏览器立即下载，但是延迟执行。会先于DOMContentLoaded事件执行，但是现实中延迟脚本不一定会按照顺序执行，也不一定再DOMContentLoaded之前执行，因此最好只包含一个延迟脚本。defer属性值针对外部脚本文件，同同时考虑到兼容性，把延迟脚本放在页面底部仍然是最佳选择。</p>
+<p>async属性：这个属性同样只适用于外部脚本文件，但与 defer 不同的是，标记为 async 的脚本并不保证按照指定它们的先后顺序执行。指定 async 属性的目的是不让页面等待两个脚本下载和执行，从而异步加载页面其他内容。 为此，建议异步脚本不要在加载期间修改 DOM。 异步脚本一定会在页面的 load 事件前执行，但可能会在 DOMContentLoaded 事件触发之前或之 后执行。</p>
+<p>PS：async下载完立即执行，defer待界面文档解析完成之后执行</p>
 </li>
 <li><p>为什么通常推荐将 CSS <code>&lt;link&gt;</code> 放置在 <code>&lt;head&gt;&lt;/head&gt;</code> 之间，而将 JS <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 之前？你知道有哪些例外吗？</p>
+<p>浏览器在处理HTML页面渲染和JavaScript脚本执行的时候是单一进程的,所以在当浏览器在渲染HTML遇到了<code>&lt;script&gt;</code>标签会先去执行标签内的代码(如果是使用src属性加载的外链文件,则先下载再执行),在这个过程中,页面渲染和交互都会被阻塞。所以将<code>&lt;script&gt;</code>放在<code>&lt;/body&gt;</code>之前,当页面渲染完成再去执行<code>&lt;script&gt;</code>。</p>
+<p>一般希望DOM还没加载必须需要先加载的js会放置在<code>&lt;head&gt;</code>中,有些加了defer、async的<code>&lt;script&gt;</code>也会放在<code>&lt;head&gt;</code>中。</p>
 </li>
 <li><p>什么是渐进式渲染（progressive rendering）？</p>
+<p>渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。</p>
+<p>在以前互联网带宽较小的时期，这种技术更为普遍。如今，移动终端的盛行，而移动网络往往不稳定，渐进式渲染在现代前端开发中仍然有用武之地。</p>
+<p>举例：</p>
+<p>（1）图片懒加载——页面上的图片不会一次性全部加载。当用户滚动页面到图片部分时，JavaScript将加载并显示图像。</p>
+<p>（2）确定显示内容的优先级（<code>分层次渲染</code>）——为了尽快将页面呈现给用户，页面只包含基本的最少量的CSS、脚本和内容，然后可以使用延迟加载脚本或监听DOMContentLoaded/load事件加载其他资源和内容。</p>
+<p>（3）异步加载HTML片段——当页面通过<strong>后台渲染</strong>时，把HTML拆分，通过异步请求，分块发送给浏览器。</p>
 </li>
 <li><p>HTML和XHTML有什么区别？</p>
-</li>
+<p>XHTML比HTML更加严格，只是按照XML的要求来规范HTML</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. XHTML 元素必须被正确地嵌套。</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">正确：<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">2. XHTML 元素必须被关闭。</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">p</span>&gt;</span>this is example.</span><br><span class="line">正确：<span class="tag">&lt;<span class="name">p</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">3. 标签名必须用小写字母。</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">P</span>&gt;</span>this is example.<span class="tag">&lt;<span class="name">P</span>&gt;</span></span><br><span class="line">正确：<span class="tag">&lt;<span class="name">p</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">3.1 空标签也必须被关闭</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">正确：<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">4.XHTML 文档必须拥有根元素。</span><br><span class="line">所有的 XHTML 元素必须被嵌套于 <span class="tag">&lt;<span class="name">html</span>&gt;</span> 根元素中。</span><br><span class="line"></span><br><span class="line">5. XHTML中标签的属性值要使用双引号”。</span><br></pre></td></tr></table></figure></li>
 <li><p>HTML5新标签</p>
 </li>
 <li><p>HTML5新特性</p>
@@ -355,7 +368,7 @@
 </ol>
 <ol start="2">
 <li><p>css权重及其引入方式</p>
-<p>css的引入可以通过行间样式，内部样式表（head中的style标签内）和外部样式表（<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/global.css&quot;&gt;</code>）引入。</p>
+<p>css的引入可以通过行间样式，内部样式表（head中的style标签内），导入（@import）和外部样式表（<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/global.css&quot;&gt;</code>）引入。</p>
 <p>而css权重主要是由数值决定的，权重会叠加，具体对应数值如下：</p>
 <table>
 <thead>
@@ -365,7 +378,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>！important</td>
+<td>！important（css语句后面加）</td>
 <td>Infinity</td>
 </tr>
 <tr>
@@ -445,10 +458,45 @@
 <p>对于需要适配各种移动设备，使用rem，例如只需要适配iPhone和iPad等分辨率差别比较挺大的设备。</p>
 </li>
 <li><p>IFC与BFC</p>
+<p>Box Formatting Context（块级格式化上下文）和Inline Formatting Context</p>
+<p><strong>IFC布局规则</strong>：</p>
+<blockquote>
+<p>在行内格式化上下文中，框(boxes)一个接一个地水平排列，起点是包含块的顶部。水平方向上的 <code>margin</code>，<code>border</code> 和 <code>padding</code>在框之间得到保留。框在垂直方向上可以以不同的方式对齐：它们的顶部或底部对齐，或根据其中文字的基线对齐。包含那些框的长方形区域，会形成一行，叫做行框。</p>
+</blockquote>
+<p><strong>BFC布局规则</strong>：</p>
+<blockquote>
+<ol>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>Box垂直方向的距离由<code>margin</code>决定。属于同一个BFC的两个相邻Box的<code>margin</code>会发生重叠</li>
+<li>每个元素的左外边缘（<code>margin-left</code>)， 与包含块的左边（<code>contain box left</code>）相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。除非这个元素自己形成了一个新的BFC。</li>
+<li>BFC的区域不会与<code>float box</code>重叠。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ol>
+</blockquote>
+<p>块级格式化上下文由以下之一创建：</p>
+<blockquote>
+<ol>
+<li>根元素或其它包含它的元素</li>
+<li>浮动 (元素的 <code>float</code> 不是 <code>none</code>)</li>
+<li>绝对定位的元素 (元素具有 <code>position</code> 为 <code>absolute</code> 或 <code>fixed</code>)</li>
+<li>非块级元素具有 <code>display: inline-block，table-cell, table-caption, flex, inline-flex</code></li>
+<li>块级元素具有<code>overflow</code> ，且值不是 <code>visible</code></li>
+</ol>
+</blockquote>
+<p>BFC的用处为清除浮动，自适应双栏布局，以及消除margin合并之类的能力。（最常见的就是为块级元素添加overflow：hidden）最常见的就是<code>overflow:hidden</code>、<code>float:left/right</code>、<code>position:absolute</code>。也就是说，每次看到这些属性的时候，就代表了该元素以及创建了一个BFC了。</p>
 </li>
 <li><p>盒子模型以及理解</p>
+<p>css布局是基于盒子模型的。都有如下三个属性</p>
+<ul>
+<li><code>padding</code>：即内边距，围绕着内容（比如段落）的空间。</li>
+<li><code>border</code>：即边框，紧接着内边距的线。</li>
+<li><code>margin</code>：即外边距，围绕元素外部的空间。</li>
+</ul>
+<p>W3C标准盒子模型：宽度=内容的宽度（content）+ border + padding + margin<br>低版本IE盒子模型：宽度=内容宽度（content+border+padding）+ margin</p>
 </li>
 <li><p>Less预处理语言</p>
+<p>less是css的扩充，可以通过script或者npm引入，提供了变量（@name），函数，混合模式之类的特性。</p>
 </li>
 <li><p>三列布局</p>
 </li>
@@ -475,6 +523,10 @@
 <li><p>垂直水平居中</p>
 </li>
 <li><p>box-sizing</p>
+<p>语法：box-sizing:content-box|border-box|inherit;</p>
+<p>设置box-sizing:border-box以后，如果想要一个宽度为200px的盒子，那么我们直接设置宽度为200px。当再设置它的左右边框和左右补白后，它的内容区会自动调整（向里缩进）。</p>
+</li>
+<li><p>Sass</p>
 </li>
 </ol>
 
@@ -643,13 +695,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">34k</span>
+    <span title="站点总字数">37k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">31 分钟</span>
+    <span title="站点阅读时长">34 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
