@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210126200149.png">
 <meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210126202303.png">
 <meta property="article:published_time" content="2021-01-17T06:52:11.000Z">
-<meta property="article:modified_time" content="2021-01-26T12:51:40.363Z">
+<meta property="article:modified_time" content="2021-01-27T14:39:07.504Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="Javascript">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-26 20:51:40" itemprop="dateModified" datetime="2021-01-26T20:51:40+08:00">2021-01-26</time>
+                <time title="修改时间：2021-01-27 22:39:07" itemprop="dateModified" datetime="2021-01-27T22:39:07+08:00">2021-01-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,14 +271,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>17k</span>
+              <span>23k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>15 分钟</span>
+              <span>21 分钟</span>
             </span>
 
         </div>
@@ -583,8 +583,8 @@
 <p>图片懒加载实际上就是当页面滚动到当前图片的时候，就进行加载</p>
 <p>首先有几个API：</p>
 <pre><code>                    1. document.documentElement.clientHeight
-                       2. element.offsetTop
-                       3. document.documentElement.scrollTop</code></pre>
+                    2. element.offsetTop
+                    3. document.documentElement.scrollTop</code></pre>
 <p>而懒加载的加载条件就是offsetTop - scrollTop &lt; clientHeight</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>图片懒加载<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        img &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 300px;</span><br><span class="line">            margin-bottom: 20px;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/3.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/4.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/5.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/6.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/7.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/8.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/9.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/10.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;./images/2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> imgs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;img&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">//offsetTop是元素与offsetParent的距离，循环获取直到页面顶部</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">getTop</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> T = e.offsetTop;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">while</span>(e = e.offsetParent) &#123;</span></span><br><span class="line">                T += e.offsetTop;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> T;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">lazyLoad</span>(<span class="params">imgs</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> H = <span class="built_in">document</span>.documentElement.clientHeight;<span class="comment">//获取可视区域高度</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> S = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; imgs.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (H + S &gt; getTop(imgs[i])) &#123;</span></span><br><span class="line"><span class="javascript">                    imgs[i].src = imgs[i].getAttribute(<span class="string">&#x27;data-src&#x27;</span>);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//onscroll()在滚动条滚动的时候触发</span></span></span><br><span class="line">            lazyLoad(imgs);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>更加便捷的一个方式就是通过getBoundingClientRect()，通过返回对象的属性bound.top &lt;= clientHeight（window.innerHeight?）进行判断是不是在视口内。</p>
@@ -703,24 +703,135 @@
 <p>所以意思就是意思就是如果timeout嵌套大于 5层，而时间间隔小于4ms，则时间间隔增加到4ms。</p>
 </li>
 <li><p>DOM的location对象</p>
+<p>Location 对象实际上是 JavaScript 对象，而不是 HTML DOM 对象。</p>
+<p>Location 对象是由 JavaScript runtime engine 自动创建的，包含有关当前 URL 的信息。</p>
+<p>location指示了其所连接对象的url位置。Document和window对象中都有location属性，可以通过window.location和document.location访问。</p>
+<p>location的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">document</span>.location;</span><br><span class="line">url.href = <span class="string">&#x27;https://developer.mozilla.org/en-US/search?q=URL#search-results-close-container&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(url.href);      <span class="comment">// https://developer.mozilla.org/en-US/search?q=URL#search-results-close-container</span></span><br><span class="line"><span class="built_in">console</span>.log(url.protocol);  <span class="comment">// https:</span></span><br><span class="line"><span class="built_in">console</span>.log(url.host);      <span class="comment">// developer.mozilla.org</span></span><br><span class="line"><span class="built_in">console</span>.log(url.hostname);  <span class="comment">// developer.mozilla.org</span></span><br><span class="line"><span class="built_in">console</span>.log(url.port);      <span class="comment">// (blank - https assumes port 443)</span></span><br><span class="line"><span class="built_in">console</span>.log(url.pathname);  <span class="comment">// /en-US/search</span></span><br><span class="line"><span class="built_in">console</span>.log(url.search);    <span class="comment">// ?q=URL</span></span><br><span class="line"><span class="built_in">console</span>.log(url.hash);      <span class="comment">// #search-results-close-container</span></span><br><span class="line"><span class="built_in">console</span>.log(url.origin);    <span class="comment">// https://developer.mozilla.org</span></span><br></pre></td></tr></table></figure>
+<p>方法为assign， reload， replace， toString，其中relace方法要求提供一个URL，使页面跳转到相应的URL，与location.assign()的区别是，location.replace()跳转后的页面不会保存在浏览器历史中，即无法通过返回按钮返回到该页面。</p>
 </li>
 <li><p>call，apply</p>
+<p>每个函数都包含两个非继承而来的方法：call()和apply()；<br>在JavaScript中，call和apply作用是一样的，都是为了改变某个函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部this的指向。</p>
+<p>区别：参数书写方式不同<br>call(thisObj, arg1, arg2, arg3, arg4);<br>apply(thisObj, [args]);<br>thisObj：call和apply第一个参数是一样的，该参数将替代Function类里面的this对象。<br>arg1,arg2….：是一个个的参数，<br>args：一个数组或类数组，是一个参数列表。</p>
+<p><strong>用处就是可以改变函数作用域或者实现继承等</strong></p>
 </li>
 <li><p>实现页面加载进度条</p>
+<ol>
+<li><p>可以通过NProgress实现：<a target="_blank" rel="noopener" href="https://ricostacruz.com/nprogress/">https://ricostacruz.com/nprogress/</a></p>
+</li>
+<li><p>youtube的进度条是通过：</p>
+<p>Ajax：首先页面内容的加载使用的是Ajax异步请求，所以页头那个激光元素可以在内容请求与接收过程中得以展示，不然的话整个页面刷新那就无法实现了；<br>HTML5 History API: 其次我注意到页面地址也是跟着变的。前面提到整个页面是没有刷新的（，但页面地址却更新了，方便你把连接放送给别人时能够打开该页面。这里用到的就是HTML5的History API，通过它可以操作浏览器地址栏的地址，书签及页面状态信息等。<br>CSS3动画属性 ：另外就是红色激光线条本身的实现上，使用了CSS3的动画或者JS写的动画，但更大的可能是两种结合。</p>
+</li>
+</ol>
 </li>
 <li><p><code>strict</code>模式</p>
+<p>所谓的strict模式就是要求强制声明变量，如果不声明就使用就会报出ReferenceError错误。</p>
+<p>开启的方式就是在js代码的最顶上写上一个‘use strict’;</p>
 </li>
 <li><p>Symbol概念及其作用</p>
+<p>Symbol 值通过<code>Symbol</code>函数生成。<code>Symbol</code>函数前不能使用<code>new</code>命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。<code>Symbol</code>函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p>
+<p>ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入<code>Symbol</code>的原因。</p>
+<p>symbol可以用来定义属性，消除魔术字符串等等。</p>
 </li>
 <li><p>Set和Map数据结构</p>
+<p><strong>Set</strong></p>
+<p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<p><code>Set</code>本身是一个构造函数，用来生成 Set 数据结构。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 去除数组的重复成员</span></span><br><span class="line">[...new <span class="built_in">Set</span>(array)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[...new <span class="built_in">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Set中NaN是等于自身的，以及两个对象总是不相等的。</p>
+<p>有has，add，delete，clear方法，同时拥有四个方法可以进行成员的遍历</p>
+<p><strong>WeakSet</strong></p>
+<p>WeakSet 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。</p>
+<p>首先，WeakSet 的成员只能是对象，而不能是其他类型的值。</p>
+<p>其次，WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中。</p>
+<p>WeakSet 是一个构造函数，可以使用<code>new</code>命令，创建 WeakSet 数据结构。</p>
+<p>也有has，add，delete，clear方法，没有size，没有遍历的方法，需要注意的是，当接受数组或者类数组对象作为参数的时候，weakset会将每个数组成员变成自己的成员，也就是说数组中的必须要是对象。</p>
+<p><strong>Map</strong></p>
+<p>JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。为了解决这个问题，ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。</p>
+<p><strong>WeakMap</strong></p>
+<p>和WeakSet同理，有相同的限制（键只能是对象除了null），可以用来部署私有属性以及baocunDOM节点等等。</p>
 </li>
-<li><p>Proxy</p>
-</li>
-<li><p>Reflect对象</p>
+<li><p>Proxy和Reflect对象</p>
+<p><strong>Proxy</strong></p>
+<p>一个 <code>Proxy</code> 对象包装另一个对象并拦截诸如读取/写入属性和其他操作，可以选择自行处理它们，或者透明地允许该对象处理它们。</p>
+<p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>target</code> —— 是要包装的对象，可以是任何东西，包括函数。</li>
+<li><code>handler</code> —— 代理配置：带有“捕捉器”（“traps”，即拦截操作的方法）的对象。比如 <code>get</code> 捕捉器用于读取 <code>target</code> 的属性，<code>set</code> 捕捉器用于写入 <code>target</code> 的属性，等等。</li>
+</ul>
+<p>对 <code>proxy</code> 进行操作，如果在 <code>handler</code> 中存在相应的捕捉器，则它将运行，并且 Proxy 有机会对其进行处理，否则将直接对 target 进行处理。关键的是一定要返回和内建方法相同的返回值否则会报错。</p>
+<p><strong>Reflect</strong></p>
+<p><code>Reflect</code> 是一个内建对象，可简化 <code>Proxy</code> 的创建。</p>
+<p>前面所讲过的内部方法，例如 <code>[[Get]]</code> 和 <code>[[Set]]</code> 等，都只是规范性的，不能直接调用。</p>
+<p><code>Reflect</code> 对象使调用这些内部方法成为了可能。它的方法是内部方法的最小包装。</p>
+<p>Proxy和Reflect可以组合使用，通过Reflect来将操作转发给原始对象，可以解决继承的问题。</p>
+<p>Proxy也可以创建可撤销的代理（revokable），可以随时禁用。</p>
+<p><strong>总结</strong></p>
+<p>Reflect API 旨在补充 Proxy。对于任意 <code>Proxy</code> 捕捉器，都有一个带有相同参数的 <code>Reflect</code> 调用。我们应该使用它们将调用转发给目标对象。</p>
+<p>Proxy 有一些局限性：</p>
+<ul>
+<li>内建对象具有“内部插槽”，对这些对象的访问无法被代理。请参阅上文中的解决方法。</li>
+<li>私有类字段也是如此，因为它们也是在内部使用插槽实现的。因此，代理方法的调用必须具有目标对象作为 <code>this</code> 才能访问它们。</li>
+<li>对象的严格相等性检查 <code>===</code> 无法被拦截。</li>
+<li>性能：基准测试（benchmark）取决于引擎，但通常使用最简单的代理访问属性所需的时间也要长几倍。实际上，这仅对某些“瓶颈”对象来说才重要。</li>
+</ul>
 </li>
 <li><p>循环语法比较及使用场景（for、forEach、for…in、for…of）</p>
+<p><strong>for循环</strong><br>缺点是很麻烦。<br><strong>forEach</strong><br>回调函数参数分别是value,index,array<br>缺点在于无法中途跳出forEach循环，break和return命令都不行。<br><strong>for…in</strong><br>用于遍历所有的可枚举属性，功能类似于Object.keys()，但是遍历不到constructor、length这样的不可枚举属性。<br>缺点：<br>数组的键名为数字，但是for…in循环是以字符串作为键名”0”,“1”,“2”<br>for…in循环主要是为遍历对象而设计的，不适用于遍历数组。<br><strong>for…of</strong><br>for…of是ES6新增的遍历方式，它提供了统一的遍历机制。所有实现了[Symbol.iterator]接口的对象都可以被遍历。for…of循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、Generator 对象，以及字符串<br>优点：1、用法简洁 2、可以和break,continue,return配合使用 3、提供了遍历所有数据结构的统一操作接口。<br>三个遍历器对象：<br>entries() 返回一个遍历器对象，用来遍历[键名, 键值]组成的数组。对于数组，键名就是索引值；对于 Set，键名与键值相同。Map 结构的 Iterator 接口，默认就是调用entries方法。<br>keys() 返回一个遍历器对象，用来遍历所有的键名。<br>values() 返回一个遍历器对象，用来遍历所有的键值。</p>
+<p>并不是所有类似数组的对象都具有 Iterator 接口，一个简便的解决方法，就是使用Array.from方法将其转为数组。</p>
+<p>普通的对象必须要部署接口后才能使用，用for…in可以，用for…of必须加上Object.keys（obj）方法。</p>
+<p><strong>那么什么是可迭代的？</strong></p>
+<ul>
+<li><p>技术上来说，可迭代对象必须实现Symbol.iterator方法。</p>
+<ul>
+<li><code>obj[Symbol.iterator]()</code> 的结果被称为 <strong>迭代器（iterator）</strong>。由它处理进一步的迭代过程。</li>
+<li>一个迭代器必须有 <code>next()</code> 方法，它返回一个 <code>&#123;done: Boolean, value: any&#125;</code> 对象，这里 <code>done:true</code> 表明迭代结束，否则 <code>value</code> 就是下一个值。</li>
+</ul>
+</li>
+<li><p><code>Symbol.iterator</code> 方法会被 <code>for..of</code> 自动调用，但我们也可以直接调用它。</p>
+</li>
+<li><p>内置的可迭代对象例如字符串和数组，都实现了 <code>Symbol.iterator</code>。</p>
+</li>
+<li><p>举个栗子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> range = &#123;</span><br><span class="line">  <span class="keyword">from</span>: <span class="number">1</span>,</span><br><span class="line">  to: <span class="number">5</span>,</span><br><span class="line"></span><br><span class="line">  [<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">    <span class="built_in">this</span>.current = <span class="built_in">this</span>.from;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.current &lt;= <span class="built_in">this</span>.to) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">done</span>: <span class="literal">false</span>, <span class="attr">value</span>: <span class="built_in">this</span>.current++ &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">done</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num <span class="keyword">of</span> range) &#123;</span><br><span class="line">  alert(num); <span class="comment">// 1, 然后是 2, 3, 4, 5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 </li>
 <li><p>几种异步方式的比较（回调、setTimeout、Promise、Generator、async）</p>
+<p>先来了解一下什么是async和await</p>
+<p>函数前面的关键字 <code>async</code> 有两个作用：</p>
+<ol>
+<li>让这个函数总是返回一个 promise。</li>
+<li>允许在该函数内使用 <code>await</code>。</li>
+</ol>
+<p>Promise 前的关键字 <code>await</code> 使 JavaScript 引擎等待该 promise settle，然后：</p>
+<ol>
+<li>如果有 error，就会抛出异常 — 就像那里调用了 <code>throw error</code> 一样。</li>
+<li>否则，就返回结果。</li>
+</ol>
+<p>这两个关键字一起提供了一个很好的用来编写异步代码的框架，这种代码易于阅读也易于编写。</p>
+<p>有了 <code>async/await</code> 之后，我们就几乎不需要使用 <code>promise.then/catch</code>，但是不要忘了它们是基于 promise 的，因为有些时候（例如在最外层作用域）我们不得不使用这些方法。并且，当我们需要同时等待需要任务时，<code>Promise.all</code> 是很好用的。</p>
+<p><strong>接下来就是比较</strong></p>
+<p>回调函数是异步编程最基本的方法，其优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合，流程会很混乱，而且每个任务只能指定一个回调函数。（ <strong>回调并不一定就是异步。他们自己并没有直接关系。</strong>）</p>
+<p>Promise优点就是回调函数写成了链式写法，程序的流程可以看得很清楚，而且有一整套的配套方法，可以实现很多强大的功能。但是缺点是编写复杂。</p>
+<p>SetTimeout存在一个问题就是会存在延迟。</p>
+<p>async是一种promise的更加高级的写法，更加容易理解与扩充，代码更加简洁</p>
+<p>generator生成器函数也是一种可以实现异步的方式，function后加*表示这是一个生成器函数，可以开始和暂停执行，通过返回的内部指针调用next（）方法执行，每一段方法通过yield指定，返回value和done。可以抛出错误。虽然生成器语法简介，但是流程管理却不方便。</p>
+</li>
+<li><p>js中的map()和reduce()方法</p>
+<p>map() 方法：<strong>原数组中的每个元素调用一个指定方法后，返回返回值组成的新数组。</strong></p>
+<p>reduce()方法： <strong>为数组中的每一个元素依次执行回调函数（不包括数组中被删除或从未被赋值的元素），返回一个具体的结果。</strong></p>
+<ul>
+<li>callback （执行数组中每个值的函数，包含四个参数）<ul>
+<li>previousValue （第一项的值或者上一次叠加的结果值，或者是提供的初始值（initialValue））</li>
+<li>currentValue （数组中当前被处理的元素）</li>
+<li>index （当前元素在数组中的索引）</li>
+<li>array （数组本身）</li>
+</ul>
+</li>
+<li>initialValue （作为第一次调用 callback 的第一个参数，可以控制返回值的格式）</li>
+</ul>
 </li>
 </ol>
 
@@ -887,13 +998,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">54k</span>
+    <span title="站点总字数">61k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">49 分钟</span>
+    <span title="站点阅读时长">55 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
