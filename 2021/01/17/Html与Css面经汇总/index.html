@@ -28,7 +28,7 @@
 <meta property="og:description" content="HTML DOCTYPE的作用是什么？ DOCTYPE是document type (文档类型) 的缩写。&lt;!DOCTYPE &gt;声明位于文档的最前面，处于标签之前，它不是html标签。主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHTML规范来解析页面。不存在这个声明会导致HTML或XHTML以混杂模式出现，把如何渲染的权力交给了浏览器。 P.S. 严格模式和混杂模式都是浏览器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-17T06:51:43.000Z">
-<meta property="article:modified_time" content="2021-01-26T06:15:24.250Z">
+<meta property="article:modified_time" content="2021-01-27T09:59:25.723Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="html">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-26 14:15:24" itemprop="dateModified" datetime="2021-01-26T14:15:24+08:00">2021-01-26</time>
+                <time title="修改时间：2021-01-27 17:59:25" itemprop="dateModified" datetime="2021-01-27T17:59:25+08:00">2021-01-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,14 +266,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>9.1k</span>
+              <span>15k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>14 分钟</span>
             </span>
 
         </div>
@@ -350,12 +350,80 @@
 <p>XHTML比HTML更加严格，只是按照XML的要求来规范HTML</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. XHTML 元素必须被正确地嵌套。</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">正确：<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">2. XHTML 元素必须被关闭。</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">p</span>&gt;</span>this is example.</span><br><span class="line">正确：<span class="tag">&lt;<span class="name">p</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">3. 标签名必须用小写字母。</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">P</span>&gt;</span>this is example.<span class="tag">&lt;<span class="name">P</span>&gt;</span></span><br><span class="line">正确：<span class="tag">&lt;<span class="name">p</span>&gt;</span>this is example.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">3.1 空标签也必须被关闭</span><br><span class="line">错误：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">正确：<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">4.XHTML 文档必须拥有根元素。</span><br><span class="line">所有的 XHTML 元素必须被嵌套于 <span class="tag">&lt;<span class="name">html</span>&gt;</span> 根元素中。</span><br><span class="line"></span><br><span class="line">5. XHTML中标签的属性值要使用双引号”。</span><br></pre></td></tr></table></figure></li>
 <li><p>HTML5新标签</p>
+<p>导航链接<code>&lt;nav&gt;</code>，定义文章标签<code>&lt;article&gt;&lt;/article&gt;</code>, 标题<code>&lt;figure&gt;</code>(还可以和<code>&lt;dt&gt;&lt;dd&gt;</code>联合使用，其中<code>&lt;dt&gt;&lt;/dt&gt;</code>是写标题，而<code>&lt;dd&gt;</code>写内容), 对话框或窗口<code>&lt;dialog&gt;</code>, 菜单<code>&lt;menu&gt;</code>, 标题组<code>&lt;hgroup&gt;</code>, 定义小号文本<code>&lt;small&gt;</code>,</p>
+<p>元素的细节<code>&lt;details&gt;</code>, 进度条的标签<code>&lt;progress&gt;</code>, 预定义范围内的度量<code>&lt;meter&gt;</code>, ruby 注释<code>&lt;ruby&gt;</code>.</p>
 </li>
 <li><p>HTML5新特性</p>
+<p>一、语义标签</p>
+<p>二、增强型表单</p>
+<p>三、视频和音频</p>
+<p>四、Canvas绘图</p>
+<p>五、SVG绘图</p>
+<p>六、地理定位</p>
+<p>七、拖放API</p>
+<p>八、WebWorker</p>
+<p>九、WebStorage</p>
+<p>十、WebSocket</p>
 </li>
 <li><p>SEO概念及实现</p>
+<p><strong>SEO简介</strong></p>
+<p>　　全称：Search Engine Optimization，搜索引擎优化。自从有了搜索引擎，SEO便诞生了。</p>
+<p>　　存在的意义：为了提升网页在搜索引擎自然搜索结果中的收录数量以及排序位置而做的优化行为。简言之，就是希望百度等搜索引擎能多多我们收录精心制作后的网站，并且在别人访问时网站能排在前面。</p>
+<p>　　分类：白帽SEO和黑帽SEO。白帽SEO，起到了改良和规范网站设计的作用，使网站对搜索引擎和用户更加友好，并且网站也能从搜索引擎中获取合理的流量，这是搜索引擎鼓励和支持的。黑帽SEO，利用和放大搜索引擎政策缺陷来获取更多用户的访问量，这类行为大多是欺骗搜索引擎，一般搜索引擎公司是不支持与鼓励的。本文针对白帽SEO，那么白帽SEO能做什么呢？</p>
+<p>　　1. 对网站的标题、关键字、描述精心设置，反映网站的定位，让搜索引擎明白网站是做什么的；</p>
+<p>　　2. 网站内容优化：内容与关键字的对应，增加关键字的密度；</p>
+<p>　　3. 在网站上合理设置Robot.txt文件；</p>
+<p>　　4. 生成针对搜索引擎友好的网站地图；</p>
+<p>　　5. 增加外部链接，到各个网站上宣传；</p>
+<p><strong>SEO使用</strong></p>
+<ol>
+<li><p>网站结构布局优化：尽量简单、开门见山，提倡扁平化结构。</p>
+<p> 　1. 控制首页链接数量<br>   　2. 扁平化的目录层次<br>   　3. 导航优化（图片导航添加alt，title等属性、面包屑导航）<br>   　4. 网站的结构布局<br>   　5. 控制页面的大小，减少http请求，提高网站的加载速度。</p>
+</li>
+<li><p>网页代码优化</p>
+<p>1.<code>&lt;title&gt;</code>标题</p>
+<p>2.<code>&lt;meta keywords&gt;</code>标签</p>
+<p>3.<code>&lt;meta description&gt;</code>标签</p>
+<p>4.<code>&lt;body&gt;</code>中的标签：尽量让代码语义化</p>
+<p>5.<code>&lt;a&gt;</code>标签：页内链接，要加 “title” 属性加以说明，让访客和 “蜘蛛” 知道。而外部链接，链接到其他网站的，则需要加上 el=”nofollow” 属性, 告诉 “蜘蛛” 不要爬，因为一旦“蜘蛛”爬了外部链接之后，就不会再回来了。</p>
+<p>6.正文标题要用<code>&lt;h1&gt;</code>标签：“蜘蛛” 认为它最重要，若不喜欢<code>&lt;h1&gt;</code>的默认样式可以通过CSS设置。尽量做到正文标题用<code>&lt;h1&gt;</code>标签，副标题用<code>&lt;h2&gt;</code>标签, 而其它地方不应该随便乱用 h 标题标签。</p>
+<p>7.<code>&lt;br&gt;</code>标签：只用于文本内容的换行</p>
+<p>8.表格应该使用<code>&lt;caption&gt;</code>表格标题标签</p>
+<p>9.<code>&lt;img&gt;</code>应使用 “alt” 属性加以说明</p>
+<p>10.<code>&lt;strong&gt;</code>、<code>&lt;em&gt;</code>标签 : 需要强调时使用。<code>&lt;strong&gt;</code>标签在搜索引擎中能够得到高度的重视，它能突出关键词，表现重要的内容，<code>&lt;em&gt;</code>标签强调效果仅次于<code>&lt;strong&gt;</code>标签。<code>&lt;b&gt;</code>、<code>&lt;i&gt;</code>标签: 只是用于显示效果时使用，在SEO中不会起任何效果。</p>
+<p>11.文本缩进不要使用特殊符号 &nbsp; 应当使用CSS进行设置。版权符号不要使用特殊符号 &copy; 可以直接使用输入法，拼“banquan”，选择序号5就能打出版权符号©。</p>
+<p>12.巧妙利用CSS布局，将重要内容的HTML代码放在最前面，最前面的内容被认为是最重要的，优先让“蜘蛛”读取，进行内容关键词抓取。</p>
+<p>13.重要内容不要用JS输出，因为“蜘蛛”不认识</p>
+<p>14.尽量少使用iframe框架,因为“蜘蛛”一般不会读取其中的内容</p>
+<p>15.谨慎使用 display：none ：对于不想显示的文字内容，应当设置z-index或设置到浏览器显示器之外。因为搜索引擎会过滤掉display:none其中的内容。</p>
+<p>16.不断精简代码</p>
+<p>17.js代码如果是操作DOM操作，应尽量放在body结束标签之前，html代码之后。</p>
+<ol start="18">
+<li>table布局对SEO不友好</li>
+</ol>
+</li>
+</ol>
 </li>
 <li><p>web worker和web socket</p>
+<p>web socket提供更高效的传输协议，web worker提供多线程提高web应用计算效率。</p>
+<p><strong>一.web socket</strong></p>
+<p>1.web socket是一种协议，本质上和http，tcp一样。协议是用来说明数据是如何传输的,写过一个小的在线聊天使用了socket.io，之后总结这个项目。</p>
+<p>2.web socket的前缀有两种：（1）ws://  不是加密的。 (2)wss://  是加密的。</p>
+<p>3.客户端和服务端进行web socket交互的方式也可以理解为“http握手 + tcp数据传输”的方式：</p>
+<p>（1）浏览器（支持Websocket的浏览器）像HTTP一样，发起一个请求，然后等待服务端的响应；</p>
+<p>（2）服务器返回握手响应，告诉浏览器请将后续的数据按照websocket制定的数据格式传过来；</p>
+<p>（3）浏览器和服务器的socket连接不中断，此时这个连接和http不同的是它是双工的了；</p>
+<p>（4）浏览器和服务器有任何需要传递的数据的时候使用这个长连接进行数据传递。</p>
+<p>4.<strong>websocket的数据传输形式</strong>是：frame。比如会将一条消息分为几个frame，按照先后顺序传输出去。这样做会有几个好处：</p>
+<p>（1）大数据的传输可以分片传输，不用考虑到数据大小导致的长度标志位不足够的情况。</p>
+<p>（2）和http的chunk一样，可以边生成数据边传递消息，即提高传输效率。</p>
+<p>5.客户端使用web socket的语法：JavaScript。</p>
+<p>  服务端：多种web框架</p>
+<p><strong>二.web worker</strong></p>
+<p>1.当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。</p>
+<p>而web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。</p>
+<p><strong>除了DOM操作之外</strong>，理论上任何JS脚本任务都可放入worker中执行；语法上的限制，则是<strong>不能跨域访问JS</strong>。worker常用于需要消耗大量时间和CPU资源的复杂计算，以换来前台用户操作的友好型；换句话说，从用户体验上看，<strong>提高了服务性能</strong>。</p>
+<p>2.web worker使用：(当我们创建 web worker 对象后，它会继续监听消息（即使在外部脚本完成之后）直到其被终止为止。) 通过向 web worker 添加一个 “onmessage” 事件监听器来获取接受到的消息。发送消息：postMessage()。终止 web worker，并释放浏览器/计算机资源: terminate()。</p>
 </li>
 </ol>
 <hr>
@@ -499,14 +567,35 @@
 <p>less是css的扩充，可以通过script或者npm引入，提供了变量（@name），函数，混合模式之类的特性。</p>
 </li>
 <li><p>三列布局</p>
-</li>
+<p>在这里只讨论两列定宽一列自适应的场景。</p>
+<p>可以通过float + margin; float + overflow; table; flex; grid五种方式去实现，这里展示一下flex；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-id">#parent</span> &#123;</span></span><br><span class="line">    height: 500px;</span><br><span class="line">    display: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-id">#left</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">margin-right</span>: 10<span class="selector-tag">px</span>;  <span class="comment">/*间距*/</span></span></span><br><span class="line">    width: 100px;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#f00</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-id">#center</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">margin-right</span>: 10<span class="selector-tag">px</span>;  <span class="comment">/*间距*/</span></span></span><br><span class="line">    width: 200px;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#eeff2b</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-id">#right</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">flex</span>: 1;  <span class="comment">/*均分#parent剩余的部分达到自适应*/</span></span></span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#0f0</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;parent&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;left&quot;</span>&gt;</span>左列定宽<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;center&quot;</span>&gt;</span>中间定宽<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;right&quot;</span>&gt;</span>右列自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>圣杯布局和双飞翼布局的实现</p>
+<p>这两个问题其实是三列布局中的固定两边中间自适应的问题</p>
+<p>首先是圣杯布局，使用flex是最简单的方式，当然还可以通过float，绝对定位，grid之类的方法，这里看一下flex的方式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    *&#123;</span><br><span class="line">      margin: 0;</span><br><span class="line">      padding: 0;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.header</span>,<span class="selector-class">.footer</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">height</span><span class="selector-pseudo">:40px</span>;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background</span><span class="selector-pseudo">:red</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.container</span>&#123;</span></span><br><span class="line">        display: flex;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.middle</span>&#123;</span></span><br><span class="line">        flex: 1;</span><br><span class="line"><span class="css">        <span class="selector-tag">background</span><span class="selector-pseudo">:yellow</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.left</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">width</span><span class="selector-pseudo">:200px</span>;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background</span><span class="selector-pseudo">:pink</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">        background: aqua;</span><br><span class="line"><span class="css">        <span class="selector-tag">width</span><span class="selector-pseudo">:300px</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span>这里是头部<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>左边<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;middle&quot;</span>&gt;</span>中间部分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>右边<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span>这里是底部<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后是双飞翼布局，通过float布局完成</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    *&#123;</span><br><span class="line">      margin: 0;</span><br><span class="line">      padding: 0;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">        min-width: 600px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.left</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 400px;</span><br><span class="line">        background: red;</span><br><span class="line">        margin-left: -100%;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.center</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 500px;</span><br><span class="line">        background: yellow;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.center</span> <span class="selector-class">.inner</span> &#123;</span></span><br><span class="line">        margin: 0 200px; </span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.right</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 400px;</span><br><span class="line">        background: blue;</span><br><span class="line">        margin-left: -200px;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span>双飞翼布局<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
 </li>
+</ol>
+<ol start="12">
 <li><p>margin塌陷及合并问题</p>
-</li>
-<li><p>定位方式以及区别</p>
+<p>所谓的margin塌陷是指父子嵌套元素在垂直方向的margin，父子元素是结合在一起的，margin会取最大值。</p>
+<p>可以通过设置padding，border或者触发BFC来解决。</p>
+<p>而margin合并是指兄弟结构的两个元素在垂直方向上的margin是会合并的。解决方式也是通过BFC，但是在实际开发中，最好不要采用这种改变DOM结构的方式，而是通过只设置一个margin来调节。</p>
 </li>
 <li><p>vh与vw</p>
+<p><strong>视口单位(Viewport units)</strong></p>
+<p>什么是视口？ </p>
+<p>在桌面端，视口指的是在桌面端，指的是浏览器的可视区域；而在移动端，它涉及3个视口：Layout Viewport（布局视口），Visual Viewport（视觉视口），Ideal Viewport（理想视口）。</p>
+<p>视口单位中的“视口”，桌面端指的是浏览器的可视区域；移动端指的就是Viewport中的Layout Viewport, <strong>“视区”所指为浏览器内部的可视区域大小</strong>，即<code>window.innerWidth/window.innerHeight</code>大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小。</p>
+<p>根据CSS3规范，视口单位主要包括以下4个：</p>
+<p>   1.vw：1vw等于视口宽度的1%。</p>
+<p>   2.vh：1vh等于视口高度的1%。</p>
+<p>   3.vmin：选取vw和vh中最小的那个。（一百等分）</p>
+<p>   4.vmax：选取vw和vh中最大的那个。（一百等分）</p>
 </li>
 <li><p>如何实现响应式布局</p>
 </li>
@@ -527,6 +616,8 @@
 <p>设置box-sizing:border-box以后，如果想要一个宽度为200px的盒子，那么我们直接设置宽度为200px。当再设置它的左右边框和左右补白后，它的内容区会自动调整（向里缩进）。</p>
 </li>
 <li><p>Sass</p>
+</li>
+<li><p>transform</p>
 </li>
 </ol>
 
@@ -695,13 +786,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">48k</span>
+    <span title="站点总字数">54k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">44 分钟</span>
+    <span title="站点阅读时长">49 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
