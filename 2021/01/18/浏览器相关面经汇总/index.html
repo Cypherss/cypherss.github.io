@@ -20,19 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="浏览器输入url之后做了什么？ xss具体 csrf具体 浏览器缓存">
+  <meta name="description" content="浏览器输入url之后做了什么？ 通过三张图去理解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器相关面经汇总">
 <meta property="og:url" content="http://example.com/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Cypherss&#39;s Blog">
-<meta property="og:description" content="浏览器输入url之后做了什么？ xss具体 csrf具体 浏览器缓存">
+<meta property="og:description" content="浏览器输入url之后做了什么？ 通过三张图去理解">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210128204022.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210128204034.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210128204044.png">
 <meta property="article:published_time" content="2021-01-18T05:19:03.000Z">
-<meta property="article:modified_time" content="2021-01-19T14:15:57.440Z">
+<meta property="article:modified_time" content="2021-01-28T12:42:36.921Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="浏览器">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210128204022.png">
 
 <link rel="canonical" href="http://example.com/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/">
 
@@ -226,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-19 22:15:57" itemprop="dateModified" datetime="2021-01-19T22:15:57+08:00">2021-01-19</time>
+                <time title="修改时间：2021-01-28 20:42:36" itemprop="dateModified" datetime="2021-01-28T20:42:36+08:00">2021-01-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,7 +269,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>31</span>
+              <span>661</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -285,13 +289,60 @@
 
       
         <ol>
-<li>浏览器输入url之后做了什么？</li>
-<li>xss具体</li>
-<li>csrf具体</li>
-<li>浏览器缓存</li>
-</ol>
+<li><p>浏览器输入url之后做了什么？</p>
+<p>通过三张图去理解</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210128204022.png"></p>
 <a id="more"></a>
 
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210128204034.png"></p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210128204044.png"></p>
+</li>
+<li><p>xss具体</p>
+<p><code>XSS</code> 全称是 <code>Cross Site Scripting</code>(即<code>跨站脚本</code>)</p>
+<p><code>XSS</code> 攻击是指浏览器中执行恶意脚本, 然后拿到用户的信息进行操作。主要分为<code>存储型</code>、<code>反射型</code>和<code>文档型</code>。可以做到：</p>
+<ol>
+<li>窃取<code>Cookie</code>。</li>
+<li>监听用户行为，比如输入账号密码后直接发送到黑客服务器。</li>
+<li>修改 DOM 伪造登录表单。</li>
+<li>在页面中生成浮窗广告。</li>
+</ol>
+<p>防范的措施包括:</p>
+<ul>
+<li>一个信念: 不要相信用户的输入，对输入内容转码或者过滤，让其不可执行。</li>
+<li>两个利用: 利用 CSP，利用 Cookie 的 HttpOnly 属性。</li>
+</ul>
+</li>
+<li><p>csrf具体</p>
+<p>CSRF(Cross-site request forgery), 即跨站请求伪造，指的是黑客诱导用户点击链接，打开黑客的网站，然后黑客利用用户目前的登录状态发起跨站请求。</p>
+<p><code>CSRF</code>攻击一般会有三种方式:</p>
+<ul>
+<li>自动 GET 请求</li>
+<li>自动 POST 请求</li>
+<li>诱导点击发送 GET 请求。</li>
+</ul>
+<p>防范措施: <code>利用 Cookie 的 SameSite 属性</code>、<code>验证来源站点</code>和<code>CSRF Token</code>。</p>
+</li>
+<li><p>浏览器缓存</p>
+<p>首先通过 <code>Cache-Control</code> 验证强缓存是否可用</p>
+<ul>
+<li>如果强缓存可用，直接使用</li>
+<li>否则进入协商缓存，即发送 HTTP 请求，服务器通过请求头中的If-Modified-Since或者If-None-Match字段检查资源是否更新<ul>
+<li>若资源更新，返回资源和200状态码</li>
+<li>否则，返回304，告诉浏览器直接从缓存获取资源</li>
+</ul>
+</li>
+</ul>
+<p>浏览器中的缓存位置一共有四种，按优先级从高到低排列分别是：</p>
+<ul>
+<li>Service Worker离线缓存</li>
+<li>Memory Cache内存</li>
+<li>Disk Cache磁盘</li>
+<li>Push Cache推送缓存</li>
+</ul>
+</li>
+<li><p>浏览器本地存储</p>
+</li>
+</ol>
 
     </div>
 
@@ -456,13 +507,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">71k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">1:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

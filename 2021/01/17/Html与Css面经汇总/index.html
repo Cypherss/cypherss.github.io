@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="Cypherss&#39;s Blog">
 <meta property="og:description" content="HTML DOCTYPE的作用是什么？ DOCTYPE是document type (文档类型) 的缩写。&lt;!DOCTYPE &gt;声明位于文档的最前面，处于标签之前，它不是html标签。主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHTML规范来解析页面。不存在这个声明会导致HTML或XHTML以混杂模式出现，把如何渲染的权力交给了浏览器。 P.S. 严格模式和混杂模式都是浏览器">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/2149627777-5ad6b873234bb_articlex.png">
 <meta property="article:published_time" content="2021-01-17T06:51:43.000Z">
-<meta property="article:modified_time" content="2021-01-27T09:59:25.723Z">
+<meta property="article:modified_time" content="2021-01-28T10:01:24.375Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="html">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/2149627777-5ad6b873234bb_articlex.png">
 
 <link rel="canonical" href="http://example.com/2021/01/17/Html%E4%B8%8ECss%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/">
 
@@ -227,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-27 17:59:25" itemprop="dateModified" datetime="2021-01-27T17:59:25+08:00">2021-01-27</time>
+                <time title="修改时间：2021-01-28 18:01:24" itemprop="dateModified" datetime="2021-01-28T18:01:24+08:00">2021-01-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,14 +268,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>15k</span>
+              <span>19k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>14 分钟</span>
+              <span>17 分钟</span>
             </span>
 
         </div>
@@ -496,8 +498,6 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">flex</span>;</span><br></pre></td></tr></table></figure>
 <p>具体的flex布局的容器和项目的属性在这篇博客上有很好的介绍：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
 </li>
-</ol>
-<ol start="6">
 <li><p>px、em、rem的区别</p>
 <p><strong>px像素（Pixel）</strong>。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
 <p>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
@@ -598,26 +598,113 @@
 <p>   4.vmax：选取vw和vh中最大的那个。（一百等分）</p>
 </li>
 <li><p>如何实现响应式布局</p>
-</li>
+<p>Responsive design，意在实现不同屏幕分辨率的终端上浏览网页的不同展示方式。通过响应式设计能使网站在手机和平板电脑上有更好的浏览阅读体验。</p>
+<h4 id="（一）em、rem"><a href="#（一）em、rem" class="headerlink" title="（一）em、rem"></a>（一）em、rem</h4><h3 id="通过rem来实现响应式布局"><a href="#通过rem来实现响应式布局" class="headerlink" title="通过rem来实现响应式布局"></a>通过rem来实现响应式布局</h3><p>rem单位都是相对于根元素html的font-size来决定大小的，根元素的font-size相当于提供了一个基准，当页面的size发生变化时，只需要改变font-size的值，那么以rem为固定单位的元素的大小也会发生响应的变化。</p>
+<p>因此，如果通过rem来实现响应式的布局，只需要<strong>根据视图容器的大小，动态的改变font-size即可</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function refreshRem() &#123;</span><br><span class="line">    var docEl &#x3D; doc.documentElement;</span><br><span class="line">    var width &#x3D; docEl.getBoundingClientRect().width;</span><br><span class="line">    var rem &#x3D; width &#x2F; 10;</span><br><span class="line">    docEl.style.fontSize &#x3D; rem + &#39;px&#39;;</span><br><span class="line">    flexible.rem &#x3D; win.rem &#x3D; rem;</span><br><span class="line">&#125;</span><br><span class="line">win.addEventListener(&#39;resize&#39;, refreshRem);</span><br></pre></td></tr></table></figure>
+<h4 id="（二）flex弹性盒模型"><a href="#（二）flex弹性盒模型" class="headerlink" title="（二）flex弹性盒模型"></a>（二）flex弹性盒模型</h4><h4 id="（三）媒体查询"><a href="#（三）媒体查询" class="headerlink" title="（三）媒体查询"></a>（三）媒体查询</h4><p>使用@media媒体查询可以针对不同的媒体类型定义不同的样式，特别是响应式页面，可以针对不同屏幕的大小，编写多套样式，从而达到自适应的效果。</p>
+<p>设置步骤如下：</p>
+<h5 id="1-设置-Meta-标签"><a href="#1-设置-Meta-标签" class="headerlink" title="1. 设置 Meta 标签"></a>1. 设置 Meta 标签</h5><p>大多数移动浏览器将<a target="_blank" rel="noopener" href="http://caibaojian.com/t/html">HTML</a>页面放大为宽的视图（viewport）以符合屏幕分辨率。你可以使用视图的meta标签来进行重置。下面的视图标签告诉浏览器，使用设备的宽度作为视图宽度并禁止初始的缩放。在<code>&lt;head&gt;</code>标签里加入这个meta标签。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1, maximum-scale&#x3D;1, user-scalable&#x3D;no&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>（user-scalable = no 属性能够解决 iPad 切换横屏之后触摸才能回到具体尺寸的问题。 ）<a target="_blank" rel="noopener" href="http://caibaojian.com/356.html">·</a></p>
+<h5 id="2-通过媒介查询来设置样式-Media-Queries"><a href="#2-通过媒介查询来设置样式-Media-Queries" class="headerlink" title="2. 通过媒介查询来设置样式 Media Queries"></a>2. 通过媒介查询来设置样式 Media Queries</h5><p>Media Queries 是响应式设计的核心。</p>
+<p>它根据条件告诉浏览器如何为指定视图宽度渲染页面。假如一个终端的分辨率小于 980px，那么可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width: 980px) &#123;</span><br><span class="line">  #head &#123; … &#125;</span><br><span class="line">  #content &#123; … &#125;</span><br><span class="line">  #footer &#123; … &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的样式就会覆盖上面已经定义好的样式。</p>
+<h5 id="3-设置多种试图宽度"><a href="#3-设置多种试图宽度" class="headerlink" title="3. 设置多种试图宽度"></a>3. 设置多种试图宽度</h5><p>如果需要设定兼容 iPad 和 iphone 的视图，那么可以这样设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;** iPad **&#x2F;</span><br><span class="line">@media only screen and (min-width: 768px) and (max-width: 1024px) &#123;&#125;</span><br><span class="line">&#x2F;** iPhone **&#x2F;</span><br><span class="line">@media only screen and (min-width: 320px) and (max-width: 767px) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（四）使用百分比布局"><a href="#（四）使用百分比布局" class="headerlink" title="（四）使用百分比布局"></a>（四）使用百分比布局</h4><h4 id="（五）通过vw-vh来实现自适应"><a href="#（五）通过vw-vh来实现自适应" class="headerlink" title="（五）通过vw/vh来实现自适应"></a>（五）通过vw/vh来实现自适应</h4></li>
 <li><p>z-index和叠加上下文是如何形成的</p>
-</li>
-<li><p>媒体查询</p>
+<p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。</p>
+<p>层叠上下文的概念：<br>层叠上下文就是html中的一个三维概念。相当于在水平面创建了一个z轴，有了层叠上下文的元素会离用户更近。它包含了一组层叠层的元素。我们所创建的每一个网页都有一个默认的层叠上下文，层叠上下文的根就是html，其他的所有元素都会在这个层叠上下文占据一个层叠水平，或高或低。</p>
+<p>层叠顺序：<br>层叠顺序：这是一种规则，表示元素发生重叠时，在z轴上的显示顺序。<br>在一个层叠上下文中，有七种层叠顺序:</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/2149627777-5ad6b873234bb_articlex.png"></p>
+<p>文档中的层叠上下文由满足以下任意一个条件的元素形成：</p>
+<ol>
+<li>根元素 (HTML),</li>
+<li>z-index 值不为 “auto”的 绝对/相对定位，</li>
+<li>一个 z-index 值不为 “auto”的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex，</li>
+<li>opacity 属性值小于 1 的元素</li>
+<li>transform 属性值不为 “none”的元素，</li>
+<li>mix-blend-mode 属性值不为 “normal”的元素，</li>
+<li>filter值不为“none”的元素，</li>
+<li>perspective值不为“none”的元素，</li>
+<li>isolation 属性被设置为 “isolate”的元素，</li>
+<li>position: fixed</li>
+<li>在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值（参考 这篇文章）</li>
+<li>-webkit-overflow-scrolling 属性被设置 “touch”的元素</li>
+</ol>
 </li>
 <li><p>display以及相关属性</p>
+<p>display 属性规定元素应该生成的框的类型。</p>
+<table>
+<thead>
+<tr>
+<th>none</th>
+<th>此元素不会被显示。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>block</td>
+<td>此元素将显示为块级元素，此元素前后会带有换行符。</td>
+</tr>
+<tr>
+<td>inline</td>
+<td>默认。此元素会被显示为内联元素，元素前后没有换行符。</td>
+</tr>
+<tr>
+<td>inline-block</td>
+<td>行内块元素。（CSS2.1 新增的值）</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>弹性布局等等</td>
+</tr>
+</tbody></table>
 </li>
 <li><p>如何实现一个高性能css动画效果</p>
+<p><strong>尽可能多的利用硬件能力，如使用3D变形来开启GPU加速</strong></p>
+<p><strong>尽可能少的使用box-shadows与gradients</strong></p>
+<p><strong>尽可能的让动画元素不在文档流中，以减少重排</strong></p>
+<p><strong>优化 DOM layout 性能</strong></p>
 </li>
 <li><p>css3动画</p>
+<p>@keyframes 规则是创建动画。</p>
+<p>@keyframes 规则内指定一个 CSS 样式和动画将逐步从目前的样式更改为新的样式。</p>
+<p>当在 <strong>@keyframes</strong> 创建动画，把它绑定到一个选择器，否则动画不会有任何效果。</p>
+<p>指定至少这两个CSS3的动画属性绑定向一个选择器：</p>
+<ul>
+<li>规定动画的名称</li>
+<li>规定动画的时长</li>
+</ul>
+<p>用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”，等同于 0% 和 100%。</p>
+<p>0% 是动画的开始，100% 是动画的完成。</p>
 </li>
 <li><p>垂直水平居中</p>
+<p>垂直和水平居中都可以通过align属性，table-cell，flex，以及绝对定位来实现</p>
+<p>这里展现一下flex以及绝对定位</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">绝对定位：</span><br><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="comment">/*定宽高时等同于margin-left:负自身宽度一半;margin-top:负自身高度一半;*/</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>); </span><br><span class="line">&#125;</span><br><span class="line">或</span><br><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">flex</span>：</span><br><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line">或</span><br><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line">或</span><br><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span>&#123;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>总结</strong></p>
+<p>一般情况下，水平垂直居中，我们最常用的就是绝对定位加负边距了，缺点就是需要知道宽高，使用transform倒是可以不需要，但是兼容性不好（ie9+）；</p>
+<p>其次就是绝对居中，绝对定位设置top、left、right、bottom为0，然后<code>margin:auto;</code> 让浏览器自动平分边距以达到水平垂直居中的目的；</p>
+<p>如果是行内/行内块级/图片这些内容，可以优先考虑<code>line-height</code>和<code>vertical-align</code> 结合使用，不要忘了还有<code>text-align</code> ，这个方法代码其实不多，就是理解原理有点困难，想要熟练应对各种情况还需好好研究；</p>
+<p>移动端兼容性允许的情况下能用flex就用flex。</p>
 </li>
 <li><p>box-sizing</p>
 <p>语法：box-sizing:content-box|border-box|inherit;</p>
 <p>设置box-sizing:border-box以后，如果想要一个宽度为200px的盒子，那么我们直接设置宽度为200px。当再设置它的左右边框和左右补白后，它的内容区会自动调整（向里缩进）。</p>
 </li>
 <li><p>Sass</p>
+<p>Sass 是一个 CSS 预处理器。</p>
+<p>Sass 是 CSS 扩展语言，可以帮助我们减少 CSS 重复的代码，节省开发时间。</p>
+<p>Sass 完全兼容所有版本的 CSS。</p>
+<p>Sass 扩展了 CSS3，增加了规则、变量、混入、选择器、继承、内置函数等等特性。</p>
+<p>Sass 生成良好格式化的 CSS 代码，易于组织和维护。</p>
+<p>Sass 文件后缀为 <strong>.scss</strong>。</p>
+<p>Sass可以@import等等。</p>
 </li>
 <li><p>transform</p>
+<p>Transform字面上就是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转rotate、扭曲skew、缩放scale和移动translate以及矩阵变形matrix。</p>
 </li>
 </ol>
 
@@ -712,7 +799,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getAttribute-%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">getAttribute 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">dataset 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#px-%E4%B8%8E-rem-%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">px 与 rem 的选择？</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getAttribute-%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">getAttribute 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">dataset 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#px-%E4%B8%8E-rem-%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">px 与 rem 的选择？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89em%E3%80%81rem"><span class="nav-number">2.1.1.</span> <span class="nav-text">（一）em、rem</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87rem%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80"><span class="nav-number">2.2.</span> <span class="nav-text">通过rem来实现响应式布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89flex%E5%BC%B9%E6%80%A7%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">（二）flex弹性盒模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.2.2.</span> <span class="nav-text">（三）媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%BE%E7%BD%AE-Meta-%E6%A0%87%E7%AD%BE"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">1. 设置 Meta 标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E9%80%9A%E8%BF%87%E5%AA%92%E4%BB%8B%E6%9F%A5%E8%AF%A2%E6%9D%A5%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F-Media-Queries"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">2. 通过媒介查询来设置样式 Media Queries</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%AE%BE%E7%BD%AE%E5%A4%9A%E7%A7%8D%E8%AF%95%E5%9B%BE%E5%AE%BD%E5%BA%A6"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">3. 设置多种试图宽度</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E4%BD%BF%E7%94%A8%E7%99%BE%E5%88%86%E6%AF%94%E5%B8%83%E5%B1%80"><span class="nav-number">2.2.3.</span> <span class="nav-text">（四）使用百分比布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E9%80%9A%E8%BF%87vw-vh%E6%9D%A5%E5%AE%9E%E7%8E%B0%E8%87%AA%E9%80%82%E5%BA%94"><span class="nav-number">2.2.4.</span> <span class="nav-text">（五）通过vw&#x2F;vh来实现自适应</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -786,13 +873,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">71k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">1:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

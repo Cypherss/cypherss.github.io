@@ -20,21 +20,26 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="TCP&#x2F;IP协议分层管理  三次握手四次挥手机制及原因  HTTP方法  GET和POST的区别  HTTP建立持久连接的意义  HTTP报文的结构  HTTP状态码  Web服务器及其组成  HTTP报文首部  HTTP通用首部字段">
+  <meta name="description" content="TCP&#x2F;IP协议分层 TCP&#x2F;IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。    三次握手四次挥手机制及原因 三次握手  不是两次的原因是无法确认客户端的接受能力，可能会造成连接资源的浪费。 不是四次或者更多的原因就是太多了没有必要，三次就足够了。 四次挥手  等待2MSL的原因是防止服务端数据包没有传输完  1 个 MSL 确保四次挥手中主动关闭方最后的 ACK 报文最终">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网与操作系统面经汇总">
 <meta property="og:url" content="http://example.com/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Cypherss&#39;s Blog">
-<meta property="og:description" content="TCP&#x2F;IP协议分层管理  三次握手四次挥手机制及原因  HTTP方法  GET和POST的区别  HTTP建立持久连接的意义  HTTP报文的结构  HTTP状态码  Web服务器及其组成  HTTP报文首部  HTTP通用首部字段">
+<meta property="og:description" content="TCP&#x2F;IP协议分层 TCP&#x2F;IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。    三次握手四次挥手机制及原因 三次握手  不是两次的原因是无法确认客户端的接受能力，可能会造成连接资源的浪费。 不是四次或者更多的原因就是太多了没有必要，三次就足够了。 四次挥手  等待2MSL的原因是防止服务端数据包没有传输完  1 个 MSL 确保四次挥手中主动关闭方最后的 ACK 报文最终">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191514.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191534.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128200511.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128201125.png">
 <meta property="article:published_time" content="2021-01-18T05:23:51.000Z">
-<meta property="article:modified_time" content="2021-01-19T14:15:48.093Z">
+<meta property="article:modified_time" content="2021-01-28T12:17:04.829Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="HTTP">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191514.png">
 
 <link rel="canonical" href="http://example.com/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/">
 
@@ -228,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-19 22:15:48" itemprop="dateModified" datetime="2021-01-19T22:15:48+08:00">2021-01-19</time>
+                <time title="修改时间：2021-01-28 20:17:04" itemprop="dateModified" datetime="2021-01-28T20:17:04+08:00">2021-01-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,14 +272,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>425</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -287,21 +292,120 @@
 
       
         <ol>
-<li><p>TCP/IP协议分层管理</p>
+<li><p>TCP/IP协议分层</p>
+<p>TCP/IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191514.png"></p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191534.png"></p>
 </li>
 <li><p>三次握手四次挥手机制及原因</p>
+<p><strong>三次握手</strong></p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128200511.png"></p>
+<p>不是两次的原因是无法确认客户端的接受能力，可能会造成连接资源的浪费。</p>
+<p>不是四次或者更多的原因就是太多了没有必要，三次就足够了。</p>
+<p><strong>四次挥手</strong></p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128201125.png"></p>
+<p>等待2MSL的原因是防止服务端数据包没有传输完</p>
+<ul>
+<li>1 个 MSL 确保四次挥手中主动关闭方最后的 ACK 报文最终能达到对端</li>
+<li>1 个 MSL 确保对端没有收到 ACK 重传的 FIN 报文可以到达</li>
+</ul>
+<p>不是三次是可能中间服务端传数据造成的延迟会让客户端重新发送FIN请求</p>
 </li>
 <li><p>HTTP方法</p>
+<p><code>http/1.1</code>规定了以下请求方法(注意，都是大写):</p>
+<ul>
+<li>GET: 通常用来获取资源</li>
+<li>HEAD: 获取资源的元信息</li>
+<li>POST: 提交数据，即上传数据</li>
+<li>PUT: 修改数据</li>
+<li>DELETE: 删除资源(几乎用不到)</li>
+<li>CONNECT: 建立连接隧道，用于代理服务器</li>
+<li>OPTIONS: 列出可对资源实行的请求方法，用来跨域请求</li>
+<li>TRACE: 追踪请求-响应的传输路径</li>
+</ul>
 </li>
 <li><p>GET和POST的区别</p>
+<p>首先最直观的是语义上的区别。</p>
+<p>而后又有这样一些具体的差别:</p>
+<ul>
+<li>从<strong>缓存</strong>的角度，GET 请求会被浏览器主动缓存下来，留下历史记录，而 POST 默认不会。</li>
+<li>从<strong>编码</strong>的角度，GET 只能进行 URL 编码，只能接收 ASCII 字符，而 POST 没有限制。</li>
+<li>从<strong>参数</strong>的角度，GET 一般放在 URL 中，因此不安全，POST 放在请求体中，更适合传输敏感信息。</li>
+<li>从<strong>幂等性</strong>的角度，<code>GET</code>是<strong>幂等</strong>的，而<code>POST</code>不是。(<code>幂等</code>表示执行相同的操作，结果也是相同的)</li>
+<li>从<strong>TCP</strong>的角度，GET 请求会把请求报文一次性发出去，而 POST 会分为两个 TCP 数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分。(<strong>火狐</strong>浏览器除外，它的 POST 请求只发一个 TCP 包)</li>
+</ul>
 </li>
 <li><p>HTTP建立持久连接的意义</p>
+<p>每次建立连接的时候都要经过三次握手等必须的程序，如果我们拥有一条可以一直使用的连接的话，也就意味着我们只需要进行一次连接的建立，这就省去了每次建立连接的时间。</p>
+<p> 现在很多方案都会采用<strong>持久连接+新连接结合</strong>的方式，这种方式尽可能的减少了新建连接的浪费，同时当现有连接没有办法满足需求的时候，可以建立新连接满足需求，比较灵活。现有的持久连接类型有两种：<strong>HTTP/1.0+的keep-alive和HTTP/1.1的persistent.</strong></p>
 </li>
 <li><p>HTTP报文的结构</p>
+<p>对于 TCP 而言，在传输的时候分为两个部分:TCP头和数据部分。</p>
+<p>而 HTTP 类似，也是header + body的结构，具体而言: 起始行 + 头部 + 空行 + 实体</p>
+<p><strong>起始行</strong></p>
+<p>对于请求报文来说，起始行类似下面这样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;home HTTP&#x2F;1.1</span><br></pre></td></tr></table></figure>
+<p>也就是<strong>方法 + 路径 + http版本</strong>。</p>
+<p>对于响应报文来说，起始行一般张这个样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK</span><br></pre></td></tr></table></figure>
+<p>响应报文的起始行也叫做<code>状态行</code>。由<strong>http版本、状态码和原因</strong>三部分组成。</p>
+<p>值得注意的是，在起始行中，每两个部分之间用<strong>空格</strong>隔开，最后一个部分后面应该接一个<strong>换行</strong>，严格遵循<code>ABNF</code>语法规范。</p>
+<p><strong>头部</strong></p>
+<ul>
+<li><ol>
+<li>字段名不区分大小写</li>
+</ol>
+</li>
+<li><ol>
+<li>字段名不允许出现空格，不可以出现下划线<code>_</code></li>
+</ol>
+</li>
+<li><ol>
+<li>字段名后面必须<strong>紧接着<code>:</code></strong></li>
+</ol>
+</li>
+</ul>
+<p><strong>空行</strong></p>
+<p>空行是用来区分头部和实体的。</p>
+<p><strong>实体</strong></p>
+<p>实体就是具体的数据了，也就是body部分。请求报文对应请求体, 响应报文对应响应体。</p>
 </li>
 <li><p>HTTP状态码</p>
+<p>RFC 规定 HTTP 的状态码为<strong>三位数</strong>，被分为五类:</p>
+<ul>
+<li><strong>1xx</strong>: 表示目前是协议处理的中间状态，还需要后续操作。</li>
+<li><strong>2xx</strong>: 表示成功状态。</li>
+<li><strong>3xx</strong>: 重定向状态，资源位置发生变动，需要重新请求。</li>
+<li><strong>4xx</strong>: 请求报文有误。</li>
+<li><strong>5xx</strong>: 服务器端发生错误。</li>
+</ul>
+<p>接下来就一一分析这里面具体的状态码。</p>
+<h2 id="1xx"><a href="#1xx" class="headerlink" title="1xx"></a>1xx</h2><p><strong>101 Switching Protocols</strong>。在<code>HTTP</code>升级为<code>WebSocket</code>的时候，如果服务器同意变更，就会发送状态码 101。</p>
+<h2 id="2xx"><a href="#2xx" class="headerlink" title="2xx"></a>2xx</h2><p><strong>200 OK</strong>是见得最多的成功状态码。通常在响应体中放有数据。</p>
+<p><strong>204 No Content</strong>含义与 200 相同，但响应头后没有 body 数据。</p>
+<p><strong>206 Partial Content</strong>顾名思义，表示部分内容，它的使用场景为 HTTP 分块下载和断点续传，当然也会带上相应的响应头字段<code>Content-Range</code>。</p>
+<h2 id="3xx"><a href="#3xx" class="headerlink" title="3xx"></a>3xx</h2><p><strong>301 Moved Permanently</strong>即永久重定向，对应着<strong>302 Found</strong>，即临时重定向。</p>
+<p>比如你的网站从 HTTP 升级到了 HTTPS 了，以前的站点再也不用了，应当返回<code>301</code>，这个时候浏览器默认会做缓存优化，在第二次访问的时候自动访问重定向的那个地址。</p>
+<p>而如果只是暂时不可用，那么直接返回<code>302</code>即可，和<code>301</code>不同的是，浏览器并不会做缓存优化。</p>
+<p><strong>304 Not Modified</strong>: 当协商缓存命中时会返回这个状态码。详见<a target="_blank" rel="noopener" href="http://47.98.159.95/my_blog/perform/001.html">浏览器缓存</a></p>
+<h2 id="4xx"><a href="#4xx" class="headerlink" title="4xx"></a>4xx</h2><p><strong>400 Bad Request</strong>: 开发者经常看到一头雾水，只是笼统地提示了一下错误，并不知道哪里出错了。</p>
+<p><strong>403 Forbidden</strong>: 这实际上并不是请求报文出错，而是服务器禁止访问，原因有很多，比如法律禁止、信息敏感。</p>
+<p><strong>404 Not Found</strong>: 资源未找到，表示没在服务器上找到相应的资源。</p>
+<p><strong>405 Method Not Allowed</strong>: 请求方法不被服务器端允许。</p>
+<p><strong>406 Not Acceptable</strong>: 资源无法满足客户端的条件。</p>
+<p><strong>408 Request Timeout</strong>: 服务器等待了太长时间。</p>
+<p><strong>409 Conflict</strong>: 多个请求发生了冲突。</p>
+<p><strong>413 Request Entity Too Large</strong>: 请求体的数据过大。</p>
+<p><strong>414 Request-URI Too Long</strong>: 请求行里的 URI 太大。</p>
+<p><strong>429 Too Many Request</strong>: 客户端发送的请求过多。</p>
+<p><strong>431 Request Header Fields Too Large</strong>请求头的字段内容太大。</p>
+<h2 id="5xx"><a href="#5xx" class="headerlink" title="5xx"></a>5xx</h2><p><strong>500 Internal Server Error</strong>: 仅仅告诉你服务器出错了，出了啥错咱也不知道。</p>
+<p><strong>501 Not Implemented</strong>: 表示客户端请求的功能还不支持。</p>
+<p><strong>502 Bad Gateway</strong>: 服务器自身是正常的，但访问的时候出错了，啥错误咱也不知道。</p>
+<p><strong>503 Service Unavailable</strong>: 表示服务器当前很忙，暂时无法响应服务。</p>
 </li>
 <li><p>Web服务器及其组成</p>
+<p>Web系统由客户端（浏览器）和服务器端两部分组成。Web系统架构也被称为B/S架构。最常见的Web服务器有Apache、IIS等，常用的浏览器有IE、Firefox、chrome等。当你想访问一个网页时，需要在浏览器的地址栏中输入该网页的URL地址，或者是通过超链接链接到该网页。浏览器会向该网页所在的服务器发送一个HTTP请求，服务器会对接收到的请求信息进行处理，然后将处理的结果返回给浏览器，最终将浏览器处理后的结果呈现给用户。</p>
 </li>
 <li><p>HTTP报文首部</p>
 </li>
@@ -323,8 +427,6 @@
 <li><p>TCP与UDP区别</p>
 </li>
 <li><p>TCP三次握手</p>
-</li>
-<li><p>存储机制localStorage、sessionStorage与Cookie存储技术</p>
 </li>
 <li><p>为什么传统上利用多个域名来提供网站资源会更有效</p>
 </li>
@@ -445,6 +547,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1xx"><span class="nav-number">1.</span> <span class="nav-text">1xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2xx"><span class="nav-number">2.</span> <span class="nav-text">2xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3xx"><span class="nav-number">3.</span> <span class="nav-text">3xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4xx"><span class="nav-number">4.</span> <span class="nav-text">4xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5xx"><span class="nav-number">5.</span> <span class="nav-text">5xx</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -518,13 +621,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">71k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">1:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
