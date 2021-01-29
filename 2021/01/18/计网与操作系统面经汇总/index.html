@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="TCP&#x2F;IP协议分层 TCP&#x2F;IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。    三次握手四次挥手机制及原因 三次握手  不是两次的原因是无法确认客户端的接受能力，可能会造成连接资源的浪费。 不是四次或者更多的原因就是太多了没有必要，三次就足够了。 四次挥手  等待2MSL的原因是防止服务端数据包没有传输完  1 个 MSL 确保四次挥手中主动关闭方最后的 ACK 报文最终">
+  <meta name="description" content="TCP&#x2F;IP协议分层 TCP&#x2F;IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网与操作系统面经汇总">
 <meta property="og:url" content="http://example.com/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Cypherss&#39;s Blog">
-<meta property="og:description" content="TCP&#x2F;IP协议分层 TCP&#x2F;IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。    三次握手四次挥手机制及原因 三次握手  不是两次的原因是无法确认客户端的接受能力，可能会造成连接资源的浪费。 不是四次或者更多的原因就是太多了没有必要，三次就足够了。 四次挥手  等待2MSL的原因是防止服务端数据包没有传输完  1 个 MSL 确保四次挥手中主动关闭方最后的 ACK 报文最终">
+<meta property="og:description" content="TCP&#x2F;IP协议分层 TCP&#x2F;IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191514.png">
 <meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191534.png">
 <meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128200511.png">
 <meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128201125.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210129165110.png">
+<meta property="og:image" content="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210129165615.png">
 <meta property="article:published_time" content="2021-01-18T05:23:51.000Z">
-<meta property="article:modified_time" content="2021-01-28T12:17:04.829Z">
+<meta property="article:modified_time" content="2021-01-29T09:09:31.221Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="计算机网络">
@@ -233,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-28 20:17:04" itemprop="dateModified" datetime="2021-01-28T20:17:04+08:00">2021-01-28</time>
+                <time title="修改时间：2021-01-29 17:09:31" itemprop="dateModified" datetime="2021-01-29T17:09:31+08:00">2021-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,14 +274,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>9.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -295,6 +297,8 @@
 <li><p>TCP/IP协议分层</p>
 <p>TCP/IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。</p>
 <p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191514.png"></p>
+<a id="more"></a>
+
 <p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191534.png"></p>
 </li>
 <li><p>三次握手四次挥手机制及原因</p>
@@ -341,7 +345,7 @@
 </li>
 <li><p>HTTP报文的结构</p>
 <p>对于 TCP 而言，在传输的时候分为两个部分:TCP头和数据部分。</p>
-<p>而 HTTP 类似，也是header + body的结构，具体而言: 起始行 + 头部 + 空行 + 实体</p>
+<p>而 HTTP 类似，也是header + body的结构，具体而言: （起始行 + 头部）报文首部 + 空行 + 实体（报文主体）</p>
 <p><strong>起始行</strong></p>
 <p>对于请求报文来说，起始行类似下面这样:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;home HTTP&#x2F;1.1</span><br></pre></td></tr></table></figure>
@@ -408,21 +412,157 @@
 <p>Web系统由客户端（浏览器）和服务器端两部分组成。Web系统架构也被称为B/S架构。最常见的Web服务器有Apache、IIS等，常用的浏览器有IE、Firefox、chrome等。当你想访问一个网页时，需要在浏览器的地址栏中输入该网页的URL地址，或者是通过超链接链接到该网页。浏览器会向该网页所在的服务器发送一个HTTP请求，服务器会对接收到的请求信息进行处理，然后将处理的结果返回给浏览器，最终将浏览器处理后的结果呈现给用户。</p>
 </li>
 <li><p>HTTP报文首部</p>
+<p>除了之前提到的起始行，还有通用首部字段，请求首部字段，响应首部字段，实体首部字段等等</p>
 </li>
 <li><p>HTTP通用首部字段</p>
-<a id="more"></a>
+<p>Cache-Control：操作缓存的工作机制</p>
+<p>Connection：控制不再转发的首部字段；管理持久连接（close，keep-alive）</p>
+<p>Date：明确创建报文的日期和时间</p>
+<p>Pragma：历史遗留字段（为了兼容版本）</p>
+<p>Trailer：分块传输编码</p>
+<p>Transfer-Encoding：规定了传输报文主题时采用的编码方式</p>
+<p>Upgrade：检测是否可以使用更高版本进行通信（可以就返回101 switching protocols）</p>
+<p>Via：追踪客户端与服务器之间的请求和响应报文的传输路径</p>
+<p>Warning：从Retry-After演变而来，告知用户一些与缓存相关的警告</p>
 </li>
 <li><p>HTTP请求首部字段、响应首部字段、实体首部字段</p>
+<ol>
+<li><p>请求首部字段：</p>
+<p>1、Accept</p>
+<p> Accept首部可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级</p>
+<p> Accept：text/html, application/xhtml+xml, application/xml; q=0.9, <em>/</em>; q=0.8<br>2、Accept-Charset</p>
+<p> 用来通知服务器用户代理支持的字符集及字符集的相对优先顺序</p>
+<p> Accept-Charset： iso-8859-5，unicode-1-1；q=0.8<br>3、Accept-Encoding</p>
+<p> 用来告知服务器用户代理支持的内容编码及内容编码的优先级顺序</p>
+<p> Accept-Encoding：gzip，deflate<br>4、Accept-Language</p>
+<p> 告知服务器用户代理支持的自然语言集及自然语言集的优先级</p>
+<p> Accept-Language：zh-cn，zh；q=0.7，en-us，en；q=0.3<br>5、Authorization</p>
+<p> 告知服务器用户代理的认证信息，通常，想要通过服务器认证的用户代理在接收到返回的401状态码响应后，把首部字段Authorization加入到请求中。</p>
+<p> Authorization：Basic dwvub……..<br>6、Expect</p>
+<p> 客户端使用首部字段Expect字段来告知服务器，期待出现的某种特定行为</p>
+<p> 等待状态码100响应的客户端在发生请求时，需要指定Expect: 100-continue</p>
+<p> Expect: 100-continue<br>7、Form</p>
+<p> 用来告知服务器使用用户代理的用户的电子邮件地址</p>
+<p> Form：2294***<br> 272@qq.com<br>8、Host</p>
+<p> 用来告知服务器，请求的资源所在的互联网主机名和端口号,Host首部字段在HTTP/1.1规范内唯一一个必须包含在请求内的首部字段<br>9、If-Match</p>
+<p> 形如If-***这种样式的请求首部字段，都可称为条件请求，服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求，服务器会比对If-Match的字段值和资源的ETag值，仅当两者一致时，才会执行请求。</p>
+<p> If-Match：“123456”<br>10、If-Modified-Since</p>
+<p> 首部字段If-Modified-Since，属附带条件之一，会告知服务器若If-Modified-Since字段值早于资源的更新时间，则希望能处理该请求。而在指定If-Modified-Since字段值的日期之后，如果请求的资源都没有过更新，则返回状态码304 Not Modified的响应。<br>11、If-None-Match</p>
+<p> 首部字段If-None-Match属于附带条件之一，它和首部字段If-Match作用相反，用于指定If-None-Match字段值的实体标记（ETag）值与请求资源的ETag不一致时，就告知服务器处理该请求，可获得最新的资源。<br>12、If-Range</p>
+<p> 首部字段If-Range属于附带条件之一，告知服务器若指定的If-Range字段值（ETag值或者时间）和请求资源的ETag值或时间相一致时，则作为范围请求处理，反之，则返回全体资源。</p>
+<p> GET /index.html</p>
+<p> If-Range:”123456”</p>
+<p> Range: bytes=5001-10000<br>13、If-Unmodified-Since</p>
+<p> 首部字段If-Unmodified-Since和首部字段If-Modified-Since的作用相反，它的作用是告知服务器，指定的请求资源只有在字段内指定的日期之后，未发生更新的情况下，才能处理请求。如果在指定日期后发生了更新，则以状态码412 Precondition Failed作为响应返回</p>
+<p> If-Unmodified-Since: Thu, 03 Jul 2012 00:00:00 GMT<br>14、Max-Forwards</p>
+<p> 通过TRACE方法或OPTIONS方法，发送包含首部字段Max-Forwards的请求时，该字段以十进制整数形式指定可经过的服务器最大数目。服务器在往下一个服务器转发请求之前，会将Max-Forwards的值减1后重新赋值、当服务器接收到Max-Forwards值为0的请求时，则不再进行转发，而是直接返回响应。</p>
+<p> Max-Forwards：10<br>15、Proxy-Authorization</p>
+<p> 接收到代理服务器发来的认证质疑时，客户端会发送包含首部字段Proxy-Authorization的请求，以告知服务器认证所需要的信息。</p>
+<p> 这个行为是与客户端和服务器之间的HTTP访问认证相类似的，不同之处在于，认证行为发生在客户端与代理之间，客户端与服务器之间的认证，使用首部字段Authorization可起到相同作用。<br>16、Range</p>
+<p> 对于只获取部分资源的范围请求，包含首部字段Range即可告知服务器资源的指定范围。接收到附带Range首部字段请求的服务器，会在处理请求之后返回状态码为206 Partial Content的响应，无法处理该范围请求时，则会返回状态码200 OK的响应及全部字段。</p>
+<p> Range：bytes=5001-10000<br>17、Referer</p>
+<p> 首部字段Referer会告知服务器请求的原始资源的URI<br>18、TE</p>
+<p> 首部字段TE会告知服务器客户端能够处理响应的传输编码方式及相对优先级，它和首部字段Accept-Encoding的功能很相像，但是用于传输编码。</p>
+<p> TE：gzip，deflate；q=0.5<br>19、User-Agent</p>
+<p> 首部字段User-Agent会将创建请求的浏览器和用户代理名称等信息传达给服务器</p>
+<p> User-Agent：Mozilla/5.0 (Windows NT 6.1; WOW64;rv:13.0) Gecko/=&gt;20100101 Firefox/13.0.1</p>
+</li>
+<li><p>响应首部字段</p>
+<p>1、Accept-Ranges<br>是否接受字节范围请求(是否能处理范围请求，以指定获取服务器端资源的某个部分。)</p>
+<p>字段值有bytes与none</p>
+<p>2、Age<br>推算资源创建经过时间</p>
+<p>3、ETag<br>资源的匹配信息</p>
+<p>首部字段 ETag能告知客户端实体标识。它是一种可将资源以字符串形式做唯一性标识的方式。服务器会为每份资源分配对应的 ETag值。</p>
+<p>另外，当资源更新时，ETag值也需要更新。生成 Etag值时，并没有统一的算法规则，而仅仅是由服务器来分配。</p>
+<p>应用：比如中文版/英文版对应的资源。两者的URI是相同的，所以仅凭 URI指定缓存的资源是相当困难的。若在下载过程中出现连接中断、再连接的情况，都会依照 ETag值来指定资源。(范围请求，查看资源是否更新时，对比ETag)</p>
+<p>强ETag值和弱ETag值</p>
+<p>强 ETag值，不论实体发生多么细微的变化都会改变其值。</p>
+<p>ETag: “usagi-1234”<br>弱 ETag值只用于提示资源是否相同。只有资源发生了根本改变，产生差异时才会改变 ETag值。这时，会在字段值最开始处附加 W/。</p>
+<p>ETag: W/“usagi-1234”<br>4、Location<br>令客户端重定向至指定URI</p>
+<p>使用首部字段 Location 可以将响应接收方引导至某个与请求 URI 位置不同的资源。</p>
+<p>配合3xx：Redirection 的响应，提供重定向的URI</p>
+<p>几乎所有的浏览器在接收到包含首部字段 Location 的响应后，都会强制性地尝试对已提示的重定向资源的访问。</p>
+<p>5、Proxy-Authenticate<br>代理服务器对客户端的认证信息</p>
+<p>6、Retry-After<br>对再次发起请求的时机要求</p>
+<p>首部字段Retry-After 告知客户端应该在多久之后再次发送请求。主要配合状态码 503 Service Unavailable 响应，或 3xx Redirect 响应一起使用。</p>
+<p>字段值可以指定为具体的日期时间（Wed, 04 Jul 2012 06：34：24GMT 等格式），也可以是创建响应后的秒数。</p>
+<p>7、Server<br>Server 首部包含了处理请求的源头服务器所用到的软件相关信息。</p>
+<p>应该避免使用过长或者过于详细的描述作为 Server 的值，因为这有可能泄露服务器的内部实现细节，有利于攻击者找到或者探测已知的安全漏洞。</p>
+<p>8、Vary<br>代理服务器缓存的管理信息</p>
+<p>Vray是一个HTTP响应头部信息，它决定了对于未来的一个请求头，应该用一个缓存的回复(response)还是向源服务器请求一个新的回复。它被服务器用来表明在 content negotiation algorithm（内容协商算法）中选择一个资源代表的时候应该使用哪些头部信息（headers）</p>
+<p>当代理服务器接收到带有 Vary 首部字段指定获取资源的请求时，如果使用的 Vary 首部字段的值相同，那么就直接从缓存返回响应。反之，则需要先从源服务器端获取资源后才能作为响应返回。</p>
+<p>9、WWW-Authenticate<br>服务器对客户端的认证信息</p>
+</li>
+<li><p>实体首部字段</p>
+<p>1、Allow</p>
+<p> 首部字段Allow用于通知客户端能够支持Request-URI指定资源的所有HTTP方法。当服务器接收不支持的HTTP方法时，会以状态码405 Method Not Allowed作为响应，与此同时，还会把所有能支持的HTTP方法写入首部字段Allow返回</p>
+<p> 如：Allow：GET，HEAD<br>2、Content-Encoding</p>
+<p> 首部字段Content-Encoding会告知服务器对实体的主体部分选用的内容编码方式。有gzip、compress、deflate、identity</p>
+<p> 如：Content-Encoding：gzip<br>3、Content-Language</p>
+<p> Content-Language会告知客户端，实体主体所使用的自然语言</p>
+<p> 如：Content-Language：zh-CN<br>4、Content-Length</p>
+<p> Content-Length表明了实体主体部分的大小，单位是字节</p>
+<p> 如：Content-Length：15000<br>5、Content-Location</p>
+<p> Content-Location给出与报文主体部分相对应的URI<br>6、Content-MD5</p>
+<p> Content-MD5是一串由MD5算法生成的值，目的在于检查报文主体在传输过程中是否保持完整，以及确认传输到达</p>
+<p> 如：Content-MD5：*<strong>**</strong><br>7、Content-Range</p>
+<p>针对范围请求，返回响应时使用的首部字段Content-Range，告知客户端作为响应返回的实体的哪个部分符合范围请求，以字节为单位，表示当前发送部分及整体实体大小</p>
+<p> 如：Content-Range：bytes 5001-10000/10000<br>8、Content-Type</p>
+<p> 说明实体主体内对象的媒体类型</p>
+<p> 如：Content-Type：text/html; charset=UTF-8<br>9、Expires</p>
+<p>将资源失效的日期告诉客户端</p>
+<p> 如：Expires：Wed，04 Jul 2012 08:26:05 GMT<br>10、Last-Modified</p>
+<p>指明资源最终修改的时间</p>
+<p>如：Last-Modified：Wed，04 Jul 2012 08:26:05 GMT</p>
+</li>
+<li><p>总结一下就是</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210129165110.png"></p>
+</li>
+</ol>
 </li>
 <li><p>Cookie相关首部字段</p>
+<p>为cookie服务的首部字段有Set-Cookie，以及Cookie</p>
+<p>其中Set-Cookie有expires，path，domain，secure，HttpOnly属性。</p>
 </li>
-<li><p>HTTPS与HTTP区别及实现方式</p>
+<li><p>HTTPS与HTTP区别</p>
+<h3 id="HTTP与HTTPS介绍"><a href="#HTTP与HTTPS介绍" class="headerlink" title="HTTP与HTTPS介绍"></a>HTTP与HTTPS介绍</h3><p>​    超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息，比如：信用卡号、密码等支付信息。</p>
+<p>​    为了解决HTTP协议的这一缺陷，需要使用另一种协议：安全套接字层超文本传输协议HTTPS，为了数据传输的安全，HTTPS在HTTP的基础上加入了SSL/TLS协议，SSL/TLS依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。</p>
+<p>​    HTTPS协议是由SSL/TLS+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全</p>
+<p>​    HTTPS协议的主要作用可以分为两种：一种是建立一个信息安全通道，来保证数据传输的安全；另一种就是确认网站的真实性。</p>
+<h3 id="HTTPS和HTTP的主要区别"><a href="#HTTPS和HTTP的主要区别" class="headerlink" title="HTTPS和HTTP的主要区别"></a>HTTPS和HTTP的主要区别</h3><p>​    1、https协议需要到CA申请证书，一般免费证书较少，因而需要一定费用。</p>
+<p>​    2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl/tls加密传输协议。</p>
+<p>​    3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<p>​    4、http的连接很简单，是无状态的；HTTPS协议是由SSL/TLS+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
 </li>
 <li><p>Cookie与Session</p>
+<p><strong>cookie是什么</strong><br>一个HTTP cookie的（网络Cookie，浏览器cookie）是一小片数据的一个服务器发送到用户的网络浏览器。浏览器可以存储它并将其与下一个请求一起发送回同一服务器。通常，它用于判断两个请求是否来自同一个浏览器 - 例如，保持用户登录。它记住无状态 HTTP协议的有状态信息。</p>
+<p><strong>session是什么</strong><br>客户端请求服务端，服务端（Tomcat）会为这次请求开辟一块内存空间，这个对象便是Session对象， 存储结构为ConcurrentHashMap。</p>
+<p>session的目的：弥补HTTP无状态特性，服务器可以利用session存储客户端在同一个会话期间的一些操作记录。</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210129165615.png"></p>
 </li>
-<li><p>基于HTTP的功能追加协议（SPY、WebSocket、HTTP）</p>
+<li><p>基于HTTP的功能追加协议（AJAX、SPDY、WebSocket）</p>
+<p>1、HTTP的一些标准会成为HTTP性能上的瓶颈：</p>
+<p>一条连接上只可发送一个请求。</p>
+<p>请求只能从客户端开始，客户端不可以接收除响应以外的指令。</p>
+<p>请求/响应首部未经压缩就发送，首部信息越多延迟越大。</p>
+<p>发送冗长的手部，每次互相发送相同的首部造成的浪费较多。</p>
+<p>可任意选择数据压缩格式，非强制压缩发送。</p>
+<p>2、Ajax（Asynchronous JavaScript and XML，异步JavaScript与XML技术）是一种有效利用JavaScript和DOM（Document Object Model，文档对象模型）的操作，以达到局部Web页面替换加载的异步通信手段。由于它只更新一部分页面，响应中传输的数据量会因此而减少，这一优点显而易见。</p>
+<p>3、SPDY：Google在2010年发布，其开发目标旨在解决HTTP的性能瓶颈，缩短Web页面的加载时间。SPDY没有完全改写HTTP协议，而是在TCP/IP的应用层与运输层之间通过新加会话层的形式运作。同时考虑到安全性问题，SPDY规定通信中使用SSL。</p>
+<p>使用SPDY后，HTTP协议额外获得的功能：</p>
+<p>多路复用（通过单一的TCP连接，可以无限制处理多个HTTP请求。）</p>
+<p>赋予请求优先级：可以给请求逐个分配优先级顺序，这样主要是为了在发送多个请求时，解决因带宽低而导致响应变慢的问题。</p>
+<p>压缩HTTP首部：这样通信产生的数据包数量和发送的字节数就更少了。</p>
+<p>推送功能：支持服务器主动向客户端推送数据的功能。</p>
+<p>服务器提示功能：服务器可以主动提示客户端请求所需的资源，由于在客户端发现资源之前就可以获知资源的存在，因此在资源已缓存等情况下，可以避免发送不必要的请求。</p>
+<p>4、WebSocket：使用浏览器进行全双工通信。</p>
+<p>WebSocket是建立在HTTP基础上的协议，因此连接的发起方仍是客户端，而一旦确立WebSocket通信连接，不论服务器还是客户端，任意一方都可直接向对方发送报文。</p>
+<p>WebScoket协议的主要特点：</p>
+<p>推送功能：支持服务器想客户端推送数据的推送功能。</p>
+<p>减少通信量：只要建立起WebSocket连接，就希望一直保持连接状态，和HTTP相比，不但每次连接时的总开销减少，而且由于WebSocket的首部信息很小，通信量也相应减少了。</p>
 </li>
 <li><p>常见的Web攻击分类</p>
+<p>常见的有XSS，CSRF，SQL注入攻击，文件上传漏洞，DDos/Dos攻击（第一个多一个分布式，都是拒绝服务攻击，通过大量同时攻击，导致目标无法正常使用）</p>
 </li>
 <li><p>TCP与UDP区别</p>
 </li>
@@ -547,7 +687,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1xx"><span class="nav-number">1.</span> <span class="nav-text">1xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2xx"><span class="nav-number">2.</span> <span class="nav-text">2xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3xx"><span class="nav-number">3.</span> <span class="nav-text">3xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4xx"><span class="nav-number">4.</span> <span class="nav-text">4xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5xx"><span class="nav-number">5.</span> <span class="nav-text">5xx</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1xx"><span class="nav-number">1.</span> <span class="nav-text">1xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2xx"><span class="nav-number">2.</span> <span class="nav-text">2xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3xx"><span class="nav-number">3.</span> <span class="nav-text">3xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4xx"><span class="nav-number">4.</span> <span class="nav-text">4xx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5xx"><span class="nav-number">5.</span> <span class="nav-text">5xx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E4%B8%8EHTTPS%E4%BB%8B%E7%BB%8D"><span class="nav-number">5.1.</span> <span class="nav-text">HTTP与HTTPS介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS%E5%92%8CHTTP%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB"><span class="nav-number">5.2.</span> <span class="nav-text">HTTPS和HTTP的主要区别</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -621,13 +761,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">75k</span>
+    <span title="站点总字数">86k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:08</span>
+    <span title="站点阅读时长">1:19</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

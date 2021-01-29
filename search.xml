@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>OCEANIA项目文档</title>
+    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="项目背景-amp-概况"><a href="#项目背景-amp-概况" class="headerlink" title="项目背景&amp;概况"></a>项目背景&amp;概况</h2><p>OCEANIA项目的名字实际上是在线代码依赖分析平台的简写，这个平台的设计初衷是希望可以让开发人员在可视化方面对一个项目的代码规模，大致的依赖调用关系有一个大致的认识。同时项目也维护了一个数据库中的图，保存了完整的项目的代码依赖调用关系，后续对于项目的traceability，代码分析之类的提供便利。项目的大致的应用场景是提供给一个拿到新项目的开发者用来熟悉代码结构或者给管理者去监管代码构成以及开发进展的工具平台</p>
+<h2 id="项目的技术栈"><a href="#项目的技术栈" class="headerlink" title="项目的技术栈"></a>项目的技术栈</h2><p>前端使用的是Vue框架配合Antdv，使用了vuex以及VueRouter等技术。</p>
+<p>后端使用的是Springboot+Mysql以及Jenkins集成部署，还配合Websocket实现了团队通讯功能。</p>
+<p>在代码依赖图可视化方面使用的是Cytoscape.js，这个框架提供了很多遍历边点以及对它们还有画布进行操作的API，同时可以自定义布局，因此为了节省浏览器资源，以及优化渲染的效率，我们在后端实现了一个力导向的layout分析算法（首先计算节点之间的斥力，然后根据联通关系计算引力，然后做一些微调之后更新节点位置，迭代调用这个方法200次），提前计算好节点在图上的布局，传到前端进行渲染。</p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Node面经汇总</title>
     <url>/2021/01/18/Node%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
@@ -40,65 +56,83 @@
       </tags>
   </entry>
   <entry>
-    <title>OCEANIA项目文档</title>
-    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="项目背景-amp-概况"><a href="#项目背景-amp-概况" class="headerlink" title="项目背景&amp;概况"></a>项目背景&amp;概况</h2><p>OCEANIA项目的名字实际上是在线代码依赖分析平台的简写，这个平台的设计初衷是希望可以让开发人员在可视化方面对一个项目的代码规模，大致的依赖调用关系有一个大致的认识。同时项目也维护了一个数据库中的图，保存了完整的项目的代码依赖调用关系，后续对于项目的traceability，代码分析之类的提供便利。项目的大致的应用场景是提供给一个拿到新项目的开发者用来熟悉代码结构或者给管理者去监管代码构成以及开发进展的工具平台</p>
-<h2 id="项目的技术栈"><a href="#项目的技术栈" class="headerlink" title="项目的技术栈"></a>项目的技术栈</h2><p>前端使用的是Vue框架配合Antdv，使用了vuex以及VueRouter等技术。</p>
-<p>后端使用的是Springboot+Mysql以及Jenkins集成部署，还配合Websocket实现了团队通讯功能。</p>
-<p>在代码依赖图可视化方面使用的是Cytoscape.js，这个框架提供了很多遍历边点以及对它们还有画布进行操作的API，同时可以自定义布局，因此为了节省浏览器资源，以及优化渲染的效率，我们在后端实现了一个力导向的layout分析算法（首先计算节点之间的斥力，然后根据联通关系计算引力，然后做一些微调之后更新节点位置，迭代调用这个方法200次），提前计算好节点在图上的布局，传到前端进行渲染。</p>
-]]></content>
-      <categories>
-        <category>项目</category>
-      </categories>
-      <tags>
-        <tag>项目</tag>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue面经汇总</title>
-    <url>/2021/01/18/Vue%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li>Vue生命周期</li>
-<li>介绍一下vuex以及使用场景</li>
-<li>vue双向绑定的原理</li>
-<li>vue-router实现原理</li>
-<li>vue组件之间的通信</li>
-<li>vue的一些新技术</li>
-</ol>
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Webpack面经汇总</title>
     <url>/2021/01/18/Webpack%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
-<li><p>前端工程化的流程（架构选型、业务开发、测试、打包构建、部署上线、项目监控）</p>
+<li><p>前端工程化的流程</p>
+<p>架构选型、业务开发、测试、打包构建、部署上线、项目监控</p>
+<p>前端工程化要解决的问题就是制定各项规范，使用合适的前端技术和框架，提高生产效率，提高代码的可测试性，以及使用各种自动化的工具，提升整体开发部署的效率。</p>
 </li>
 <li><p>Webpack基本概念与配置</p>
+<p><code>webpack</code> 是一个现代 <code>JavaScript</code> 应用程序的静态模块打包器，当 <code>webpack</code> 处理应用程序时，会递归构建一个依赖关系图，其中包含应用程序需要的每个模块，然后将这些模块打包成一个或多个 <code>bundle</code>。</p>
+<p>webpack配置中需要理解几个核心的概念<code>Entry</code> 、<code>Output</code>、<code>Loaders</code> 、<code>Plugins</code>、 <code>Chunk</code></p>
+<ul>
+<li>Entry：指定webpack开始构建的入口模块，从该模块开始构建并计算出直接或间接依赖的模块或者库</li>
+<li>Output：告诉webpack如何命名输出的文件以及输出的目录</li>
+<li>Loaders：由于webpack只能处理javascript，所以我们需要对一些非js文件处理成webpack能够处理的模块，比如sass文件</li>
+<li>Plugins：<code>Loaders</code>将各类型的文件处理成webpack能够处理的模块，<code>plugins</code>有着很强的能力。插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量。但也是最复杂的一个。比如对js文件进行压缩优化的<code>UglifyJsPlugin</code>插件</li>
+<li>Chunk：coding split的产物，我们可以对一些代码打包成一个单独的chunk，比如某些公共模块，去重，更好的利用缓存。或者按需加载某些功能模块，优化加载时间。在webpack3及以前我们都利用<code>CommonsChunkPlugin</code>将一些公共代码分割成一个chunk，实现单独加载。在webpack4 中<code>CommonsChunkPlugin</code>被废弃，使用<code>SplitChunksPlugin</code></li>
+</ul>
+<a id="more"></a>
 </li>
 <li><p>webpack配置文件基本概念</p>
-</li>
+<p>webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">&quot;./app/entry&quot;</span>, <span class="comment">// string | object | array</span></span><br><span class="line">  <span class="comment">// Webpack打包的入口</span></span><br><span class="line">  output: &#123;  <span class="comment">// 定义webpack如何输出的选项</span></span><br><span class="line">    path: path.resolve(__dirname, <span class="string">&quot;dist&quot;</span>), <span class="comment">// string</span></span><br><span class="line">    <span class="comment">// 所有输出文件的目标路径</span></span><br><span class="line">    filename: <span class="string">&quot;[chunkhash].js&quot;</span>, <span class="comment">// string</span></span><br><span class="line">    <span class="comment">// 「入口(entry chunk)」文件命名模版</span></span><br><span class="line">    publicPath: <span class="string">&quot;/assets/&quot;</span>, <span class="comment">// string</span></span><br><span class="line">    <span class="comment">// 构建文件的输出目录</span></span><br><span class="line">    <span class="comment">/* 其它高级配置 */</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;  <span class="comment">// 模块相关配置</span></span><br><span class="line">    rules: [ <span class="comment">// 配置模块loaders，解析规则</span></span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.jsx?$/</span>,  <span class="comment">// RegExp | string</span></span><br><span class="line">        include: [ <span class="comment">// 和test一样，必须匹配选项</span></span><br><span class="line">          path.resolve(__dirname, <span class="string">&quot;app&quot;</span>)</span><br><span class="line">        ],</span><br><span class="line">        exclude: [ <span class="comment">// 必不匹配选项（优先级高于test和include）</span></span><br><span class="line">          path.resolve(__dirname, <span class="string">&quot;app/demo-files&quot;</span>)</span><br><span class="line">        ],</span><br><span class="line">        loader: <span class="string">&quot;babel-loader&quot;</span>, <span class="comment">// 模块上下文解析</span></span><br><span class="line">        options: &#123; <span class="comment">// loader的可选项</span></span><br><span class="line">          presets: [<span class="string">&quot;es2015&quot;</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123; <span class="comment">//  解析模块的可选项</span></span><br><span class="line">    modules: [ <span class="comment">// 模块的查找目录</span></span><br><span class="line">      <span class="string">&quot;node_modules&quot;</span>,</span><br><span class="line">      path.resolve(__dirname, <span class="string">&quot;app&quot;</span>)</span><br><span class="line">    ],</span><br><span class="line">    extensions: [<span class="string">&quot;.js&quot;</span>, <span class="string">&quot;.json&quot;</span>, <span class="string">&quot;.jsx&quot;</span>, <span class="string">&quot;.css&quot;</span>], <span class="comment">// 用到的文件的扩展</span></span><br><span class="line">    alias: &#123; <span class="comment">// 模块别名列表</span></span><br><span class="line">      <span class="string">&quot;module&quot;</span>: <span class="string">&quot;new-module&quot;</span></span><br><span class="line">	  &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  devtool: <span class="string">&quot;source-map&quot;</span>, <span class="comment">// enum</span></span><br><span class="line">  <span class="comment">// 为浏览器开发者工具添加元数据增强调试</span></span><br><span class="line">  plugins: [ <span class="comment">// 附加插件列表</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>webpack构建流程</p>
+<p>webpack 的入口文件其实就实例了<code>Compiler</code>并调用了<code>run</code>方法开启了编译，webpack的编译都按照下面的钩子调用顺序执行。</p>
+<ul>
+<li>before-run 清除缓存</li>
+<li>run 注册缓存数据钩子</li>
+<li>before-compile</li>
+<li>compile 开始编译</li>
+<li>make 从入口分析依赖以及间接依赖模块，创建模块对象</li>
+<li>build-module 模块构建</li>
+<li>seal 构建结果封装， 不可再更改</li>
+<li>after-compile 完成构建，缓存数据</li>
+<li>emit 输出到dist目录</li>
+</ul>
+<p>在webpack <code>make</code>钩子中, <code>tapAsync</code>注册了一个<code>DllEntryPlugin</code>, 就是将入口模块通过调用<code>compilation.addEntry</code>方法将所有的入口模块添加到编译构建队列中，开启编译流程。</p>
+<p>随后在<code>addEntry</code> 中调用<code>_addModuleChain</code>开始编译。在<code>_addModuleChain</code>首先会生成模块，最后构建。</p>
+<p>在编译完成后，调用<code>compilation.seal</code>方法封闭，生成资源，这些资源保存在<code>compilation.assets</code>, <code>compilation.chunk</code>, 在给webpack写插件的时候会用到.</p>
+<p>在<code>seal</code>执行后，便会调用<code>emit</code>钩子，根据webpack config文件的output配置的path属性，将文件输出到指定的path.</p>
+<p><strong>总结一下</strong></p>
+<ol>
+<li>初始化参数：从配置文件和 Shell 语句中读取与合并参数,得出最终的参数。</li>
+<li>开始编译：用上一步得到的参数初始化 Compiler 对象,加载所有配置的插件,执行对象的 run 方法开始执行编译。</li>
+<li>确定入口：根据配置中的 entry 找出所有的入口文件。</li>
+<li>编译模块：从入口文件出发,调用所有配置的 Loader 对模块进行翻译,再找出该模块依赖的模块,再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理。</li>
+<li>完成模块编译：在经过第 4 步使用 Loader 翻译完所有模块后,得到了每个模块被翻译后的最终内容以及它们之间的依赖关系。</li>
+<li>输出资源：根据入口和模块之间的依赖关系,组装成一个个包含多个模块的 Chunk,再把每个 Chunk 转换成一个单独的文件加入到输出列表,这步是可以修改输出内容的最后机会。</li>
+<li>输出完成：在确定好输出内容后,根据配置确定输出的路径和文件名,把文件内容写入到文件系统。</li>
+</ol>
 </li>
 <li><p>webpack的优化问题：</p>
 <ol>
-<li>打包很慢怎么解决</li>
-<li>打包出来的文件很大怎么解决</li>
+<li>打包很慢怎么解决<ol>
+<li>优化Loader搜索范围</li>
+<li>cache-loader缓存loader处理结果</li>
+<li>使用多线程处理打包</li>
+<li>将特定的类库提前打包成动态链接库（DllPlugin&amp;DllReferencePlugin）</li>
+<li>noParse属性，设置第三方大型类库不需要解析</li>
+<li>IgnorePlugin，忽略某些特定的模块</li>
+<li>打包文件分析工具</li>
+<li>费时分析</li>
+<li>文件后缀列表或者路径映射</li>
 </ol>
-<a id="more"></a>
 </li>
-<li><p><code>webpack</code>原理之普通打包</p>
+<li>打包出来的文件很大怎么解决<ol>
+<li>对图片进行压缩和优化</li>
+<li>删除无用的CSS样式</li>
+<li>以CDN方式加载资源</li>
+<li>开启Tree Shaking，删除无用代码</li>
+<li>开启Scope Hoisting，作用域提升，合并作用域等等</li>
+<li>按需加载或者动态加载</li>
+</ol>
 </li>
-<li><p><code>webpack</code>原理之多文件打包</p>
+</ol>
 </li>
 <li><p><code>webpack</code>原理之提取公共文件</p>
+<p>4.0之前使用CommonsChunkPlugin，4之后使用splitChunks</p>
 </li>
 <li><p><code>webpack</code> 如何做到 tree shaking</p>
 </li>
@@ -334,10 +368,67 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue面经汇总</title>
+    <url>/2021/01/18/Vue%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>Vue生命周期</li>
+<li>介绍一下vuex以及使用场景</li>
+<li>vue双向绑定的原理</li>
+<li>vue-router实现原理</li>
+<li>vue组件之间的通信</li>
+<li>vue的一些新技术</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>序</title>
     <url>/2021/01/16/%E5%BA%8F/</url>
     <content><![CDATA[<p>“那些看似不起波澜的日复一日，会突然在某一天让人看到坚持的意义。”</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>毕设交接文档</title>
+    <url>/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="一、项目概况介绍"><a href="#一、项目概况介绍" class="headerlink" title="一、项目概况介绍"></a>一、项目概况介绍</h2><p>一种基于Node.js的web前端页面风格替换系统设计与实现</p>
+<p>在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。</p>
+<p>系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由React，Egg.js完成的。</p>
+<a id="more"></a>
+
+<h2 id="二、技术综述"><a href="#二、技术综述" class="headerlink" title="二、技术综述"></a>二、技术综述</h2><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>将多各种语言编程的脚本转换为JSON格式的接口请求，通过JSONWP通信协议与各浏览器的WebDriver进行通信，最u后WebDriver通过Http协议和真实浏览器进行通信。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>js服务端执行环境，好处是数据类型和语法与浏览器没有太大的差异，Selenium的执行结果也是通过JSON返回，在Node中不需要做类型转换可以直接使用。</p>
+<h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
+<h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
+<h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
+<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
+<h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
+<p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
+<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
+<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
+<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
+<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
+<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
+<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
+<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
+<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
+<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
+<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
+<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
+<p>团队功能：整个替换流程的共享，组件库的共享。</p>
+<p>算法方面：结构替换，组件替换，速度上的优化（xpath），语义化。</p>
+<p>后端方面：Node + Java</p>
+<p>核心改进：针对专业开发人员，提升工作效率。能够在替换完成之后提供源代码，并且提供个性化修改功能。</p>
+]]></content>
+      <tags>
+        <tag>项目</tag>
+        <tag>毕设</tag>
+      </tags>
   </entry>
   <entry>
     <title>浏览器相关面经汇总</title>
@@ -395,6 +486,48 @@
 </ul>
 </li>
 <li><p>浏览器本地存储</p>
+<p>浏览器的本地存储主要分为<code>Cookie</code>、<code>WebStorage</code>和<code>IndexedDB</code>, 其中<code>WebStorage</code>又可以分为<code>localStorage</code>和<code>sessionStorage</code>。</p>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p><code>Cookie</code> 最开始被设计出来其实并不是来做本地存储的，而是为了弥补<code>HTTP</code>在<strong>状态管理上的不足</strong>。</p>
+<p><code>HTTP</code> 协议是一个无状态协议，客户端向服务器发请求，服务器返回响应，故事就这样结束了，但是下次发请求如何让服务端知道客户端是谁呢？</p>
+<p>这种背景下，就产生了 <code>Cookie</code>.</p>
+<p>Cookie 本质上就是浏览器里面存储的一个很小的文本文件，内部以键值对的方式来存储(在chrome开发者面板的<code>Application</code>这一栏可以看到)。向同一个域名下发送请求，都会携带相同的 Cookie，服务器拿到 Cookie 进行解析，便能拿到客户端的状态。</p>
+<p>Cookie 的作用很好理解，就是用来做<strong>状态存储</strong>的，但它也是有诸多致命的缺陷的：</p>
+<ol>
+<li>容量缺陷。Cookie 的体积上限只有<code>4KB</code>，只能用来存储少量的信息。</li>
+<li>性能缺陷。Cookie 紧跟域名，不管域名下面的某一个地址需不需要这个 Cookie ，请求都会携带上完整的 Cookie，这样随着请求数的增多，其实会造成巨大的性能浪费的，因为请求携带了很多不必要的内容。</li>
+<li>安全缺陷。由于 Cookie 以纯文本的形式在浏览器和服务器中传递，很容易被非法用户截获，然后进行一系列的篡改，在 Cookie 的有效期内重新发送给服务器，这是相当危险的。另外，在<code>HttpOnly</code>为 false 的情况下，Cookie 信息能直接通过 JS 脚本来读取。</li>
+</ol>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><h4 id="和Cookie异同"><a href="#和Cookie异同" class="headerlink" title="和Cookie异同"></a>和Cookie异同</h4><p><code>localStorage</code>有一点跟<code>Cookie</code>一样，就是针对一个域名，即在同一个域名下，会存储相同的一段<strong>localStorage</strong>。</p>
+<p>不过它相对<code>Cookie</code>还是有相当多的区别的:</p>
+<ol>
+<li>容量。localStorage 的容量上限为<strong>5M</strong>，相比于<code>Cookie</code>的 4K 大大增加。当然这个 5M 是针对一个域名的，因此对于一个域名是持久存储的。</li>
+<li>只存在客户端，默认不参与与服务端的通信。这样就很好地避免了 Cookie 带来的<strong>性能问题</strong>和<strong>安全问题</strong>。</li>
+<li>接口封装。通过<code>localStorage</code>暴露在全局，并通过它的 <code>setItem</code> 和 <code>getItem</code>等方法进行操作，非常方便。</li>
+</ol>
+<h4 id="操作方式"><a href="#操作方式" class="headerlink" title="操作方式"></a>操作方式</h4><p>接下来我们来具体看看如何来操作<code>localStorage</code>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;1&quot;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;;</span><br><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;1&quot;</span>); </span><br><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="string">&quot;info&quot;</span>, <span class="built_in">JSON</span>.stringify(obj));</span><br></pre></td></tr></table></figure>
+<p>接着进入相同的域名时就能拿到相应的值:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="built_in">localStorage</span>.getItem(<span class="string">&quot;name&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> info = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&quot;info&quot;</span>));</span><br></pre></td></tr></table></figure>
+<p>从这里可以看出，<code>localStorage</code>其实存储的都是字符串，如果是存储对象需要调用<code>JSON</code>的<code>stringify</code>方法，并且用<code>JSON.parse</code>来解析成对象。</p>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p>利用<code>localStorage</code>的较大容量和持久特性，可以利用<code>localStorage</code>存储一些内容稳定的资源，比如官网的<code>logo</code>，存储<code>Base64</code>格式的图片资源，因此利用<code>localStorage</code></p>
+<h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h3><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p><code>sessionStorage</code>以下方面和<code>localStorage</code>一致:</p>
+<ul>
+<li>容量。容量上限也为 5M。</li>
+<li>只存在客户端，默认不参与与服务端的通信。</li>
+<li>接口封装。除了<code>sessionStorage</code>名字有所变化，存储方式、操作方式均和<code>localStorage</code>一样。</li>
+</ul>
+<p>但<code>sessionStorage</code>和<code>localStorage</code>有一个本质的区别，那就是前者只是会话级别的存储，并不是持久化存储。会话结束，也就是页面关闭，这部分<code>sessionStorage</code>就不复存在了。</p>
+<h4 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h4><ol>
+<li>可以用它对表单信息进行维护，将表单信息存储在里面，可以保证页面即使刷新也不会让之前的表单信息丢失。</li>
+<li>可以用它存储本次浏览记录。如果关闭页面后不需要这些记录，用<code>sessionStorage</code>就再合适不过了。事实上微博就采取了这样的存储方式。</li>
+</ol>
+<h3 id="IndexedDB"><a href="#IndexedDB" class="headerlink" title="IndexedDB"></a>IndexedDB</h3><p><code>IndexedDB</code>是运行在浏览器中的<code>非关系型数据库</code>, 本质上是数据库，绝不是和刚才WebStorage的 5M 一个量级，理论上这个容量是没有上限的。</p>
+<p>除了拥有数据库本身的特性，比如<code>支持事务</code>，<code>存储二进制数据</code>，还有这样一些特性需要格外注意：</p>
+<ol>
+<li>键值对存储。内部采用<code>对象仓库</code>存放数据，在这个对象仓库中数据采用<strong>键值对</strong>的方式来存储。</li>
+<li>异步操作。数据库的读写属于 I/O 操作, 浏览器中对异步 I/O 提供了支持。</li>
+<li>受同源策略限制，即无法访问跨域的数据库。</li>
+</ol>
 </li>
 </ol>
 ]]></content>
@@ -404,220 +537,6 @@
       <tags>
         <tag>面经</tag>
         <tag>浏览器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕设交接文档</title>
-    <url>/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="一、项目概况介绍"><a href="#一、项目概况介绍" class="headerlink" title="一、项目概况介绍"></a>一、项目概况介绍</h2><p>一种基于Node.js的web前端页面风格替换系统设计与实现</p>
-<p>在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。</p>
-<p>系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由React，Egg.js完成的。</p>
-<a id="more"></a>
-
-<h2 id="二、技术综述"><a href="#二、技术综述" class="headerlink" title="二、技术综述"></a>二、技术综述</h2><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>将多各种语言编程的脚本转换为JSON格式的接口请求，通过JSONWP通信协议与各浏览器的WebDriver进行通信，最u后WebDriver通过Http协议和真实浏览器进行通信。</p>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>js服务端执行环境，好处是数据类型和语法与浏览器没有太大的差异，Selenium的执行结果也是通过JSON返回，在Node中不需要做类型转换可以直接使用。</p>
-<h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
-<h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
-<h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
-<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
-<h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
-<p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
-<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
-<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
-<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
-<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
-<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
-<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
-<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
-<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
-<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
-<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
-<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
-<p>团队功能：整个替换流程的共享，组件库的共享。</p>
-<p>算法方面：结构替换，组件替换，速度上的优化（xpath），语义化。</p>
-<p>后端方面：Node + Java</p>
-<p>核心改进：针对专业开发人员，提升工作效率。能够在替换完成之后提供源代码，并且提供个性化修改功能。</p>
-]]></content>
-      <tags>
-        <tag>项目</tag>
-        <tag>毕设</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网与操作系统面经汇总</title>
-    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li><p>TCP/IP协议分层</p>
-<p>TCP/IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。</p>
-<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191514.png"></p>
-<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191534.png"></p>
-</li>
-<li><p>三次握手四次挥手机制及原因</p>
-<p><strong>三次握手</strong></p>
-<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128200511.png"></p>
-<p>不是两次的原因是无法确认客户端的接受能力，可能会造成连接资源的浪费。</p>
-<p>不是四次或者更多的原因就是太多了没有必要，三次就足够了。</p>
-<p><strong>四次挥手</strong></p>
-<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128201125.png"></p>
-<p>等待2MSL的原因是防止服务端数据包没有传输完</p>
-<ul>
-<li>1 个 MSL 确保四次挥手中主动关闭方最后的 ACK 报文最终能达到对端</li>
-<li>1 个 MSL 确保对端没有收到 ACK 重传的 FIN 报文可以到达</li>
-</ul>
-<p>不是三次是可能中间服务端传数据造成的延迟会让客户端重新发送FIN请求</p>
-</li>
-<li><p>HTTP方法</p>
-<p><code>http/1.1</code>规定了以下请求方法(注意，都是大写):</p>
-<ul>
-<li>GET: 通常用来获取资源</li>
-<li>HEAD: 获取资源的元信息</li>
-<li>POST: 提交数据，即上传数据</li>
-<li>PUT: 修改数据</li>
-<li>DELETE: 删除资源(几乎用不到)</li>
-<li>CONNECT: 建立连接隧道，用于代理服务器</li>
-<li>OPTIONS: 列出可对资源实行的请求方法，用来跨域请求</li>
-<li>TRACE: 追踪请求-响应的传输路径</li>
-</ul>
-</li>
-<li><p>GET和POST的区别</p>
-<p>首先最直观的是语义上的区别。</p>
-<p>而后又有这样一些具体的差别:</p>
-<ul>
-<li>从<strong>缓存</strong>的角度，GET 请求会被浏览器主动缓存下来，留下历史记录，而 POST 默认不会。</li>
-<li>从<strong>编码</strong>的角度，GET 只能进行 URL 编码，只能接收 ASCII 字符，而 POST 没有限制。</li>
-<li>从<strong>参数</strong>的角度，GET 一般放在 URL 中，因此不安全，POST 放在请求体中，更适合传输敏感信息。</li>
-<li>从<strong>幂等性</strong>的角度，<code>GET</code>是<strong>幂等</strong>的，而<code>POST</code>不是。(<code>幂等</code>表示执行相同的操作，结果也是相同的)</li>
-<li>从<strong>TCP</strong>的角度，GET 请求会把请求报文一次性发出去，而 POST 会分为两个 TCP 数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分。(<strong>火狐</strong>浏览器除外，它的 POST 请求只发一个 TCP 包)</li>
-</ul>
-</li>
-<li><p>HTTP建立持久连接的意义</p>
-<p>每次建立连接的时候都要经过三次握手等必须的程序，如果我们拥有一条可以一直使用的连接的话，也就意味着我们只需要进行一次连接的建立，这就省去了每次建立连接的时间。</p>
-<p> 现在很多方案都会采用<strong>持久连接+新连接结合</strong>的方式，这种方式尽可能的减少了新建连接的浪费，同时当现有连接没有办法满足需求的时候，可以建立新连接满足需求，比较灵活。现有的持久连接类型有两种：<strong>HTTP/1.0+的keep-alive和HTTP/1.1的persistent.</strong></p>
-</li>
-<li><p>HTTP报文的结构</p>
-<p>对于 TCP 而言，在传输的时候分为两个部分:TCP头和数据部分。</p>
-<p>而 HTTP 类似，也是header + body的结构，具体而言: 起始行 + 头部 + 空行 + 实体</p>
-<p><strong>起始行</strong></p>
-<p>对于请求报文来说，起始行类似下面这样:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;home HTTP&#x2F;1.1</span><br></pre></td></tr></table></figure>
-<p>也就是<strong>方法 + 路径 + http版本</strong>。</p>
-<p>对于响应报文来说，起始行一般张这个样:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK</span><br></pre></td></tr></table></figure>
-<p>响应报文的起始行也叫做<code>状态行</code>。由<strong>http版本、状态码和原因</strong>三部分组成。</p>
-<p>值得注意的是，在起始行中，每两个部分之间用<strong>空格</strong>隔开，最后一个部分后面应该接一个<strong>换行</strong>，严格遵循<code>ABNF</code>语法规范。</p>
-<p><strong>头部</strong></p>
-<ul>
-<li><ol>
-<li>字段名不区分大小写</li>
-</ol>
-</li>
-<li><ol>
-<li>字段名不允许出现空格，不可以出现下划线<code>_</code></li>
-</ol>
-</li>
-<li><ol>
-<li>字段名后面必须<strong>紧接着<code>:</code></strong></li>
-</ol>
-</li>
-</ul>
-<p><strong>空行</strong></p>
-<p>空行是用来区分头部和实体的。</p>
-<p><strong>实体</strong></p>
-<p>实体就是具体的数据了，也就是body部分。请求报文对应请求体, 响应报文对应响应体。</p>
-</li>
-<li><p>HTTP状态码</p>
-<p>RFC 规定 HTTP 的状态码为<strong>三位数</strong>，被分为五类:</p>
-<ul>
-<li><strong>1xx</strong>: 表示目前是协议处理的中间状态，还需要后续操作。</li>
-<li><strong>2xx</strong>: 表示成功状态。</li>
-<li><strong>3xx</strong>: 重定向状态，资源位置发生变动，需要重新请求。</li>
-<li><strong>4xx</strong>: 请求报文有误。</li>
-<li><strong>5xx</strong>: 服务器端发生错误。</li>
-</ul>
-<p>接下来就一一分析这里面具体的状态码。</p>
-<h2 id="1xx"><a href="#1xx" class="headerlink" title="1xx"></a>1xx</h2><p><strong>101 Switching Protocols</strong>。在<code>HTTP</code>升级为<code>WebSocket</code>的时候，如果服务器同意变更，就会发送状态码 101。</p>
-<h2 id="2xx"><a href="#2xx" class="headerlink" title="2xx"></a>2xx</h2><p><strong>200 OK</strong>是见得最多的成功状态码。通常在响应体中放有数据。</p>
-<p><strong>204 No Content</strong>含义与 200 相同，但响应头后没有 body 数据。</p>
-<p><strong>206 Partial Content</strong>顾名思义，表示部分内容，它的使用场景为 HTTP 分块下载和断点续传，当然也会带上相应的响应头字段<code>Content-Range</code>。</p>
-<h2 id="3xx"><a href="#3xx" class="headerlink" title="3xx"></a>3xx</h2><p><strong>301 Moved Permanently</strong>即永久重定向，对应着<strong>302 Found</strong>，即临时重定向。</p>
-<p>比如你的网站从 HTTP 升级到了 HTTPS 了，以前的站点再也不用了，应当返回<code>301</code>，这个时候浏览器默认会做缓存优化，在第二次访问的时候自动访问重定向的那个地址。</p>
-<p>而如果只是暂时不可用，那么直接返回<code>302</code>即可，和<code>301</code>不同的是，浏览器并不会做缓存优化。</p>
-<p><strong>304 Not Modified</strong>: 当协商缓存命中时会返回这个状态码。详见<a href="http://47.98.159.95/my_blog/perform/001.html">浏览器缓存</a></p>
-<h2 id="4xx"><a href="#4xx" class="headerlink" title="4xx"></a>4xx</h2><p><strong>400 Bad Request</strong>: 开发者经常看到一头雾水，只是笼统地提示了一下错误，并不知道哪里出错了。</p>
-<p><strong>403 Forbidden</strong>: 这实际上并不是请求报文出错，而是服务器禁止访问，原因有很多，比如法律禁止、信息敏感。</p>
-<p><strong>404 Not Found</strong>: 资源未找到，表示没在服务器上找到相应的资源。</p>
-<p><strong>405 Method Not Allowed</strong>: 请求方法不被服务器端允许。</p>
-<p><strong>406 Not Acceptable</strong>: 资源无法满足客户端的条件。</p>
-<p><strong>408 Request Timeout</strong>: 服务器等待了太长时间。</p>
-<p><strong>409 Conflict</strong>: 多个请求发生了冲突。</p>
-<p><strong>413 Request Entity Too Large</strong>: 请求体的数据过大。</p>
-<p><strong>414 Request-URI Too Long</strong>: 请求行里的 URI 太大。</p>
-<p><strong>429 Too Many Request</strong>: 客户端发送的请求过多。</p>
-<p><strong>431 Request Header Fields Too Large</strong>请求头的字段内容太大。</p>
-<h2 id="5xx"><a href="#5xx" class="headerlink" title="5xx"></a>5xx</h2><p><strong>500 Internal Server Error</strong>: 仅仅告诉你服务器出错了，出了啥错咱也不知道。</p>
-<p><strong>501 Not Implemented</strong>: 表示客户端请求的功能还不支持。</p>
-<p><strong>502 Bad Gateway</strong>: 服务器自身是正常的，但访问的时候出错了，啥错误咱也不知道。</p>
-<p><strong>503 Service Unavailable</strong>: 表示服务器当前很忙，暂时无法响应服务。</p>
-</li>
-<li><p>Web服务器及其组成</p>
-<p>Web系统由客户端（浏览器）和服务器端两部分组成。Web系统架构也被称为B/S架构。最常见的Web服务器有Apache、IIS等，常用的浏览器有IE、Firefox、chrome等。当你想访问一个网页时，需要在浏览器的地址栏中输入该网页的URL地址，或者是通过超链接链接到该网页。浏览器会向该网页所在的服务器发送一个HTTP请求，服务器会对接收到的请求信息进行处理，然后将处理的结果返回给浏览器，最终将浏览器处理后的结果呈现给用户。</p>
-</li>
-<li><p>HTTP报文首部</p>
-</li>
-<li><p>HTTP通用首部字段</p>
-<a id="more"></a>
-</li>
-<li><p>HTTP请求首部字段、响应首部字段、实体首部字段</p>
-</li>
-<li><p>Cookie相关首部字段</p>
-</li>
-<li><p>HTTPS与HTTP区别及实现方式</p>
-</li>
-<li><p>Cookie与Session</p>
-</li>
-<li><p>基于HTTP的功能追加协议（SPY、WebSocket、HTTP）</p>
-</li>
-<li><p>常见的Web攻击分类</p>
-</li>
-<li><p>TCP与UDP区别</p>
-</li>
-<li><p>TCP三次握手</p>
-</li>
-<li><p>为什么传统上利用多个域名来提供网站资源会更有效</p>
-</li>
-<li><p><code>Long-Polling</code>、<code>Websockets</code> 和 <code>Server-Sent Event</code></p>
-</li>
-<li><p>常见的请求头和响应头</p>
-</li>
-<li><p>和缓存有关的<code>HTTP</code>首部字段</p>
-<p>相当重要。如何应用的？</p>
-</li>
-<li><p><code>https</code> 加密过程</p>
-</li>
-<li><p><code>http2</code>新特性</p>
-</li>
-<li><p>计算机系统</p>
-</li>
-<li><p>线程与进程</p>
-</li>
-<li><p>常见的git指令</p>
-</li>
-<li><p>linux相关指令</p>
-</li>
-<li><p>数据库基本知识</p>
-</li>
-<li><p>其他类型的编程语言</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>面经</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>计算机网络</tag>
-        <tag>HTTP</tag>
-        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -795,6 +714,321 @@
       </tags>
   </entry>
   <entry>
+    <title>计网与操作系统面经汇总</title>
+    <url>/2021/01/18/%E8%AE%A1%E7%BD%91%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li><p>TCP/IP协议分层</p>
+<p>TCP/IP按照层次从上至下分为四层：应用层，传输层，网络层，数据链路层。</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191514.png"></p>
+<a id="more"></a>
+
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128191534.png"></p>
+</li>
+<li><p>三次握手四次挥手机制及原因</p>
+<p><strong>三次握手</strong></p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128200511.png"></p>
+<p>不是两次的原因是无法确认客户端的接受能力，可能会造成连接资源的浪费。</p>
+<p>不是四次或者更多的原因就是太多了没有必要，三次就足够了。</p>
+<p><strong>四次挥手</strong></p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E5%9B%BE%E7%89%8720210128201125.png"></p>
+<p>等待2MSL的原因是防止服务端数据包没有传输完</p>
+<ul>
+<li>1 个 MSL 确保四次挥手中主动关闭方最后的 ACK 报文最终能达到对端</li>
+<li>1 个 MSL 确保对端没有收到 ACK 重传的 FIN 报文可以到达</li>
+</ul>
+<p>不是三次是可能中间服务端传数据造成的延迟会让客户端重新发送FIN请求</p>
+</li>
+<li><p>HTTP方法</p>
+<p><code>http/1.1</code>规定了以下请求方法(注意，都是大写):</p>
+<ul>
+<li>GET: 通常用来获取资源</li>
+<li>HEAD: 获取资源的元信息</li>
+<li>POST: 提交数据，即上传数据</li>
+<li>PUT: 修改数据</li>
+<li>DELETE: 删除资源(几乎用不到)</li>
+<li>CONNECT: 建立连接隧道，用于代理服务器</li>
+<li>OPTIONS: 列出可对资源实行的请求方法，用来跨域请求</li>
+<li>TRACE: 追踪请求-响应的传输路径</li>
+</ul>
+</li>
+<li><p>GET和POST的区别</p>
+<p>首先最直观的是语义上的区别。</p>
+<p>而后又有这样一些具体的差别:</p>
+<ul>
+<li>从<strong>缓存</strong>的角度，GET 请求会被浏览器主动缓存下来，留下历史记录，而 POST 默认不会。</li>
+<li>从<strong>编码</strong>的角度，GET 只能进行 URL 编码，只能接收 ASCII 字符，而 POST 没有限制。</li>
+<li>从<strong>参数</strong>的角度，GET 一般放在 URL 中，因此不安全，POST 放在请求体中，更适合传输敏感信息。</li>
+<li>从<strong>幂等性</strong>的角度，<code>GET</code>是<strong>幂等</strong>的，而<code>POST</code>不是。(<code>幂等</code>表示执行相同的操作，结果也是相同的)</li>
+<li>从<strong>TCP</strong>的角度，GET 请求会把请求报文一次性发出去，而 POST 会分为两个 TCP 数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分。(<strong>火狐</strong>浏览器除外，它的 POST 请求只发一个 TCP 包)</li>
+</ul>
+</li>
+<li><p>HTTP建立持久连接的意义</p>
+<p>每次建立连接的时候都要经过三次握手等必须的程序，如果我们拥有一条可以一直使用的连接的话，也就意味着我们只需要进行一次连接的建立，这就省去了每次建立连接的时间。</p>
+<p> 现在很多方案都会采用<strong>持久连接+新连接结合</strong>的方式，这种方式尽可能的减少了新建连接的浪费，同时当现有连接没有办法满足需求的时候，可以建立新连接满足需求，比较灵活。现有的持久连接类型有两种：<strong>HTTP/1.0+的keep-alive和HTTP/1.1的persistent.</strong></p>
+</li>
+<li><p>HTTP报文的结构</p>
+<p>对于 TCP 而言，在传输的时候分为两个部分:TCP头和数据部分。</p>
+<p>而 HTTP 类似，也是header + body的结构，具体而言: （起始行 + 头部）报文首部 + 空行 + 实体（报文主体）</p>
+<p><strong>起始行</strong></p>
+<p>对于请求报文来说，起始行类似下面这样:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;home HTTP&#x2F;1.1</span><br></pre></td></tr></table></figure>
+<p>也就是<strong>方法 + 路径 + http版本</strong>。</p>
+<p>对于响应报文来说，起始行一般张这个样:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK</span><br></pre></td></tr></table></figure>
+<p>响应报文的起始行也叫做<code>状态行</code>。由<strong>http版本、状态码和原因</strong>三部分组成。</p>
+<p>值得注意的是，在起始行中，每两个部分之间用<strong>空格</strong>隔开，最后一个部分后面应该接一个<strong>换行</strong>，严格遵循<code>ABNF</code>语法规范。</p>
+<p><strong>头部</strong></p>
+<ul>
+<li><ol>
+<li>字段名不区分大小写</li>
+</ol>
+</li>
+<li><ol>
+<li>字段名不允许出现空格，不可以出现下划线<code>_</code></li>
+</ol>
+</li>
+<li><ol>
+<li>字段名后面必须<strong>紧接着<code>:</code></strong></li>
+</ol>
+</li>
+</ul>
+<p><strong>空行</strong></p>
+<p>空行是用来区分头部和实体的。</p>
+<p><strong>实体</strong></p>
+<p>实体就是具体的数据了，也就是body部分。请求报文对应请求体, 响应报文对应响应体。</p>
+</li>
+<li><p>HTTP状态码</p>
+<p>RFC 规定 HTTP 的状态码为<strong>三位数</strong>，被分为五类:</p>
+<ul>
+<li><strong>1xx</strong>: 表示目前是协议处理的中间状态，还需要后续操作。</li>
+<li><strong>2xx</strong>: 表示成功状态。</li>
+<li><strong>3xx</strong>: 重定向状态，资源位置发生变动，需要重新请求。</li>
+<li><strong>4xx</strong>: 请求报文有误。</li>
+<li><strong>5xx</strong>: 服务器端发生错误。</li>
+</ul>
+<p>接下来就一一分析这里面具体的状态码。</p>
+<h2 id="1xx"><a href="#1xx" class="headerlink" title="1xx"></a>1xx</h2><p><strong>101 Switching Protocols</strong>。在<code>HTTP</code>升级为<code>WebSocket</code>的时候，如果服务器同意变更，就会发送状态码 101。</p>
+<h2 id="2xx"><a href="#2xx" class="headerlink" title="2xx"></a>2xx</h2><p><strong>200 OK</strong>是见得最多的成功状态码。通常在响应体中放有数据。</p>
+<p><strong>204 No Content</strong>含义与 200 相同，但响应头后没有 body 数据。</p>
+<p><strong>206 Partial Content</strong>顾名思义，表示部分内容，它的使用场景为 HTTP 分块下载和断点续传，当然也会带上相应的响应头字段<code>Content-Range</code>。</p>
+<h2 id="3xx"><a href="#3xx" class="headerlink" title="3xx"></a>3xx</h2><p><strong>301 Moved Permanently</strong>即永久重定向，对应着<strong>302 Found</strong>，即临时重定向。</p>
+<p>比如你的网站从 HTTP 升级到了 HTTPS 了，以前的站点再也不用了，应当返回<code>301</code>，这个时候浏览器默认会做缓存优化，在第二次访问的时候自动访问重定向的那个地址。</p>
+<p>而如果只是暂时不可用，那么直接返回<code>302</code>即可，和<code>301</code>不同的是，浏览器并不会做缓存优化。</p>
+<p><strong>304 Not Modified</strong>: 当协商缓存命中时会返回这个状态码。详见<a href="http://47.98.159.95/my_blog/perform/001.html">浏览器缓存</a></p>
+<h2 id="4xx"><a href="#4xx" class="headerlink" title="4xx"></a>4xx</h2><p><strong>400 Bad Request</strong>: 开发者经常看到一头雾水，只是笼统地提示了一下错误，并不知道哪里出错了。</p>
+<p><strong>403 Forbidden</strong>: 这实际上并不是请求报文出错，而是服务器禁止访问，原因有很多，比如法律禁止、信息敏感。</p>
+<p><strong>404 Not Found</strong>: 资源未找到，表示没在服务器上找到相应的资源。</p>
+<p><strong>405 Method Not Allowed</strong>: 请求方法不被服务器端允许。</p>
+<p><strong>406 Not Acceptable</strong>: 资源无法满足客户端的条件。</p>
+<p><strong>408 Request Timeout</strong>: 服务器等待了太长时间。</p>
+<p><strong>409 Conflict</strong>: 多个请求发生了冲突。</p>
+<p><strong>413 Request Entity Too Large</strong>: 请求体的数据过大。</p>
+<p><strong>414 Request-URI Too Long</strong>: 请求行里的 URI 太大。</p>
+<p><strong>429 Too Many Request</strong>: 客户端发送的请求过多。</p>
+<p><strong>431 Request Header Fields Too Large</strong>请求头的字段内容太大。</p>
+<h2 id="5xx"><a href="#5xx" class="headerlink" title="5xx"></a>5xx</h2><p><strong>500 Internal Server Error</strong>: 仅仅告诉你服务器出错了，出了啥错咱也不知道。</p>
+<p><strong>501 Not Implemented</strong>: 表示客户端请求的功能还不支持。</p>
+<p><strong>502 Bad Gateway</strong>: 服务器自身是正常的，但访问的时候出错了，啥错误咱也不知道。</p>
+<p><strong>503 Service Unavailable</strong>: 表示服务器当前很忙，暂时无法响应服务。</p>
+</li>
+<li><p>Web服务器及其组成</p>
+<p>Web系统由客户端（浏览器）和服务器端两部分组成。Web系统架构也被称为B/S架构。最常见的Web服务器有Apache、IIS等，常用的浏览器有IE、Firefox、chrome等。当你想访问一个网页时，需要在浏览器的地址栏中输入该网页的URL地址，或者是通过超链接链接到该网页。浏览器会向该网页所在的服务器发送一个HTTP请求，服务器会对接收到的请求信息进行处理，然后将处理的结果返回给浏览器，最终将浏览器处理后的结果呈现给用户。</p>
+</li>
+<li><p>HTTP报文首部</p>
+<p>除了之前提到的起始行，还有通用首部字段，请求首部字段，响应首部字段，实体首部字段等等</p>
+</li>
+<li><p>HTTP通用首部字段</p>
+<p>Cache-Control：操作缓存的工作机制</p>
+<p>Connection：控制不再转发的首部字段；管理持久连接（close，keep-alive）</p>
+<p>Date：明确创建报文的日期和时间</p>
+<p>Pragma：历史遗留字段（为了兼容版本）</p>
+<p>Trailer：分块传输编码</p>
+<p>Transfer-Encoding：规定了传输报文主题时采用的编码方式</p>
+<p>Upgrade：检测是否可以使用更高版本进行通信（可以就返回101 switching protocols）</p>
+<p>Via：追踪客户端与服务器之间的请求和响应报文的传输路径</p>
+<p>Warning：从Retry-After演变而来，告知用户一些与缓存相关的警告</p>
+</li>
+<li><p>HTTP请求首部字段、响应首部字段、实体首部字段</p>
+<ol>
+<li><p>请求首部字段：</p>
+<p>1、Accept</p>
+<p> Accept首部可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级</p>
+<p> Accept：text/html, application/xhtml+xml, application/xml; q=0.9, <em>/</em>; q=0.8<br>2、Accept-Charset</p>
+<p> 用来通知服务器用户代理支持的字符集及字符集的相对优先顺序</p>
+<p> Accept-Charset： iso-8859-5，unicode-1-1；q=0.8<br>3、Accept-Encoding</p>
+<p> 用来告知服务器用户代理支持的内容编码及内容编码的优先级顺序</p>
+<p> Accept-Encoding：gzip，deflate<br>4、Accept-Language</p>
+<p> 告知服务器用户代理支持的自然语言集及自然语言集的优先级</p>
+<p> Accept-Language：zh-cn，zh；q=0.7，en-us，en；q=0.3<br>5、Authorization</p>
+<p> 告知服务器用户代理的认证信息，通常，想要通过服务器认证的用户代理在接收到返回的401状态码响应后，把首部字段Authorization加入到请求中。</p>
+<p> Authorization：Basic dwvub……..<br>6、Expect</p>
+<p> 客户端使用首部字段Expect字段来告知服务器，期待出现的某种特定行为</p>
+<p> 等待状态码100响应的客户端在发生请求时，需要指定Expect: 100-continue</p>
+<p> Expect: 100-continue<br>7、Form</p>
+<p> 用来告知服务器使用用户代理的用户的电子邮件地址</p>
+<p> Form：2294***<br> 272@qq.com<br>8、Host</p>
+<p> 用来告知服务器，请求的资源所在的互联网主机名和端口号,Host首部字段在HTTP/1.1规范内唯一一个必须包含在请求内的首部字段<br>9、If-Match</p>
+<p> 形如If-***这种样式的请求首部字段，都可称为条件请求，服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求，服务器会比对If-Match的字段值和资源的ETag值，仅当两者一致时，才会执行请求。</p>
+<p> If-Match：“123456”<br>10、If-Modified-Since</p>
+<p> 首部字段If-Modified-Since，属附带条件之一，会告知服务器若If-Modified-Since字段值早于资源的更新时间，则希望能处理该请求。而在指定If-Modified-Since字段值的日期之后，如果请求的资源都没有过更新，则返回状态码304 Not Modified的响应。<br>11、If-None-Match</p>
+<p> 首部字段If-None-Match属于附带条件之一，它和首部字段If-Match作用相反，用于指定If-None-Match字段值的实体标记（ETag）值与请求资源的ETag不一致时，就告知服务器处理该请求，可获得最新的资源。<br>12、If-Range</p>
+<p> 首部字段If-Range属于附带条件之一，告知服务器若指定的If-Range字段值（ETag值或者时间）和请求资源的ETag值或时间相一致时，则作为范围请求处理，反之，则返回全体资源。</p>
+<p> GET /index.html</p>
+<p> If-Range:”123456”</p>
+<p> Range: bytes=5001-10000<br>13、If-Unmodified-Since</p>
+<p> 首部字段If-Unmodified-Since和首部字段If-Modified-Since的作用相反，它的作用是告知服务器，指定的请求资源只有在字段内指定的日期之后，未发生更新的情况下，才能处理请求。如果在指定日期后发生了更新，则以状态码412 Precondition Failed作为响应返回</p>
+<p> If-Unmodified-Since: Thu, 03 Jul 2012 00:00:00 GMT<br>14、Max-Forwards</p>
+<p> 通过TRACE方法或OPTIONS方法，发送包含首部字段Max-Forwards的请求时，该字段以十进制整数形式指定可经过的服务器最大数目。服务器在往下一个服务器转发请求之前，会将Max-Forwards的值减1后重新赋值、当服务器接收到Max-Forwards值为0的请求时，则不再进行转发，而是直接返回响应。</p>
+<p> Max-Forwards：10<br>15、Proxy-Authorization</p>
+<p> 接收到代理服务器发来的认证质疑时，客户端会发送包含首部字段Proxy-Authorization的请求，以告知服务器认证所需要的信息。</p>
+<p> 这个行为是与客户端和服务器之间的HTTP访问认证相类似的，不同之处在于，认证行为发生在客户端与代理之间，客户端与服务器之间的认证，使用首部字段Authorization可起到相同作用。<br>16、Range</p>
+<p> 对于只获取部分资源的范围请求，包含首部字段Range即可告知服务器资源的指定范围。接收到附带Range首部字段请求的服务器，会在处理请求之后返回状态码为206 Partial Content的响应，无法处理该范围请求时，则会返回状态码200 OK的响应及全部字段。</p>
+<p> Range：bytes=5001-10000<br>17、Referer</p>
+<p> 首部字段Referer会告知服务器请求的原始资源的URI<br>18、TE</p>
+<p> 首部字段TE会告知服务器客户端能够处理响应的传输编码方式及相对优先级，它和首部字段Accept-Encoding的功能很相像，但是用于传输编码。</p>
+<p> TE：gzip，deflate；q=0.5<br>19、User-Agent</p>
+<p> 首部字段User-Agent会将创建请求的浏览器和用户代理名称等信息传达给服务器</p>
+<p> User-Agent：Mozilla/5.0 (Windows NT 6.1; WOW64;rv:13.0) Gecko/=&gt;20100101 Firefox/13.0.1</p>
+</li>
+<li><p>响应首部字段</p>
+<p>1、Accept-Ranges<br>是否接受字节范围请求(是否能处理范围请求，以指定获取服务器端资源的某个部分。)</p>
+<p>字段值有bytes与none</p>
+<p>2、Age<br>推算资源创建经过时间</p>
+<p>3、ETag<br>资源的匹配信息</p>
+<p>首部字段 ETag能告知客户端实体标识。它是一种可将资源以字符串形式做唯一性标识的方式。服务器会为每份资源分配对应的 ETag值。</p>
+<p>另外，当资源更新时，ETag值也需要更新。生成 Etag值时，并没有统一的算法规则，而仅仅是由服务器来分配。</p>
+<p>应用：比如中文版/英文版对应的资源。两者的URI是相同的，所以仅凭 URI指定缓存的资源是相当困难的。若在下载过程中出现连接中断、再连接的情况，都会依照 ETag值来指定资源。(范围请求，查看资源是否更新时，对比ETag)</p>
+<p>强ETag值和弱ETag值</p>
+<p>强 ETag值，不论实体发生多么细微的变化都会改变其值。</p>
+<p>ETag: “usagi-1234”<br>弱 ETag值只用于提示资源是否相同。只有资源发生了根本改变，产生差异时才会改变 ETag值。这时，会在字段值最开始处附加 W/。</p>
+<p>ETag: W/“usagi-1234”<br>4、Location<br>令客户端重定向至指定URI</p>
+<p>使用首部字段 Location 可以将响应接收方引导至某个与请求 URI 位置不同的资源。</p>
+<p>配合3xx：Redirection 的响应，提供重定向的URI</p>
+<p>几乎所有的浏览器在接收到包含首部字段 Location 的响应后，都会强制性地尝试对已提示的重定向资源的访问。</p>
+<p>5、Proxy-Authenticate<br>代理服务器对客户端的认证信息</p>
+<p>6、Retry-After<br>对再次发起请求的时机要求</p>
+<p>首部字段Retry-After 告知客户端应该在多久之后再次发送请求。主要配合状态码 503 Service Unavailable 响应，或 3xx Redirect 响应一起使用。</p>
+<p>字段值可以指定为具体的日期时间（Wed, 04 Jul 2012 06：34：24GMT 等格式），也可以是创建响应后的秒数。</p>
+<p>7、Server<br>Server 首部包含了处理请求的源头服务器所用到的软件相关信息。</p>
+<p>应该避免使用过长或者过于详细的描述作为 Server 的值，因为这有可能泄露服务器的内部实现细节，有利于攻击者找到或者探测已知的安全漏洞。</p>
+<p>8、Vary<br>代理服务器缓存的管理信息</p>
+<p>Vray是一个HTTP响应头部信息，它决定了对于未来的一个请求头，应该用一个缓存的回复(response)还是向源服务器请求一个新的回复。它被服务器用来表明在 content negotiation algorithm（内容协商算法）中选择一个资源代表的时候应该使用哪些头部信息（headers）</p>
+<p>当代理服务器接收到带有 Vary 首部字段指定获取资源的请求时，如果使用的 Vary 首部字段的值相同，那么就直接从缓存返回响应。反之，则需要先从源服务器端获取资源后才能作为响应返回。</p>
+<p>9、WWW-Authenticate<br>服务器对客户端的认证信息</p>
+</li>
+<li><p>实体首部字段</p>
+<p>1、Allow</p>
+<p> 首部字段Allow用于通知客户端能够支持Request-URI指定资源的所有HTTP方法。当服务器接收不支持的HTTP方法时，会以状态码405 Method Not Allowed作为响应，与此同时，还会把所有能支持的HTTP方法写入首部字段Allow返回</p>
+<p> 如：Allow：GET，HEAD<br>2、Content-Encoding</p>
+<p> 首部字段Content-Encoding会告知服务器对实体的主体部分选用的内容编码方式。有gzip、compress、deflate、identity</p>
+<p> 如：Content-Encoding：gzip<br>3、Content-Language</p>
+<p> Content-Language会告知客户端，实体主体所使用的自然语言</p>
+<p> 如：Content-Language：zh-CN<br>4、Content-Length</p>
+<p> Content-Length表明了实体主体部分的大小，单位是字节</p>
+<p> 如：Content-Length：15000<br>5、Content-Location</p>
+<p> Content-Location给出与报文主体部分相对应的URI<br>6、Content-MD5</p>
+<p> Content-MD5是一串由MD5算法生成的值，目的在于检查报文主体在传输过程中是否保持完整，以及确认传输到达</p>
+<p> 如：Content-MD5：*<strong>**</strong><br>7、Content-Range</p>
+<p>针对范围请求，返回响应时使用的首部字段Content-Range，告知客户端作为响应返回的实体的哪个部分符合范围请求，以字节为单位，表示当前发送部分及整体实体大小</p>
+<p> 如：Content-Range：bytes 5001-10000/10000<br>8、Content-Type</p>
+<p> 说明实体主体内对象的媒体类型</p>
+<p> 如：Content-Type：text/html; charset=UTF-8<br>9、Expires</p>
+<p>将资源失效的日期告诉客户端</p>
+<p> 如：Expires：Wed，04 Jul 2012 08:26:05 GMT<br>10、Last-Modified</p>
+<p>指明资源最终修改的时间</p>
+<p>如：Last-Modified：Wed，04 Jul 2012 08:26:05 GMT</p>
+</li>
+<li><p>总结一下就是</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210129165110.png"></p>
+</li>
+</ol>
+</li>
+<li><p>Cookie相关首部字段</p>
+<p>为cookie服务的首部字段有Set-Cookie，以及Cookie</p>
+<p>其中Set-Cookie有expires，path，domain，secure，HttpOnly属性。</p>
+</li>
+<li><p>HTTPS与HTTP区别</p>
+<h3 id="HTTP与HTTPS介绍"><a href="#HTTP与HTTPS介绍" class="headerlink" title="HTTP与HTTPS介绍"></a>HTTP与HTTPS介绍</h3><p>​    超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息，比如：信用卡号、密码等支付信息。</p>
+<p>​    为了解决HTTP协议的这一缺陷，需要使用另一种协议：安全套接字层超文本传输协议HTTPS，为了数据传输的安全，HTTPS在HTTP的基础上加入了SSL/TLS协议，SSL/TLS依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。</p>
+<p>​    HTTPS协议是由SSL/TLS+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全</p>
+<p>​    HTTPS协议的主要作用可以分为两种：一种是建立一个信息安全通道，来保证数据传输的安全；另一种就是确认网站的真实性。</p>
+<h3 id="HTTPS和HTTP的主要区别"><a href="#HTTPS和HTTP的主要区别" class="headerlink" title="HTTPS和HTTP的主要区别"></a>HTTPS和HTTP的主要区别</h3><p>​    1、https协议需要到CA申请证书，一般免费证书较少，因而需要一定费用。</p>
+<p>​    2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl/tls加密传输协议。</p>
+<p>​    3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<p>​    4、http的连接很简单，是无状态的；HTTPS协议是由SSL/TLS+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+</li>
+<li><p>Cookie与Session</p>
+<p><strong>cookie是什么</strong><br>一个HTTP cookie的（网络Cookie，浏览器cookie）是一小片数据的一个服务器发送到用户的网络浏览器。浏览器可以存储它并将其与下一个请求一起发送回同一服务器。通常，它用于判断两个请求是否来自同一个浏览器 - 例如，保持用户登录。它记住无状态 HTTP协议的有状态信息。</p>
+<p><strong>session是什么</strong><br>客户端请求服务端，服务端（Tomcat）会为这次请求开辟一块内存空间，这个对象便是Session对象， 存储结构为ConcurrentHashMap。</p>
+<p>session的目的：弥补HTTP无状态特性，服务器可以利用session存储客户端在同一个会话期间的一些操作记录。</p>
+<p><img src="https://first-requirement-graph.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20210129165615.png"></p>
+</li>
+<li><p>基于HTTP的功能追加协议（AJAX、SPDY、WebSocket）</p>
+<p>1、HTTP的一些标准会成为HTTP性能上的瓶颈：</p>
+<p>一条连接上只可发送一个请求。</p>
+<p>请求只能从客户端开始，客户端不可以接收除响应以外的指令。</p>
+<p>请求/响应首部未经压缩就发送，首部信息越多延迟越大。</p>
+<p>发送冗长的手部，每次互相发送相同的首部造成的浪费较多。</p>
+<p>可任意选择数据压缩格式，非强制压缩发送。</p>
+<p>2、Ajax（Asynchronous JavaScript and XML，异步JavaScript与XML技术）是一种有效利用JavaScript和DOM（Document Object Model，文档对象模型）的操作，以达到局部Web页面替换加载的异步通信手段。由于它只更新一部分页面，响应中传输的数据量会因此而减少，这一优点显而易见。</p>
+<p>3、SPDY：Google在2010年发布，其开发目标旨在解决HTTP的性能瓶颈，缩短Web页面的加载时间。SPDY没有完全改写HTTP协议，而是在TCP/IP的应用层与运输层之间通过新加会话层的形式运作。同时考虑到安全性问题，SPDY规定通信中使用SSL。</p>
+<p>使用SPDY后，HTTP协议额外获得的功能：</p>
+<p>多路复用（通过单一的TCP连接，可以无限制处理多个HTTP请求。）</p>
+<p>赋予请求优先级：可以给请求逐个分配优先级顺序，这样主要是为了在发送多个请求时，解决因带宽低而导致响应变慢的问题。</p>
+<p>压缩HTTP首部：这样通信产生的数据包数量和发送的字节数就更少了。</p>
+<p>推送功能：支持服务器主动向客户端推送数据的功能。</p>
+<p>服务器提示功能：服务器可以主动提示客户端请求所需的资源，由于在客户端发现资源之前就可以获知资源的存在，因此在资源已缓存等情况下，可以避免发送不必要的请求。</p>
+<p>4、WebSocket：使用浏览器进行全双工通信。</p>
+<p>WebSocket是建立在HTTP基础上的协议，因此连接的发起方仍是客户端，而一旦确立WebSocket通信连接，不论服务器还是客户端，任意一方都可直接向对方发送报文。</p>
+<p>WebScoket协议的主要特点：</p>
+<p>推送功能：支持服务器想客户端推送数据的推送功能。</p>
+<p>减少通信量：只要建立起WebSocket连接，就希望一直保持连接状态，和HTTP相比，不但每次连接时的总开销减少，而且由于WebSocket的首部信息很小，通信量也相应减少了。</p>
+</li>
+<li><p>常见的Web攻击分类</p>
+<p>常见的有XSS，CSRF，SQL注入攻击，文件上传漏洞，DDos/Dos攻击（第一个多一个分布式，都是拒绝服务攻击，通过大量同时攻击，导致目标无法正常使用）</p>
+</li>
+<li><p>TCP与UDP区别</p>
+</li>
+<li><p>TCP三次握手</p>
+</li>
+<li><p>为什么传统上利用多个域名来提供网站资源会更有效</p>
+</li>
+<li><p><code>Long-Polling</code>、<code>Websockets</code> 和 <code>Server-Sent Event</code></p>
+</li>
+<li><p>常见的请求头和响应头</p>
+</li>
+<li><p>和缓存有关的<code>HTTP</code>首部字段</p>
+<p>相当重要。如何应用的？</p>
+</li>
+<li><p><code>https</code> 加密过程</p>
+</li>
+<li><p><code>http2</code>新特性</p>
+</li>
+<li><p>计算机系统</p>
+</li>
+<li><p>线程与进程</p>
+</li>
+<li><p>常见的git指令</p>
+</li>
+<li><p>linux相关指令</p>
+</li>
+<li><p>数据库基本知识</p>
+</li>
+<li><p>其他类型的编程语言</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>计算机网络</tag>
+        <tag>HTTP</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Html与Css面经汇总</title>
     <url>/2021/01/17/Html%E4%B8%8ECss%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
@@ -919,7 +1153,7 @@
 <li><p>web worker和web socket</p>
 <p>web socket提供更高效的传输协议，web worker提供多线程提高web应用计算效率。</p>
 <p><strong>一.web socket</strong></p>
-<p>1.web socket是一种协议，本质上和http，tcp一样。协议是用来说明数据是如何传输的,写过一个小的在线聊天使用了socket.io，之后总结这个项目。</p>
+<p>1.web socket是一种协议，本质上和http，tcp一样。协议是用来说明数据是如何传输的</p>
 <p>2.web socket的前缀有两种：（1）ws://  不是加密的。 (2)wss://  是加密的。</p>
 <p>3.客户端和服务端进行web socket交互的方式也可以理解为“http握手 + tcp数据传输”的方式：</p>
 <p>（1）浏览器（支持Websocket的浏览器）像HTTP一样，发起一个请求，然后等待服务端的响应；</p>
