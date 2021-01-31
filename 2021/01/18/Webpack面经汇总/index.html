@@ -28,7 +28,7 @@
 <meta property="og:description" content="前端工程化的流程 架构选型、业务开发、测试、打包构建、部署上线、项目监控 前端工程化要解决的问题就是制定各项规范，使用合适的前端技术和框架，提高生产效率，提高代码的可测试性，以及使用各种自动化的工具，提升整体开发部署的效率。  Webpack基本概念与配置 webpack 是一个现代 JavaScript 应用程序的静态模块打包器，当 webpack 处理应用程序时，会递归构建一个依赖关系图，其">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-18T05:24:19.000Z">
-<meta property="article:modified_time" content="2021-01-29T10:20:47.939Z">
+<meta property="article:modified_time" content="2021-01-31T06:29:18.801Z">
 <meta property="article:author" content="Chen Zhengyu">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="Webpack">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 18:20:47" itemprop="dateModified" datetime="2021-01-29T18:20:47+08:00">2021-01-29</time>
+                <time title="修改时间：2021-01-31 14:29:18" itemprop="dateModified" datetime="2021-01-31T14:29:18+08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,14 +265,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -361,16 +361,24 @@
 <p>4.0之前使用CommonsChunkPlugin，4之后使用splitChunks</p>
 </li>
 <li><p><code>webpack</code> 如何做到 tree shaking</p>
+<ul>
+<li>1个模块可能有多个方法，只要其中某个方法使用了，整个文件会被打到bundle中</li>
+<li>tree shaking <code>只将用到的方法</code>打到bundle中，<code>没用的在uglify阶段被擦除</code></li>
+<li>虽然生产模式下默认开启，但是由于经过 babel 编译全部模块被封装成 IIFE（立即执行函数）</li>
+<li>IIFE 存在副作用无法被 tree-shaking 掉</li>
+<li>需要配置 { module: false }和 sideEffects: false</li>
+</ul>
 </li>
 <li><p>前端模块化的理解</p>
+<p>这篇文章讲得很好，传送门（<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903576309858318%EF%BC%89">https://juejin.cn/post/6844903576309858318）</a></p>
 </li>
 <li><p>loader和plugin的原理与实现</p>
-</li>
-<li><p>SPA及其优缺点</p>
+<p><strong>loader的作用</strong>：<br>1、实现对不同格式的文件的处理，比如说将scss转换为css，或者typescript转化为js<br>2、转换这些文件，从而使其能够被添加到依赖图中<br>loader是webpack最重要的部分之一，通过使用不同的Loader，我们能够调用外部的脚本或者工具，实现对不同格式文件的处理，loader需要在webpack.config.js里边单独用module进行配置</p>
+<p>这里介绍几个常用的loader：<br>babel-loader： 让下一代的js文件转换成现代浏览器能够支持的JS文件。<br>babel有些复杂，所以大多数都会新建一个.babelrc进行配置<br>css-loader,style-loader:两个建议配合使用，用来解析css文件，能够解释@import,url()如果需要解析less就在后面加一个less-loader<br>file-loader: 生成的文件名就是文件内容的MD5哈希值并会保留所引用资源的原始扩展名<br>url-loader: 功能类似 file-loader,但是文件大小低于指定的限制时，可以返回一个DataURL事实上，在使用less,scss,stylus这些的时候，npm会提示你差什么插件，差什么，你就安上就行</p>
+<p><strong>plugins</strong>和loader很容易搞混，说都是外部引用有什么区别呢？ 事实上他们是两个完全不同的东西。这么说<strong>loaders负责的是处理源文件的如css、jsx，一次处理一个文件。而plugins并不是直接操作单个文件，</strong>它直接对整个构建过程起作用下面列举了一些我们常用的plugins和他的用法<br>ExtractTextWebpackPlugin: 它会将入口中引用css文件，都打包都独立的css文件中，而不是内嵌在js打包文件中。</p>
 </li>
 <li><p>SSR实现及优缺点</p>
-</li>
-<li><p>设计模式</p>
+<p>服务端渲染支持SEO，页面渲染的时间短，但是服务器的压力大，以及配置困难。</p>
 </li>
 </ol>
 
@@ -537,13 +545,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

@@ -23,12 +23,13 @@
       </tags>
   </entry>
   <entry>
-    <title>OCEANIA项目文档</title>
-    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="项目背景-amp-概况"><a href="#项目背景-amp-概况" class="headerlink" title="项目背景&amp;概况"></a>项目背景&amp;概况</h2><p>OCEANIA项目的名字实际上是在线代码依赖分析平台的简写，这个平台的设计初衷是希望可以让开发人员在可视化方面对一个项目的代码规模，大致的依赖调用关系有一个大致的认识。同时项目也维护了一个数据库中的图，保存了完整的项目的代码依赖调用关系，后续对于项目的traceability，代码分析之类的提供便利。项目的大致的应用场景是提供给一个拿到新项目的开发者用来熟悉代码结构或者给管理者去监管代码构成以及开发进展的工具平台</p>
-<h2 id="项目的技术栈"><a href="#项目的技术栈" class="headerlink" title="项目的技术栈"></a>项目的技术栈</h2><p>前端使用的是Vue框架配合Antdv，使用了vuex以及VueRouter等技术。</p>
-<p>后端使用的是Springboot+Mysql以及Jenkins集成部署，还配合Websocket实现了团队通讯功能。</p>
-<p>在代码依赖图可视化方面使用的是Cytoscape.js，这个框架提供了很多遍历边点以及对它们还有画布进行操作的API，同时可以自定义布局，因此为了节省浏览器资源，以及优化渲染的效率，我们在后端实现了一个力导向的layout分析算法（首先计算节点之间的斥力，然后根据联通关系计算引力，然后做一些微调之后更新节点位置，迭代调用这个方法200次），提前计算好节点在图上的布局，传到前端进行渲染。</p>
+    <title>OASIS项目文档</title>
+    <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>OASIS项目的全称是在线学术图谱系统。项目通过爬虫爬取一些计算机领域的IEEE或者ACM的会议，文章，学者信息，进行处理和可视化操作，可以提供展示和综合查询的便利。</p>
+<h2 id="项目技术栈"><a href="#项目技术栈" class="headerlink" title="项目技术栈"></a>项目技术栈</h2><p>项目采用的是Vue + ElementUI的前端组合，使用了Vue-Router。前端element实现了按需加载，并且遵循ES6的语法进行了模块化处理，可复用性强。</p>
+<p>后端SpringBoot + Mysql + Redis构建，通过Gitlab-CI集成管理，数据信息处理方面使用了Stanford-NLP的包。</p>
+<p>后端第二阶段实现了微服务架构，拆分了学术实体以及搜索实体两个部分。</p>
+<p>爬虫使用的是python。</p>
 ]]></content>
       <categories>
         <category>项目</category>
@@ -39,13 +40,12 @@
       </tags>
   </entry>
   <entry>
-    <title>OASIS项目文档</title>
-    <url>/2021/01/18/OASIS%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>OASIS项目的全称是在线学术图谱系统。项目通过爬虫爬取一些计算机领域的IEEE或者ACM的会议，文章，学者信息，进行处理和可视化操作，可以提供展示和综合查询的便利。</p>
-<h2 id="项目技术栈"><a href="#项目技术栈" class="headerlink" title="项目技术栈"></a>项目技术栈</h2><p>项目采用的是Vue + ElementUI的前端组合，使用了Vue-Router。前端element实现了按需加载，并且遵循ES6的语法进行了模块化处理，可复用性强。</p>
-<p>后端SpringBoot + Mysql + Redis构建，通过Gitlab-CI集成管理，数据信息处理方面使用了Stanford-NLP的包。</p>
-<p>后端第二阶段实现了微服务架构，拆分了学术实体以及搜索实体两个部分。</p>
-<p>爬虫使用的是python。</p>
+    <title>OCEANIA项目文档</title>
+    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="项目背景-amp-概况"><a href="#项目背景-amp-概况" class="headerlink" title="项目背景&amp;概况"></a>项目背景&amp;概况</h2><p>OCEANIA项目的名字实际上是在线代码依赖分析平台的简写，这个平台的设计初衷是希望可以让开发人员在可视化方面对一个项目的代码规模，大致的依赖调用关系有一个大致的认识。同时项目也维护了一个数据库中的图，保存了完整的项目的代码依赖调用关系，后续对于项目的traceability，代码分析之类的提供便利。项目的大致的应用场景是提供给一个拿到新项目的开发者用来熟悉代码结构或者给管理者去监管代码构成以及开发进展的工具平台</p>
+<h2 id="项目的技术栈"><a href="#项目的技术栈" class="headerlink" title="项目的技术栈"></a>项目的技术栈</h2><p>前端使用的是Vue框架配合Antdv，使用了vuex以及VueRouter等技术。</p>
+<p>后端使用的是Springboot+Mysql以及Jenkins集成部署，还配合Websocket实现了团队通讯功能。</p>
+<p>在代码依赖图可视化方面使用的是Cytoscape.js，这个框架提供了很多遍历边点以及对它们还有画布进行操作的API，同时可以自定义布局，因此为了节省浏览器资源，以及优化渲染的效率，我们在后端实现了一个力导向的layout分析算法（首先计算节点之间的斥力，然后根据联通关系计算引力，然后做一些微调之后更新节点位置，迭代调用这个方法200次），提前计算好节点在图上的布局，传到前端进行渲染。</p>
 ]]></content>
       <categories>
         <category>项目</category>
@@ -78,10 +78,15 @@
 <p><strong>js实现简单的双向绑定</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;txt&quot;&gt;</span><br><span class="line">    &lt;p id&#x3D;&quot;show&quot;&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">    var obj &#x3D; &#123;&#125;</span><br><span class="line">    Object.defineProperty(obj, &#39;txt&#39;, &#123;</span><br><span class="line">        get: function () &#123;</span><br><span class="line">            return obj</span><br><span class="line">        &#125;,</span><br><span class="line">        set: function (newValue) &#123;</span><br><span class="line">            document.getElementById(&#39;txt&#39;).value &#x3D; newValue</span><br><span class="line">            document.getElementById(&#39;show&#39;).innerHTML &#x3D; newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    document.addEventListener(&#39;keyup&#39;, function (e) &#123;</span><br><span class="line">        obj.txt &#x3D; e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>vue-router实现原理</p>
+<p><strong>hash模式：</strong>在浏览器中符号“#”，#以及#后面的字符称之为hash，用window.location.hash读取；<br>特点：hash虽然在URL中，但不被包括在HTTP请求中；用来指导浏览器动作，对服务端安全无用，hash不会重加载页面。<br>hash 模式下，仅 hash 符号之前的内容会被包含在请求中。因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回 404 错误。</p>
+<p><strong>history模式：</strong>history采用HTML5的新特性；且提供了两个新方法：pushState（），replaceState（）可以对浏览器历史记录栈进行修改，以及popState事件的监听到状态变更。<br>history 模式下，前端的 URL 必须和实际向后端发起请求的 URL 一致。后端如果缺少对 /items/id 的路由处理，将返回 404 错误。</p>
+<p><strong>Vue-Router 官网里如此描述：</strong>“不过这种模式要玩好，还需要后台配置支持……所以呢，你要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是你 app 依赖的页面。”</p>
 </li>
 <li><p>vue组件之间的通信</p>
+<p><strong>1.父组件与子组件传值</strong><br>父组件传给子组件：子组件通过props方法接受数据;<br>子组件传给父组件：$emit方法传递参数<br><strong>2.非父子组件间的数据传递，兄弟组件传值</strong><br>eventBus，就是创建一个事件中心，相当于中转站，可以用它来传递事件和接收事件。项目比较小时，用这个比较合适。（虽然也有不少人推荐直接用VUEX，具体来说看需求咯。技术只是手段，目的达到才是王道。）</p>
 </li>
 <li><p>vue的一些新技术</p>
+<p>这篇文章讲得不错，传送门：（<a href="https://juejin.cn/post/6844904134303301645%EF%BC%89">https://juejin.cn/post/6844904134303301645）</a></p>
 </li>
 </ol>
 ]]></content>
@@ -173,16 +178,24 @@
 <p>4.0之前使用CommonsChunkPlugin，4之后使用splitChunks</p>
 </li>
 <li><p><code>webpack</code> 如何做到 tree shaking</p>
+<ul>
+<li>1个模块可能有多个方法，只要其中某个方法使用了，整个文件会被打到bundle中</li>
+<li>tree shaking <code>只将用到的方法</code>打到bundle中，<code>没用的在uglify阶段被擦除</code></li>
+<li>虽然生产模式下默认开启，但是由于经过 babel 编译全部模块被封装成 IIFE（立即执行函数）</li>
+<li>IIFE 存在副作用无法被 tree-shaking 掉</li>
+<li>需要配置 { module: false }和 sideEffects: false</li>
+</ul>
 </li>
 <li><p>前端模块化的理解</p>
+<p>这篇文章讲得很好，传送门（<a href="https://juejin.cn/post/6844903576309858318%EF%BC%89">https://juejin.cn/post/6844903576309858318）</a></p>
 </li>
 <li><p>loader和plugin的原理与实现</p>
-</li>
-<li><p>SPA及其优缺点</p>
+<p><strong>loader的作用</strong>：<br>1、实现对不同格式的文件的处理，比如说将scss转换为css，或者typescript转化为js<br>2、转换这些文件，从而使其能够被添加到依赖图中<br>loader是webpack最重要的部分之一，通过使用不同的Loader，我们能够调用外部的脚本或者工具，实现对不同格式文件的处理，loader需要在webpack.config.js里边单独用module进行配置</p>
+<p>这里介绍几个常用的loader：<br>babel-loader： 让下一代的js文件转换成现代浏览器能够支持的JS文件。<br>babel有些复杂，所以大多数都会新建一个.babelrc进行配置<br>css-loader,style-loader:两个建议配合使用，用来解析css文件，能够解释@import,url()如果需要解析less就在后面加一个less-loader<br>file-loader: 生成的文件名就是文件内容的MD5哈希值并会保留所引用资源的原始扩展名<br>url-loader: 功能类似 file-loader,但是文件大小低于指定的限制时，可以返回一个DataURL事实上，在使用less,scss,stylus这些的时候，npm会提示你差什么插件，差什么，你就安上就行</p>
+<p><strong>plugins</strong>和loader很容易搞混，说都是外部引用有什么区别呢？ 事实上他们是两个完全不同的东西。这么说<strong>loaders负责的是处理源文件的如css、jsx，一次处理一个文件。而plugins并不是直接操作单个文件，</strong>它直接对整个构建过程起作用下面列举了一些我们常用的plugins和他的用法<br>ExtractTextWebpackPlugin: 它会将入口中引用css文件，都打包都独立的css文件中，而不是内嵌在js打包文件中。</p>
 </li>
 <li><p>SSR实现及优缺点</p>
-</li>
-<li><p>设计模式</p>
+<p>服务端渲染支持SEO，页面渲染的时间短，但是服务器的压力大，以及配置困难。</p>
 </li>
 </ol>
 ]]></content>
