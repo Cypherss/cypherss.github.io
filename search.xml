@@ -40,22 +40,6 @@
       </tags>
   </entry>
   <entry>
-    <title>OCEANIA项目文档</title>
-    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="项目背景-amp-概况"><a href="#项目背景-amp-概况" class="headerlink" title="项目背景&amp;概况"></a>项目背景&amp;概况</h2><p>OCEANIA项目的名字实际上是在线代码依赖分析平台的简写，这个平台的设计初衷是希望可以让开发人员在可视化方面对一个项目的代码规模，大致的依赖调用关系有一个大致的认识。同时项目也维护了一个数据库中的图，保存了完整的项目的代码依赖调用关系，后续对于项目的traceability，代码分析之类的提供便利。项目的大致的应用场景是提供给一个拿到新项目的开发者用来熟悉代码结构或者给管理者去监管代码构成以及开发进展的工具平台</p>
-<h2 id="项目的技术栈"><a href="#项目的技术栈" class="headerlink" title="项目的技术栈"></a>项目的技术栈</h2><p>前端使用的是Vue框架配合Antdv，使用了vuex以及VueRouter等技术。</p>
-<p>后端使用的是Springboot+Mysql以及Jenkins集成部署，还配合Websocket实现了团队通讯功能。</p>
-<p>在代码依赖图可视化方面使用的是Cytoscape.js，这个框架提供了很多遍历边点以及对它们还有画布进行操作的API，同时可以自定义布局，因此为了节省浏览器资源，以及优化渲染的效率，我们在后端实现了一个力导向的layout分析算法（首先计算节点之间的斥力，然后根据联通关系计算引力，然后做一些微调之后更新节点位置，迭代调用这个方法200次），提前计算好节点在图上的布局，传到前端进行渲染。</p>
-]]></content>
-      <categories>
-        <category>项目</category>
-      </categories>
-      <tags>
-        <tag>项目</tag>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue面经汇总</title>
     <url>/2021/01/18/Vue%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
@@ -95,6 +79,22 @@
       </categories>
       <tags>
         <tag>面经</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OCEANIA项目文档</title>
+    <url>/2021/01/18/OCEANIA%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="项目背景-amp-概况"><a href="#项目背景-amp-概况" class="headerlink" title="项目背景&amp;概况"></a>项目背景&amp;概况</h2><p>OCEANIA项目的名字实际上是在线代码依赖分析平台的简写，这个平台的设计初衷是希望可以让开发人员在可视化方面对一个项目的代码规模，大致的依赖调用关系有一个大致的认识。同时项目也维护了一个数据库中的图，保存了完整的项目的代码依赖调用关系，后续对于项目的traceability，代码分析之类的提供便利。项目的大致的应用场景是提供给一个拿到新项目的开发者用来熟悉代码结构或者给管理者去监管代码构成以及开发进展的工具平台</p>
+<h2 id="项目的技术栈"><a href="#项目的技术栈" class="headerlink" title="项目的技术栈"></a>项目的技术栈</h2><p>前端使用的是Vue框架配合Antdv，使用了vuex以及VueRouter等技术。</p>
+<p>后端使用的是Springboot+Mysql以及Jenkins集成部署，还配合Websocket实现了团队通讯功能。</p>
+<p>在代码依赖图可视化方面使用的是Cytoscape.js，这个框架提供了很多遍历边点以及对它们还有画布进行操作的API，同时可以自定义布局，因此为了节省浏览器资源，以及优化渲染的效率，我们在后端实现了一个力导向的layout分析算法（首先计算节点之间的斥力，然后根据联通关系计算引力，然后做一些微调之后更新节点位置，迭代调用这个方法200次），提前计算好节点在图上的布局，传到前端进行渲染。</p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
         <tag>Vue</tag>
       </tags>
   </entry>
@@ -425,43 +425,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>毕设交接文档</title>
-    <url>/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="一、项目概况介绍"><a href="#一、项目概况介绍" class="headerlink" title="一、项目概况介绍"></a>一、项目概况介绍</h2><p>一种基于Node.js的web前端页面风格替换系统设计与实现</p>
-<p>在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。</p>
-<p>系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由React，Egg.js完成的。</p>
-<a id="more"></a>
-
-<h2 id="二、技术综述"><a href="#二、技术综述" class="headerlink" title="二、技术综述"></a>二、技术综述</h2><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>将多各种语言编程的脚本转换为JSON格式的接口请求，通过JSONWP通信协议与各浏览器的WebDriver进行通信，最u后WebDriver通过Http协议和真实浏览器进行通信。</p>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>js服务端执行环境，好处是数据类型和语法与浏览器没有太大的差异，Selenium的执行结果也是通过JSON返回，在Node中不需要做类型转换可以直接使用。</p>
-<h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
-<h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
-<h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
-<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
-<h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
-<p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
-<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
-<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
-<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
-<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
-<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
-<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
-<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
-<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
-<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
-<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
-<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
-<p>团队功能：整个替换流程的共享，组件库的共享。</p>
-<p>算法方面：结构替换，组件替换，速度上的优化（xpath），语义化。</p>
-<p>后端方面：Node + Java</p>
-<p>核心改进：针对专业开发人员，提升工作效率。能够在替换完成之后提供源代码，并且提供个性化修改功能。</p>
-]]></content>
-      <tags>
-        <tag>项目</tag>
-        <tag>毕设</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>浏览器相关面经汇总</title>
     <url>/2021/01/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<ol>
@@ -568,6 +531,72 @@
       <tags>
         <tag>面经</tag>
         <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕设交接文档</title>
+    <url>/2021/01/16/%E6%AF%95%E8%AE%BE%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="一、项目概况介绍"><a href="#一、项目概况介绍" class="headerlink" title="一、项目概况介绍"></a>一、项目概况介绍</h2><p>一种基于Node.js的web前端页面风格替换系统设计与实现</p>
+<p>在Selenium Web Driver基础上搭建了浏览器自动化架构，从素材网页中提取颜色数据和组件数据，之后进行替换以及优化，然后给出评分，在采集和替换过程中留下了原始CSS数据，给用户提供参考。</p>
+<p>系统是通过Node.js实现的，一共实现了三个算法：颜色数据采集算法，组件数据采集算法和风格替换算法。在线系统是由React，Egg.js完成的。</p>
+<a id="more"></a>
+
+<h2 id="二、技术综述"><a href="#二、技术综述" class="headerlink" title="二、技术综述"></a>二、技术综述</h2><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>将多各种语言编程的脚本转换为JSON格式的接口请求，通过JSONWP通信协议与各浏览器的WebDriver进行通信，最u后WebDriver通过Http协议和真实浏览器进行通信。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>js服务端执行环境，好处是数据类型和语法与浏览器没有太大的差异，Selenium的执行结果也是通过JSON返回，在Node中不需要做类型转换可以直接使用。</p>
+<h3 id="主题色提取算法"><a href="#主题色提取算法" class="headerlink" title="主题色提取算法"></a>主题色提取算法</h3><p>基于文档分析。</p>
+<h3 id="页面相似度算法"><a href="#页面相似度算法" class="headerlink" title="页面相似度算法"></a>页面相似度算法</h3><p>Edgar Marca的JS版本并且经过了优化。</p>
+<h3 id="保留原始CSS"><a href="#保留原始CSS" class="headerlink" title="保留原始CSS"></a>保留原始CSS</h3><p>通过遍历document.styleSheets对象，并且调整了过滤和迭代语法树的规则，并且借助缓存机制对查找性能进行了优化。</p>
+<h3 id="页面美观程度评估"><a href="#页面美观程度评估" class="headerlink" title="页面美观程度评估"></a>页面美观程度评估</h3><p>AIM独立部署，并且通过WebSocket通信。</p>
+<h3 id="平台构建相关技术"><a href="#平台构建相关技术" class="headerlink" title="平台构建相关技术"></a>平台构建相关技术</h3><p>Egg.js 以Koa为基础，进行了性能的强化，然后通过与MongoDB组合，实现了在线平台的构建。</p>
+<p>前端使用了React生态进行展示，React通过对虚拟DOM进行处理，来完成对真实DOM的更新工作。（React服务端渲染）</p>
+<h2 id="三、系统分析、设计与实现"><a href="#三、系统分析、设计与实现" class="headerlink" title="三、系统分析、设计与实现"></a>三、系统分析、设计与实现</h2><h3 id="系统分析设计"><a href="#系统分析设计" class="headerlink" title="系统分析设计"></a>系统分析设计</h3><p>在论文中有详细的图标展示，在这里不再赘述。</p>
+<h3 id="系统具体实现"><a href="#系统具体实现" class="headerlink" title="系统具体实现"></a>系统具体实现</h3><p>颜色/组件采集过程：通过构建两个runner，初始化driver对象并且进行相应的配置。</p>
+<p>颜色替换算法采用遍历页面中所有元素并且进行统计，最后再计算各项指标的占比情况。（文档分析方法）；</p>
+<p>组件提取算法则是通过首先获取原始css然后对页面执行分割算法（Block-o-Matic），然后构建虚拟DOM树转换成JSON对象返回Node.js端并且分解出片段得到组件数据。同时在展示的时候需要将DOM树片段重新还原成HTML片段。</p>
+<p>组件替换算法首先建立对原始页面的虚拟DOM的构建，接着通过相似度算法（Thamme Gowda）进行匹配，最后完成替换。替换完成之后在前端展示中将DOM树重新还原成HTML片段。</p>
+<p>颜色替换算法则是随机建立匹配，并且在替换完之后进行优化更改背景色或是调整内容溢出。</p>
+<h2 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h2><p>目前能够完成的是基本web语言编写出的页面的颜色和组件的替换，但是仍然有大量的可以改进的空间。</p>
+<p>首先是现在很多的前端开发都是使用DSL开发，例如各种框架，或者是Typescript等等，因此第一个改进方向就是替换后的组件能够变成DSL语言。</p>
+<p>其次现在替换的结果是完全静态网页，一个HTML页面，而忽略了动态的js交互等等，因为在内容被修改后，JS就已经失效了。那么在后续的工作中，也就是第二个改进方向，就是替换之后能够保留动态的交互效果。为了实现这个方向，可能需要用户对工程化文件做一些修改，例如在webpack阶段load一个插件，暴露一个接口，后期替换的时候可以通过这个接口将所有的样式在源代码上直接替换。</p>
+<p>第三个改进方向就是改进替换的效果。例如寻找更加合适的分割算法或者相似度计算算法等等。</p>
+<p>第四个方向就是做成一个IDE供开发人员使用，这个方向更偏向工程一些，例如如何页面嵌入一个在线代码编辑器等等。</p>
+<p>团队功能：整个替换流程的共享，组件库的共享。</p>
+<p>算法方面：结构替换，组件替换，速度上的优化（xpath），语义化。</p>
+<p>后端方面：Node + Java</p>
+<p>核心改进：针对专业开发人员，提升工作效率。能够在替换完成之后提供源代码，并且提供个性化修改功能。</p>
+]]></content>
+      <tags>
+        <tag>项目</tag>
+        <tag>毕设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重点看看的代码题</title>
+    <url>/2021/02/05/%E9%87%8D%E7%82%B9%E7%9C%8B%E7%9C%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E9%A2%98/</url>
+    <content><![CDATA[<ol>
+<li><h2 id="长度最小的子数组"><a href="#长度最小的子数组" class="headerlink" title="长度最小的子数组"></a>长度最小的子数组</h2><p>除了常规的暴力法（会超时），通过双指针解决问题时最优的，需要注意退出循环的条件以及特殊状况的处理</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> minSubArrayLen = <span class="function"><span class="keyword">function</span>(<span class="params">target, nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="built_in">Number</span>.MAX_SAFE_INTEGER;</span><br><span class="line">    <span class="keyword">let</span> start = end = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(end &lt; nums.length)&#123;</span><br><span class="line">        len += nums[end];</span><br><span class="line">        <span class="keyword">while</span>(len &gt;= target)&#123;</span><br><span class="line">            <span class="keyword">if</span>(end - start + <span class="number">1</span> &lt; res)&#123;</span><br><span class="line">                res = end - start + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            len -= nums[start];</span><br><span class="line">            start++;</span><br><span class="line">        &#125;</span><br><span class="line">        end++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res == <span class="built_in">Number</span>.MAX_SAFE_INTEGER ? <span class="number">0</span> : res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="复原IP地址"><a href="#复原IP地址" class="headerlink" title="复原IP地址"></a>复原IP地址</h2><p>看到这种找出所有情况的，第一时间去思考是不是dfs，回溯，剪枝三者结合，找到每一个树型分支，这道题也就迎刃而解了。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> restoreIpAddresses = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> SEG_COUNT = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">const</span> segments = <span class="keyword">new</span> <span class="built_in">Array</span>(SEG_COUNT);</span><br><span class="line">    <span class="keyword">const</span> ans = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> dfs = <span class="function">(<span class="params">s, segId, segStart</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 如果找到了 4 段 IP 地址并且遍历完了字符串，那么就是一种答案</span></span><br><span class="line">        <span class="keyword">if</span> (segId === SEG_COUNT) &#123;</span><br><span class="line">            <span class="keyword">if</span> (segStart === s.length) &#123;</span><br><span class="line">                ans.push(segments.join(<span class="string">&#x27;.&#x27;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果还没有找到 4 段 IP 地址就已经遍历完了字符串，那么提前回溯</span></span><br><span class="line">        <span class="keyword">if</span> (segStart === s.length) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 由于不能有前导零，如果当前数字为 0，那么这一段 IP 地址只能为 0</span></span><br><span class="line">        <span class="keyword">if</span> (s.charAt(segStart) === <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">            segments[segId] = <span class="number">0</span>;</span><br><span class="line">            dfs(s, segId + <span class="number">1</span>, segStart + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 一般情况，枚举每一种可能性并递归</span></span><br><span class="line">        <span class="keyword">let</span> addr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> segEnd = segStart; segEnd &lt; s.length; ++segEnd) &#123;</span><br><span class="line">            addr = addr * <span class="number">10</span> + (s.charAt(segEnd) - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span> (addr &gt; <span class="number">0</span> &amp;&amp; addr &lt;= <span class="number">0xFF</span>) &#123;</span><br><span class="line">                segments[segId] = addr;</span><br><span class="line">                dfs(s, segId + <span class="number">1</span>, segEnd + <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dfs(s, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="数组中的第K个最大元素"><a href="#数组中的第K个最大元素" class="headerlink" title="数组中的第K个最大元素"></a>数组中的第K个最大元素</h2><p>所谓的TopK问题，通过快速排序解决，一定要注意选择的条件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">k</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> findKthLargest = <span class="function"><span class="keyword">function</span>(<span class="params">nums, k</span>) </span>&#123;</span><br><span class="line">    quickSort(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> nums[k - <span class="number">1</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">nums, start, end</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(start &gt; end)&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">    <span class="keyword">let</span> base = nums[start];</span><br><span class="line">    <span class="keyword">let</span> i = start, j = end;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j &amp;&amp; nums[j] &lt;= base)&#123;j--;&#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j &amp;&amp; nums[i] &gt;= base)&#123;i++;&#125;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j)&#123;</span><br><span class="line">            <span class="keyword">let</span> temp = nums[i];</span><br><span class="line">            nums[i] = nums[j];</span><br><span class="line">            nums[j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nums[start] = nums[i]</span><br><span class="line">    nums[i] = base;</span><br><span class="line">    quickSort(nums, start, i - <span class="number">1</span>);</span><br><span class="line">    quickSort(nums, i + <span class="number">1</span>, end);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a>翻转二叉树</h2><p>可以通过递归和迭代两种方法解决</p>
+<p>递归：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> invertTree = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)&#123;<span class="keyword">return</span> <span class="literal">null</span>;&#125;</span><br><span class="line">    <span class="keyword">let</span> tmp = root.left;</span><br><span class="line">    root.left = root.right;</span><br><span class="line">    root.right = tmp;</span><br><span class="line">    invertTree(root.left);</span><br><span class="line">    invertTree(root.right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>迭代：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> invertTree = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)&#123;<span class="keyword">return</span> root;&#125;</span><br><span class="line">    <span class="keyword">let</span> queue = [];</span><br><span class="line">    queue.push(root);</span><br><span class="line">    <span class="keyword">while</span>(queue.length)&#123;</span><br><span class="line">        <span class="keyword">let</span> node = queue.shift();</span><br><span class="line">        [node.left, node.right] = [node.right, node.left];</span><br><span class="line">        <span class="keyword">if</span>(node.left)&#123;queue.push(node.left);&#125;</span><br><span class="line">        <span class="keyword">if</span>(node.right)&#123;queue.push(node.right);&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="二叉树的中序遍历"><a href="#二叉树的中序遍历" class="headerlink" title="二叉树的中序遍历"></a>二叉树的中序遍历</h2><p>简单递归</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> inorderTraversal = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)&#123;</span><br><span class="line">        <span class="keyword">return</span> [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">recur</span>(<span class="params">root</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root.left)&#123;recur(root.left);&#125;</span><br><span class="line">        res.push(root.val);</span><br><span class="line">        <span class="keyword">if</span>(root.right)&#123;recur(root.right);&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    recur(root);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>Coding</tag>
       </tags>
   </entry>
   <entry>
